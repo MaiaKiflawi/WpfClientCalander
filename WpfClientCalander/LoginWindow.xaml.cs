@@ -41,7 +41,10 @@ namespace WpfClientCalander
 
         private void btnSignupPage_Click(object sender, RoutedEventArgs e)
         {
-
+            SignupWindow signupWindow = new SignupWindow();
+            this.Hide();
+            signupWindow.ShowDialog();
+            this.Show();
         }
     }
 }

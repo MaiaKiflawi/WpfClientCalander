@@ -6,8 +6,147 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfClientCalander"
         mc:Ignorable="d"
-        Title="SignupWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="SignupWindow" Height="500" Width="800">
+    
+    <Window.Resources>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="ComboBox" BasedOn="{StaticResource MaterialDesignFloatingHintComboBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="MinWidth" Value="50"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedLightButton}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="5"/>
+        </Style>
+        <Style TargetType="materialDesign:PackIcon" >
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="DarkSalmon">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="AccountReactivate"/>
+            <TextBlock Text="Sign Up"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account"/>
+            <TextBox x:Name="tbxFirstname" materialDesign:HintAssist.Hint="First Name"
+                     materialDesign:HintAssist.Foreground="Maroon"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account"/>
+            <TextBox x:Name="tbxLastname" materialDesign:HintAssist.Hint="Last Name"
+                     materialDesign:HintAssist.Foreground="Maroon"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account"/>
+            <ComboBox
+                materialDesign:TextFieldAssist.HasClearButton="True"
+                materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
+                materialDesign:HintAssist.Hint="Gender"
+                MinWidth="128">
+                <ComboBoxItem>
+                    Female
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Male
+                </ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account"/>
+            <TextBox x:Name="stbxLastname" materialDesign:HintAssist.Hint="Last Name"
+             materialDesign:HintAssist.Foreground="Maroon"
+             materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account"/>
+            <TextBox x:Name="tbxUsername" materialDesign:HintAssist.Hint="Username"
+                    materialDesign:HintAssist.Foreground="Maroon"
+                    materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Key"/>
+            <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
+                        materialDesign:HintAssist.Foreground="Maroon"
+                        materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button x:Name="btnSignup" Content="SignUp" Click="btnSignup_Click"/>
+        </StackPanel>
+
+        <Button Grid.Row="9" x:Name="btnLoginPage" Content="Back to Log In >>>" Click="btnLoginPage_Click"
+               Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton"
+               Foreground="AntiqueWhite" FontSize="10" VerticalAlignment="Top"/>
+
     </Grid>
+    
 </Window>

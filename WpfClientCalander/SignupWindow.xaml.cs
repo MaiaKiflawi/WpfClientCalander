@@ -23,5 +23,15 @@ namespace WpfClientCalander
         {
             InitializeComponent();
         }
+
+        private void btnSignup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnLoginPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
