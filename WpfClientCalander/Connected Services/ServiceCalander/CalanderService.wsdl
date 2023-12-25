@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="CalanderService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryCalProject/CalanderService/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryCalProject/CalanderService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryCalProject/CalanderService/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICalanderService_GetAllCities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCities" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllCities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCity" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCity" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCity" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllCoutries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCoutries" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllCoutries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllCoutriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCountry" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountry" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteCountry_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCountry" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteCountry_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEvents" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetEventsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsByUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetEventsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroups" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetGroupsByUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsByUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetGroupsByUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsers" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetAllUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetUsersByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetUsersByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetUsersByEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByEvent" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetUsersByEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersByEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICalanderService">
+    <wsdl:operation name="GetAllCities">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllCities" message="tns:ICalanderService_GetAllCities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllCitiesResponse" message="tns:ICalanderService_GetAllCities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertCity" message="tns:ICalanderService_InsertCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertCityResponse" message="tns:ICalanderService_InsertCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateCity" message="tns:ICalanderService_UpdateCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateCityResponse" message="tns:ICalanderService_UpdateCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteCity" message="tns:ICalanderService_DeleteCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteCityResponse" message="tns:ICalanderService_DeleteCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCoutries">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllCoutries" message="tns:ICalanderService_GetAllCoutries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllCoutriesResponse" message="tns:ICalanderService_GetAllCoutries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertCountry" message="tns:ICalanderService_InsertCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertCountryResponse" message="tns:ICalanderService_InsertCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateCountry" message="tns:ICalanderService_UpdateCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateCountryResponse" message="tns:ICalanderService_UpdateCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteCountry" message="tns:ICalanderService_DeleteCountry_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteCountryResponse" message="tns:ICalanderService_DeleteCountry_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllEvents" message="tns:ICalanderService_GetAllEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllEventsResponse" message="tns:ICalanderService_GetAllEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertEvent" message="tns:ICalanderService_InsertEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertEventResponse" message="tns:ICalanderService_InsertEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateEvent" message="tns:ICalanderService_UpdateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateEventResponse" message="tns:ICalanderService_UpdateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteEvent" message="tns:ICalanderService_DeleteEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteEventResponse" message="tns:ICalanderService_DeleteEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByUser" message="tns:ICalanderService_GetEventsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByUserResponse" message="tns:ICalanderService_GetEventsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllGroups" message="tns:ICalanderService_GetAllGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllGroupsResponse" message="tns:ICalanderService_GetAllGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertGroup" message="tns:ICalanderService_InsertGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertGroupResponse" message="tns:ICalanderService_InsertGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateGroup" message="tns:ICalanderService_UpdateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateGroupResponse" message="tns:ICalanderService_UpdateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteGroup" message="tns:ICalanderService_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteGroupResponse" message="tns:ICalanderService_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsByUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetGroupsByUser" message="tns:ICalanderService_GetGroupsByUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetGroupsByUserResponse" message="tns:ICalanderService_GetGroupsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllUsers" message="tns:ICalanderService_GetAllUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllUsersResponse" message="tns:ICalanderService_GetAllUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertUser" message="tns:ICalanderService_InsertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertUserResponse" message="tns:ICalanderService_InsertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateUser" message="tns:ICalanderService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateUserResponse" message="tns:ICalanderService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUser" message="tns:ICalanderService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserResponse" message="tns:ICalanderService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetUsersByGroup" message="tns:ICalanderService_GetUsersByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetUsersByGroupResponse" message="tns:ICalanderService_GetUsersByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetUsersByEvent" message="tns:ICalanderService_GetUsersByEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetUsersByEventResponse" message="tns:ICalanderService_GetUsersByEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/Login" message="tns:ICalanderService_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/LoginResponse" message="tns:ICalanderService_Login_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICalanderService" type="tns:ICalanderService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllCities">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetAllCities" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCity">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCity">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCity">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCoutries">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetAllCoutries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertCountry">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCountry">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCountry">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllEvents">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetAllEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEvent">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventsByUser">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetEventsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroups">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetAllGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsByUser">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetGroupsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUsers">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetAllUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUser">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetUsersByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersByEvent">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetUsersByEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalanderService">
+    <wsdl:port name="BasicHttpBinding_ICalanderService" binding="tns:BasicHttpBinding_ICalanderService">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WcfServiceLibraryCalProject/CalanderService/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
