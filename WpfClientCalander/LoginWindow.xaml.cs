@@ -38,5 +38,10 @@ namespace WpfClientCalander
         {
 
         }
+
+        private void btnSignupPage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

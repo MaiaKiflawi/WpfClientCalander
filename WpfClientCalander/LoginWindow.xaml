@@ -3,30 +3,57 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfClientCalander"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="350" Width="350">
+        Title="LoginWindow" Height="400" Width="400">
 
     <Window.Resources>
-        <Style TargetType="TextBlock">
+        <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="IndianRed"/>
-            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="15"/>
         </Style>
-        <Style TargetType="Button">
+        <Style TargetType="TextBox" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Foreground" Value="IndianRed"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedLightButton}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Background" Value="AntiqueWhite"/>
             <Setter Property="Margin" Value="10,0,0,0"/>
             <Setter Property="Padding" Value="5"/>
-
+            <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="5"/>
+        </Style>
+        <Style TargetType="materialDesign:PackIcon" >
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="0,10,0,0"/>
         </Style>
     </Window.Resources>
-
-    <Grid Background="DarkSalmon">
-        
+    
+    <Grid Background="DarkSalmon">        
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -35,22 +62,34 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Text="My Shared Calander"/>
-
-        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Username:"/>
-            <TextBox x:Name="tbxUsername"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Calendar"/>
+            <TextBlock Text="My Shared Calander"/>
+        </StackPanel>
+        
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Account"/>
+            <TextBox x:Name="tbxUsername" materialDesign:HintAssist.Hint="Username"
+                     materialDesign:HintAssist.Foreground="Maroon"
+                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock Text="Password:"/>
-            <PasswordBox x:Name="pbxPassword"/>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="Key"/>
+            <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
+                         materialDesign:HintAssist.Foreground="Maroon"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="btnLogin" Content="LogIn" Click="btnLogin_Click"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button x:Name="btnLogin" Content="LogIn" Click="btnLogin_Click" />
             <Button x:Name="btnClear" Content="Clear" Click="btnClear_Click"/>
         </StackPanel>
+
+        <Button Grid.Row="4" x:Name="btnSignupPage" Content="Sign Up page >>>" Click="btnSignupPage_Click"
+                Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton"
+                Foreground="AntiqueWhite" FontSize="10" VerticalAlignment="Top"/>
         
     </Grid>
     
