@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,45 @@ namespace WpfClientCalander
 
         private void btnLoginPage_Click(object sender, RoutedEventArgs e)
         {
+            LoginWindow loginWindow = new LoginWindow();
+            this.Close();
+            loginWindow.ShowDialog();
+        }
 
+        private void RevealPassword(object sender, MouseButtonEventArgs e)
+        {
+            tbxPassword.Text = pbxPassword.Password;
+            PackIcon packIcon = sender as PackIcon;
+            if (packIcon.Kind == PackIconKind.Eye)
+            {
+                packIcon.Kind = PackIconKind.EyeOff;
+                tbxPassword.Visibility = Visibility.Collapsed;
+                pbxPassword.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                packIcon.Kind = PackIconKind.Eye;
+                tbxPassword.Visibility = Visibility.Visible;
+                pbxPassword.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void RevealPasswordCheck(object sender, MouseButtonEventArgs e)
+        {
+            tbxPasswordCheck.Text = pbxPasswordCheck.Password;
+            PackIcon packIcon = sender as PackIcon;
+            if (packIcon.Kind == PackIconKind.Eye)
+            {
+                packIcon.Kind = PackIconKind.EyeOff;
+                tbxPasswordCheck.Visibility = Visibility.Collapsed;
+                pbxPasswordCheck.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                packIcon.Kind = PackIconKind.Eye;
+                tbxPasswordCheck.Visibility = Visibility.Visible;
+                pbxPasswordCheck.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

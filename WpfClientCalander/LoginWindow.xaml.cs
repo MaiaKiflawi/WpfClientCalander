@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,29 @@ namespace WpfClientCalander
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            Users user = new Users();
+            user.UserName = tbxUsername.Text;
+            user.Password = pbxPassword.Password;
+            user = serviceCal.Login(user);
+            if (user == null)
+            {
+                MessageBox.Show("User does not exist.\nGo to sign up", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            if (user.IsGroupAdmin)
+            {
 
+            }
+            else if (user.IsManager)
+            {
+
+            }
+            else
+            {
+                UserWindow userWindow = new UserWindow();
+                userWindow.ShowDialog();
+            }
+            tbxUsername.Text = pbxPassword.Password = string.Empty;
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
@@ -42,9 +65,26 @@ namespace WpfClientCalander
         private void btnSignupPage_Click(object sender, RoutedEventArgs e)
         {
             SignupWindow signupWindow = new SignupWindow();
-            this.Hide();
+            this.Close();
             signupWindow.ShowDialog();
-            this.Show();
+        }
+
+        private void RevealPassword(object sender, MouseButtonEventArgs e)
+        {
+            tbxPassword.Text = pbxPassword.Password;
+            PackIcon packIcon = sender as PackIcon;
+            if (packIcon.Kind == PackIconKind.Eye) 
+            {
+                packIcon.Kind = PackIconKind.EyeOff;
+                tbxPassword.Visibility = Visibility.Collapsed;
+                pbxPassword.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                packIcon.Kind = PackIconKind.Eye;
+                tbxPassword.Visibility = Visibility.Visible;
+                pbxPassword.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

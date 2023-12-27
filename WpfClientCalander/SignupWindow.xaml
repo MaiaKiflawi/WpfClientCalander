@@ -6,13 +6,14 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfClientCalander"
         mc:Ignorable="d"
-        Title="SignupWindow" Height="500" Width="800">
+        Title="SignupWindow" Height="500" Width="400">
     
     <Window.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource MaterialDesignTextBlock}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Background" Value="lightSalmon"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -42,8 +43,8 @@
             <Setter Property="Foreground" Value="DarkRed"/>
             <Setter Property="Margin" Value="10,0,0,0"/>
             <Setter Property="MinWidth" Value="50"/>
-            <Setter Property="Background" Value="AntiqueWhite"/>
-            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="Background" Value="DarkSalmon"/>
+            <Setter Property="MinHeight" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <Style TargetType="ComboBoxItem">
@@ -51,6 +52,7 @@
             <Setter Property="Margin" Value="10,0,0,0"/>
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="Background" Value="AntiqueWhite"/>
+            <Setter Property="FontSize" Value="10"/>
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedLightButton}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -60,6 +62,15 @@
             <Setter Property="Margin" Value="10,0,0,0"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="materialDesign:ButtonAssist.CornerRadius" Value="5"/>
+        </Style>
+        <Style TargetType="DatePicker" BasedOn="{StaticResource MaterialDesignFloatingHintDatePicker}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Margin" Value="10,7,0,0"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="10"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style>
         <Style TargetType="materialDesign:PackIcon" >
             <Setter Property="Foreground" Value="DarkRed"/>
@@ -81,10 +92,11 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <materialDesign:PackIcon Kind="AccountReactivate"/>
+            <materialDesign:PackIcon Kind="AccountReactivate" Background="LightSalmon"/>
             <TextBlock Text="Sign Up"/>
         </StackPanel>
 
@@ -103,7 +115,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <materialDesign:PackIcon Kind="Account"/>
+            <materialDesign:PackIcon Kind="GenderMaleFemale"/>
             <ComboBox
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
@@ -119,8 +131,15 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <materialDesign:PackIcon Kind="Account"/>
-            <TextBox x:Name="stbxLastname" materialDesign:HintAssist.Hint="Last Name"
+            <materialDesign:PackIcon Kind="Email" Width="20"/>
+            <TextBox x:Name="tbxEmail" materialDesign:HintAssist.Hint="Email"
+             materialDesign:HintAssist.Foreground="Maroon"
+             materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="CakeVariant" Width="20" Height="25"/>
+            <DatePicker x:Name="tbxBday" materialDesign:HintAssist.Hint="Birthday"
              materialDesign:HintAssist.Foreground="Maroon"
              materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
         </StackPanel>
@@ -133,17 +152,28 @@
         </StackPanel>
 
         <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <materialDesign:PackIcon Kind="Key"/>
+            <materialDesign:PackIcon Kind="Key" Width="25"/>
             <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
-                        materialDesign:HintAssist.Foreground="Maroon"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+                 materialDesign:HintAssist.Foreground="Maroon"
+                 materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+            <TextBox x:Name="tbxPassword" Visibility="Collapsed"/>
+            <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPassword" Width="17" Margin="10,10,0,0"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="KeyStar" Width="25"/>
+            <PasswordBox x:Name="pbxPasswordCheck" materialDesign:HintAssist.Hint="Confirm password"
+         materialDesign:HintAssist.Foreground="Maroon"
+         materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+            <TextBox x:Name="tbxPasswordCheck" Visibility="Collapsed"/>
+            <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPasswordCheck" Width="17" Margin="10,10,0,0"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="8" Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Center" >
             <Button x:Name="btnSignup" Content="SignUp" Click="btnSignup_Click"/>
         </StackPanel>
 
-        <Button Grid.Row="9" x:Name="btnLoginPage" Content="Back to Log In >>>" Click="btnLoginPage_Click"
+        <Button Grid.Row="10" x:Name="btnLoginPage" Content="Back to Log In >>>" Click="btnLoginPage_Click"
                Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton"
                Foreground="AntiqueWhite" FontSize="10" VerticalAlignment="Top"/>
 

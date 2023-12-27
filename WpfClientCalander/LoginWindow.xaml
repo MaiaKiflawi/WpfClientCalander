@@ -13,6 +13,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="DarkRed"/>
+            <Setter Property="Background" Value="lightSalmon"/>
             <Setter Property="Margin" Value="0,10,0,0"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -27,7 +28,7 @@
             <Setter Property="MinHeight" Value="10"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
-        <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}">
+        <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="DarkRed"/>
@@ -63,7 +64,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <materialDesign:PackIcon Kind="Calendar"/>
+            <materialDesign:PackIcon Kind="Calendar" Background="LightSalmon"/>
             <TextBlock Text="My Shared Calander"/>
         </StackPanel>
         
@@ -76,10 +77,12 @@
         </StackPanel>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <materialDesign:PackIcon Kind="Key"/>
+            <materialDesign:PackIcon Kind="Key" Width="25"/>
             <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
                          materialDesign:HintAssist.Foreground="Maroon"
                          materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+            <TextBox x:Name="tbxPassword" Visibility="Collapsed"/>
+            <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPassword" Width="17" />
         </StackPanel>
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
