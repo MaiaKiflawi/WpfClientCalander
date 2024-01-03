@@ -6,7 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfClientCalander"
         mc:Ignorable="d"
-        Title="SignupWindow" Height="500" Width="400">
+        Title="SignupWindow" Height="600" Width="400">
     
     <Window.Resources>
 
@@ -740,6 +740,7 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -747,13 +748,19 @@
             <TextBlock Text="Sign Up"/>
         </StackPanel>
 
+        <!--First Name-->
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxFirstname" materialDesign:HintAssist.Hint="First Name"
                      materialDesign:HintAssist.Foreground="Maroon"
-                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                <TextBox.Text>
+                    <Binding Path="FistName"/>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
+        <!--Last Name-->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxLastname" materialDesign:HintAssist.Hint="Last Name"
@@ -761,6 +768,7 @@
                      materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
         </StackPanel>
 
+        <!--Gender-->
         <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="GenderMaleFemale"/>
             <ComboBox
@@ -780,35 +788,57 @@
             </ComboBox>
         </StackPanel>
 
+        <!--City-->
         <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <materialDesign:PackIcon Kind="MapMarker" Width="20"/>
+            <ComboBox x:Name="tbxCity" materialDesign:HintAssist.Hint="City"
+                      materialDesign:HintAssist.Foreground="Maroon"
+                      materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                <ComboBox.Resources>
+                    <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
+                </ComboBox.Resources>
+            </ComboBox>
+        </StackPanel>
+
+        <!--Email-->
+        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Email" Width="20"/>
             <TextBox x:Name="tbxEmail" materialDesign:HintAssist.Hint="Email"
              materialDesign:HintAssist.Foreground="Maroon"
              materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!--Birthday-->
+        <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="CakeVariant" Width="20" Height="25"/>
             <DatePicker x:Name="tbxBday" 
                         materialDesign:HintAssist.Hint="Birthday"
              materialDesign:HintAssist.Foreground="Maroon"
-             materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+             materialDesign:TextFieldAssist.UnderlineBrush="Maroon" CalendarStyle="{StaticResource CalendarStyle}">
                 <DatePicker.Resources>
-                    <materialDesign:PackIcon x:Key="ico" Width="20" Height="20"/>
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
                 </DatePicker.Resources>
             </DatePicker>
-            
         </StackPanel>
-
-        <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        
+        <!--User Name-->
+        <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxUsername" materialDesign:HintAssist.Hint="Username"
                     materialDesign:HintAssist.Foreground="Maroon"
-                    materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+                    materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                <TextBox.Text>
+                    <Binding Path="UserName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:ValidationUserName/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <!--Password-->
+        <StackPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Key" Width="25"/>
             <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
                  materialDesign:HintAssist.Foreground="Maroon"
@@ -816,8 +846,9 @@
             <TextBox x:Name="tbxPassword" Visibility="Collapsed"/>
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPassword" Width="17" Margin="10,10,0,0"/>
         </StackPanel>
-        
-        <StackPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <!--Password Confirm-->
+        <StackPanel Grid.Row="9" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="KeyStar" Width="25"/>
             <PasswordBox x:Name="pbxPasswordCheck" materialDesign:HintAssist.Hint="Confirm password"
          materialDesign:HintAssist.Foreground="Maroon"
@@ -826,11 +857,11 @@
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPasswordCheck" Width="17" Margin="10,10,0,0"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="9" Orientation="Horizontal" HorizontalAlignment="Center" >
+        <StackPanel Grid.Row="10" Orientation="Horizontal" HorizontalAlignment="Center" >
             <Button x:Name="btnSignup" Content="SignUp" Click="btnSignup_Click"/>
         </StackPanel>
 
-        <Button Grid.Row="10" x:Name="btnLoginPage" Content="Back to Log In >>>" Click="btnLoginPage_Click"
+        <Button Grid.Row="11" x:Name="btnLoginPage" Content="Back to Log In >>>" Click="btnLoginPage_Click"
                Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton"
                Foreground="AntiqueWhite" FontSize="10" VerticalAlignment="Top"/>
 
