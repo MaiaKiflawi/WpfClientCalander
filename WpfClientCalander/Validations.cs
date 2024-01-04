@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
@@ -34,7 +35,7 @@ namespace WpfClientCalander
         }
     }
 
-    public class ValidationName : ValidationRule
+    public class ValidationName : ValidationRule //first name, fist name, 
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
@@ -68,7 +69,53 @@ namespace WpfClientCalander
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string password = value.ToString();
+                string symbols = "_@#$%&~-?!";
+                bool lower = false, upper = false, digit = false, sym = false;
+                if (password.Length < 6) // password too short
+                    return new ValidationResult(false, "Too short");
+                if (password.Length > 16) // password too long
+                    return new ValidationResult(false, "Too long");
+                for (int i = 0; i < password.Length; i++)
+                {
+                    if (!Char.IsLetterOrDigit(password[i]) && symbols.IndexOf(password[i]) == -1) //doesnt contain necessities
+                        return new ValidationResult(false, "Password must contain letters, digits and " + symbols);
+                    if (char.IsUpper(password[i])) upper = true;
+                    if (char.IsLower(password[i])) lower = true;
+                    if (char.IsDigit(password[i])) digit = true;
+                    if (symbols.IndexOf(password[i]) != -1) sym = true;
+                }
+                if (!(upper && lower && digit && sym)) //doesnt contain necessities
+                    throw new Exception("Password must contain atleast one capital letter, one lower letter, a number and a symbol");
+
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, "Password not valid: " + ex.Message);
+            }
+            return ValidationResult.ValidResult;
+
+        }
+    }
+
+    public class ValidationPhoneNumber : ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            try
+            {
+                string phone = value.ToString();
+                if (!phone.Any(char.IsDigit))
+                    return new ValidationResult(false, "Invalid format");
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, "Phone number not valid: " + ex.Message);
+            }
+
+            return ValidationResult.ValidResult;
         }
     }
 
@@ -76,7 +123,22 @@ namespace WpfClientCalander
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string email = value.ToString();
+                // Use a regular expression to validate the email format
+                string emailPattern = @"^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$";
+                Regex regex = new Regex(emailPattern); //ביטוי רגולרי - יוצר תבנית שאפשר להשוות אליה
+                if (!regex.IsMatch(email))
+                    return new ValidationResult(false, "Invalid format");
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, "Email not valid: " + ex.Message);
+            }
+
+            return ValidationResult.ValidResult;
+
         }
     }
 

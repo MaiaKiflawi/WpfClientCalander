@@ -23,16 +23,17 @@ namespace WpfClientCalander
     {
         private CalanderServiceClient serviceCal;
 
+        private Users user;
         public LoginWindow()
         {
             InitializeComponent();
             serviceCal = new CalanderServiceClient();
-            
+            user = new Users();
+            this.DataContext = user;
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        private void btnLogin_Click(object sender, RoutedEventArgs e) //login
         {
-            Users user = new Users();
             user.UserName = tbxUsername.Text;
             user.Password = pbxPassword.Password;
             user = serviceCal.Login(user);
@@ -57,19 +58,19 @@ namespace WpfClientCalander
             tbxUsername.Text = pbxPassword.Password = string.Empty;
         }
 
-        private void btnClear_Click(object sender, RoutedEventArgs e)
+        private void btnClear_Click(object sender, RoutedEventArgs e) //clear
         {
 
         }
 
-        private void btnSignupPage_Click(object sender, RoutedEventArgs e)
+        private void btnSignupPage_Click(object sender, RoutedEventArgs e) //go to signup page
         {
             SignupWindow signupWindow = new SignupWindow();
             this.Close();
             signupWindow.ShowDialog();
         }
 
-        private void RevealPassword(object sender, MouseButtonEventArgs e)
+        private void RevealPassword(object sender, MouseButtonEventArgs e) //show or hide password
         {
             tbxPassword.Text = pbxPassword.Password;
             PackIcon packIcon = sender as PackIcon;

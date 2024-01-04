@@ -68,20 +68,37 @@
             <TextBlock Text="My Shared Calender"/>
         </StackPanel>
         
-        
+        <!--Username-->
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxUsername" materialDesign:HintAssist.Hint="Username"
                      materialDesign:HintAssist.Foreground="Maroon"
-                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
+                     materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                <TextBox.Text>
+                    <Binding Path="UserName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:ValidationUserName/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
         </StackPanel>
 
+        <!--Password-->
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Key" Width="25"/>
             <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
                          materialDesign:HintAssist.Foreground="Maroon"
                          materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
-            <TextBox x:Name="tbxPassword" Visibility="Collapsed"/>
+            <TextBox x:Name="tbxPassword" Visibility="Collapsed">
+                <TextBox.Text>
+                    <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <local:ValidationPassword/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPassword" Width="17" />
         </StackPanel>
 
