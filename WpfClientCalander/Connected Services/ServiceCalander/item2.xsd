@@ -11,7 +11,6 @@
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="CityName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="CountryName" nillable="true" type="tns:Country" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -23,22 +22,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="BaseEntity" nillable="true" type="tns:BaseEntity" />
-  <xs:complexType name="Country">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:BaseEntity">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="CountryName" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Country" nillable="true" type="tns:Country" />
-  <xs:complexType name="CountryList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Country" nillable="true" type="tns:Country" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CountryList" nillable="true" type="tns:CountryList" />
   <xs:complexType name="EventList">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Event" nillable="true" type="tns:Event" />

@@ -142,4 +142,27 @@ namespace WpfClientCalander
         }
     }
 
+    public class ValidationBDate: ValidationRule
+    {
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
+        {
+            try
+            {
+                DateTime bday = DateTime.Parse(value.ToString());
+                if (bday>DateTime.Today.AddYears(-12))
+                    return new ValidationResult(false, "too young");
+                if (bday <DateTime.Today.AddYears(-120))
+                    return new ValidationResult(false, "not possible");
+
+            }
+            catch (Exception ex)
+            {
+                return new ValidationResult(false, "Date not valid: " + ex.Message);
+            }
+
+            return ValidationResult.ValidResult;
+
+        }
+    }
+
 }

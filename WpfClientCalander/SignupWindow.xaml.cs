@@ -29,32 +29,33 @@ namespace WpfClientCalander
         {
             InitializeComponent();
             user = new Users();
+            user.BDate = DateTime.Today.AddYears(-20);
             this.DataContext = user;
             myService = new CalanderServiceClient();
             cmbCity.ItemsSource = myService.GetAllCities();
+            cmbCity.DisplayMemberPath = "CityName";
         }
 
         private void btnSignup_Click(object sender, RoutedEventArgs e) //signup
         {
             if (!CheckData())
             {
-
+                MessageBox.Show("Incorrect content.\n Try again.", "ERROR", MessageBoxButton.OK);
             }
-            if (!myService.IsUsernameFree(tbxUsername.Text))
+            if (!myService.IsUsernameFree(tbxUsername.Text)) //Check if username is free
             {
-                
+                MessageBox.Show("ERROR", "username is used", MessageBoxButton.OK);
             }
-            //Check if username is free
             user.Gender = cmbGender.Text=="Female"? true: false;
             user.CityName = cmbCity.SelectedValue as City;
             user.BDate = DateTime.Parse(dtpBday.Text);
             user.Password = pbxPassword.Password;
             if(myService.InsertUser(user)!=1)
             {
-                MessageBox.Show("", "", MessageBoxButton.OK);
+                MessageBox.Show("Something went wrong with server.\n Try again later.", "ERROR", MessageBoxButton.OK);
                 return;
             }
-            MessageBox.Show("", "", MessageBoxButton.OK);
+            MessageBox.Show("Signed up successfully!", "SUCCESS", MessageBoxButton.OK);
             this.Close();
         }
 
@@ -108,11 +109,12 @@ namespace WpfClientCalander
             if (result.IsValid) // valid
             {
                 user.Password = pbxPassword.Password;
+                lbPasswordError.Content = null;
             }
             else // not valid
             {
                 user.Password = string.Empty;
-                HintAssist.SetHelperText(pbxPassword, result.ErrorContent.ToString());
+                lbPasswordError.Content= result.ErrorContent.ToString();
 
             }
         }
@@ -122,11 +124,12 @@ namespace WpfClientCalander
             if (pbxPassword.Password.Equals(pbxPasswordCheck.Password)) // valid
             {
                 user.Password = pbxPassword.Password;
+                lbPasswordCheckError.Content = null;
             }
             else // not valid
             {
                 user.Password = string.Empty;
-                HintAssist.SetHelperText(pbxPasswordCheck, "doesn't match password");
+                lbPasswordCheckError.Content = "doesn't match password";
             }
         }
 
@@ -136,11 +139,11 @@ namespace WpfClientCalander
             if (tbxLastname.Text.Equals(string.Empty)) return false;
             if (cmbGender.SelectedIndex == -1) return false;
             if (cmbCity.SelectedIndex == -1) return false;
-            //bday
             if (tbxPhone.Text.Equals(string.Empty)) return false;
             if (tbxUsername.Text.Equals(string.Empty)) return false;
             if (pbxPassword.Password.Equals(string.Empty)) return false;
             if (Validation.GetHasError(tbxFirstname)) return false;
+            if (Validation.GetHasError(dtpBday)) return false;
             if (Validation.GetHasError(tbxLastname)) return false;
             if (Validation.GetHasError(tbxPhone)) return false;
             if (Validation.GetHasError(tbxUsername)) return false;

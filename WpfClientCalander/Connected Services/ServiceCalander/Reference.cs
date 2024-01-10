@@ -29,9 +29,6 @@ namespace WpfClientCalander.ServiceCalander {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CityNameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WpfClientCalander.ServiceCalander.Country CountryNameField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string CityName {
             get {
@@ -44,26 +41,12 @@ namespace WpfClientCalander.ServiceCalander {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public WpfClientCalander.ServiceCalander.Country CountryName {
-            get {
-                return this.CountryNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CountryNameField, value) != true)) {
-                    this.CountryNameField = value;
-                    this.RaisePropertyChanged("CountryName");
-                }
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseEntity", Namespace="http://schemas.datacontract.org/2004/07/Model")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientCalander.ServiceCalander.Country))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientCalander.ServiceCalander.Event))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientCalander.ServiceCalander.Groups))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(WpfClientCalander.ServiceCalander.Users))]
@@ -105,29 +88,6 @@ namespace WpfClientCalander.ServiceCalander {
             System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Country", Namespace="http://schemas.datacontract.org/2004/07/Model")]
-    [System.SerializableAttribute()]
-    public partial class Country : WpfClientCalander.ServiceCalander.BaseEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CountryNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CountryName {
-            get {
-                return this.CountryNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CountryNameField, value) != true)) {
-                    this.CountryNameField = value;
-                    this.RaisePropertyChanged("CountryName");
-                }
             }
         }
     }
@@ -450,13 +410,6 @@ namespace WpfClientCalander.ServiceCalander {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="CountryList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Country")]
-    [System.SerializableAttribute()]
-    public class CountryList : System.Collections.Generic.List<WpfClientCalander.ServiceCalander.Country> {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="EventList", Namespace="http://schemas.datacontract.org/2004/07/Model", ItemName="Event")]
     [System.SerializableAttribute()]
     public class EventList : System.Collections.Generic.List<WpfClientCalander.ServiceCalander.Event> {
@@ -496,30 +449,6 @@ namespace WpfClientCalander.ServiceCalander {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteCity", ReplyAction="http://tempuri.org/ICalanderService/DeleteCityResponse")]
         System.Threading.Tasks.Task<int> DeleteCityAsync(WpfClientCalander.ServiceCalander.City city);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllCoutries", ReplyAction="http://tempuri.org/ICalanderService/GetAllCoutriesResponse")]
-        WpfClientCalander.ServiceCalander.CountryList GetAllCoutries();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllCoutries", ReplyAction="http://tempuri.org/ICalanderService/GetAllCoutriesResponse")]
-        System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.CountryList> GetAllCoutriesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertCountry", ReplyAction="http://tempuri.org/ICalanderService/InsertCountryResponse")]
-        int InsertCountry(WpfClientCalander.ServiceCalander.Country country);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertCountry", ReplyAction="http://tempuri.org/ICalanderService/InsertCountryResponse")]
-        System.Threading.Tasks.Task<int> InsertCountryAsync(WpfClientCalander.ServiceCalander.Country country);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/UpdateCountry", ReplyAction="http://tempuri.org/ICalanderService/UpdateCountryResponse")]
-        int UpdateCountry(WpfClientCalander.ServiceCalander.Country country);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/UpdateCountry", ReplyAction="http://tempuri.org/ICalanderService/UpdateCountryResponse")]
-        System.Threading.Tasks.Task<int> UpdateCountryAsync(WpfClientCalander.ServiceCalander.Country country);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteCountry", ReplyAction="http://tempuri.org/ICalanderService/DeleteCountryResponse")]
-        int DeleteCountry(WpfClientCalander.ServiceCalander.Country country);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteCountry", ReplyAction="http://tempuri.org/ICalanderService/DeleteCountryResponse")]
-        System.Threading.Tasks.Task<int> DeleteCountryAsync(WpfClientCalander.ServiceCalander.Country country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllEvents", ReplyAction="http://tempuri.org/ICalanderService/GetAllEventsResponse")]
         WpfClientCalander.ServiceCalander.EventList GetAllEvents();
@@ -622,6 +551,12 @@ namespace WpfClientCalander.ServiceCalander {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/Login", ReplyAction="http://tempuri.org/ICalanderService/LoginResponse")]
         System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.Users> LoginAsync(WpfClientCalander.ServiceCalander.Users user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsUsernameFree", ReplyAction="http://tempuri.org/ICalanderService/IsUsernameFreeResponse")]
+        bool IsUsernameFree(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsUsernameFree", ReplyAction="http://tempuri.org/ICalanderService/IsUsernameFreeResponse")]
+        System.Threading.Tasks.Task<bool> IsUsernameFreeAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -681,38 +616,6 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<int> DeleteCityAsync(WpfClientCalander.ServiceCalander.City city) {
             return base.Channel.DeleteCityAsync(city);
-        }
-        
-        public WpfClientCalander.ServiceCalander.CountryList GetAllCoutries() {
-            return base.Channel.GetAllCoutries();
-        }
-        
-        public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.CountryList> GetAllCoutriesAsync() {
-            return base.Channel.GetAllCoutriesAsync();
-        }
-        
-        public int InsertCountry(WpfClientCalander.ServiceCalander.Country country) {
-            return base.Channel.InsertCountry(country);
-        }
-        
-        public System.Threading.Tasks.Task<int> InsertCountryAsync(WpfClientCalander.ServiceCalander.Country country) {
-            return base.Channel.InsertCountryAsync(country);
-        }
-        
-        public int UpdateCountry(WpfClientCalander.ServiceCalander.Country country) {
-            return base.Channel.UpdateCountry(country);
-        }
-        
-        public System.Threading.Tasks.Task<int> UpdateCountryAsync(WpfClientCalander.ServiceCalander.Country country) {
-            return base.Channel.UpdateCountryAsync(country);
-        }
-        
-        public int DeleteCountry(WpfClientCalander.ServiceCalander.Country country) {
-            return base.Channel.DeleteCountry(country);
-        }
-        
-        public System.Threading.Tasks.Task<int> DeleteCountryAsync(WpfClientCalander.ServiceCalander.Country country) {
-            return base.Channel.DeleteCountryAsync(country);
         }
         
         public WpfClientCalander.ServiceCalander.EventList GetAllEvents() {
@@ -849,6 +752,14 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.Users> LoginAsync(WpfClientCalander.ServiceCalander.Users user) {
             return base.Channel.LoginAsync(user);
+        }
+        
+        public bool IsUsernameFree(string username) {
+            return base.Channel.IsUsernameFree(username);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsUsernameFreeAsync(string username) {
+            return base.Channel.IsUsernameFreeAsync(username);
         }
     }
 }

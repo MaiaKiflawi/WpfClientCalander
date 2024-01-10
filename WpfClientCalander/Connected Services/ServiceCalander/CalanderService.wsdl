@@ -31,30 +31,6 @@
   <wsdl:message name="ICalanderService_DeleteCity_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCityResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalanderService_GetAllCoutries_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllCoutries" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_GetAllCoutries_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllCoutriesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_InsertCountry_InputMessage">
-    <wsdl:part name="parameters" element="tns:InsertCountry" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_InsertCountry_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InsertCountryResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_UpdateCountry_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCountry" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_UpdateCountry_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateCountryResponse" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_DeleteCountry_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteCountry" />
-  </wsdl:message>
-  <wsdl:message name="ICalanderService_DeleteCountry_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteCountryResponse" />
-  </wsdl:message>
   <wsdl:message name="ICalanderService_GetAllEvents_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEvents" />
   </wsdl:message>
@@ -157,6 +133,12 @@
   <wsdl:message name="ICalanderService_Login_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_IsUsernameFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUsernameFree" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_IsUsernameFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUsernameFreeResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICalanderService">
     <wsdl:operation name="GetAllCities">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllCities" message="tns:ICalanderService_GetAllCities_InputMessage" />
@@ -173,22 +155,6 @@
     <wsdl:operation name="DeleteCity">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteCity" message="tns:ICalanderService_DeleteCity_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteCityResponse" message="tns:ICalanderService_DeleteCity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllCoutries">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllCoutries" message="tns:ICalanderService_GetAllCoutries_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllCoutriesResponse" message="tns:ICalanderService_GetAllCoutries_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="InsertCountry">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertCountry" message="tns:ICalanderService_InsertCountry_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertCountryResponse" message="tns:ICalanderService_InsertCountry_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateCountry">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateCountry" message="tns:ICalanderService_UpdateCountry_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateCountryResponse" message="tns:ICalanderService_UpdateCountry_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteCountry">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteCountry" message="tns:ICalanderService_DeleteCountry_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteCountryResponse" message="tns:ICalanderService_DeleteCountry_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllEvents" message="tns:ICalanderService_GetAllEvents_InputMessage" />
@@ -258,6 +224,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/Login" message="tns:ICalanderService_Login_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/LoginResponse" message="tns:ICalanderService_Login_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IsUsernameFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/IsUsernameFree" message="tns:ICalanderService_IsUsernameFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/IsUsernameFreeResponse" message="tns:ICalanderService_IsUsernameFree_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalanderService" type="tns:ICalanderService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -290,42 +260,6 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCity">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteCity" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllCoutries">
-      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetAllCoutries" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="InsertCountry">
-      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertCountry" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateCountry">
-      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateCountry" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteCountry">
-      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteCountry" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -479,6 +413,15 @@
     </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUsernameFree">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/IsUsernameFree" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

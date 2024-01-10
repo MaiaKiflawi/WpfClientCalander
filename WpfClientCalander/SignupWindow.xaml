@@ -674,6 +674,18 @@
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="MinHeight" Value="10"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Content="*" FontSize="20" Foreground="Red"/>
+                            <AdornedElementPlaceholder x:Name="errorPhonlder"/>
+                            <TextBlock FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
+                                       Foreground="Red" Text="{Binding [0].ErrorContent}" TextWrapping="WrapWithOverflow"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -718,6 +730,24 @@
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="MinHeight" Value="10"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Content="*" FontSize="20" Foreground="Red"/>
+                            <AdornedElementPlaceholder x:Name="errorPhonlder"/>
+                            <TextBlock FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
+                                       Foreground="Red" Text="{Binding [0].ErrorContent}" TextWrapping="WrapWithOverflow"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Margin" Value="50 0"/>
+            <Setter Property="Orientation" Value="Horizontal"/>
         </Style>
         <Style TargetType="materialDesign:PackIcon" >
             <Setter Property="Foreground" Value="DarkRed"/>
@@ -750,7 +780,7 @@
         </StackPanel>
 
         <!--First Name-->
-        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="1">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxFirstname" materialDesign:HintAssist.Hint="First Name"
                      materialDesign:HintAssist.Foreground="Maroon"
@@ -766,7 +796,7 @@
         </StackPanel>
 
         <!--Last Name-->
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="2">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxLastname" materialDesign:HintAssist.Hint="Last Name"
                      materialDesign:HintAssist.Foreground="Maroon"
@@ -782,12 +812,12 @@
         </StackPanel>
 
         <!--Gender-->
-        <StackPanel Grid.Row="3" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="3">
             <materialDesign:PackIcon Kind="GenderMaleFemale"/>
             <ComboBox x:Name="cmbGender"
                 materialDesign:TextFieldAssist.HasClearButton="True"
                 materialDesign:TextFieldAssist.UnderlineBrush="{DynamicResource SecondaryHueMidBrush}"
-                materialDesign:HintAssist.Hint="Gender"
+                materialDesign:HintAssist.Hint="Gender" SelectedIndex="0"
                 MinWidth="128">
                 <ComboBox.Resources>
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
@@ -802,11 +832,11 @@
         </StackPanel>
 
         <!--City-->
-        <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="4">
             <materialDesign:PackIcon Kind="MapMarker" Width="20"/>
             <ComboBox x:Name="cmbCity" materialDesign:HintAssist.Hint="City"
                       materialDesign:HintAssist.Foreground="Maroon"
-                      materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                      materialDesign:TextFieldAssist.UnderlineBrush="Maroon" SelectedIndex="0">
                 <ComboBox.Resources>
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
                 </ComboBox.Resources>
@@ -814,7 +844,7 @@
         </StackPanel>
 
         <!--Email-->
-        <StackPanel Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="5">
             <materialDesign:PackIcon Kind="Email" Width="20"/>
             <TextBox x:Name="tbxEmail" materialDesign:HintAssist.Hint="Email"
              materialDesign:HintAssist.Foreground="Maroon"
@@ -830,7 +860,7 @@
         </StackPanel>
 
         <!--Birthday-->
-        <StackPanel Grid.Row="6" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="6">
             <materialDesign:PackIcon Kind="CakeVariant" Width="20" Height="25"/>
             <DatePicker x:Name="dtpBday" 
                         materialDesign:HintAssist.Hint="Birthday"
@@ -839,11 +869,18 @@
                 <DatePicker.Resources>
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
                 </DatePicker.Resources>
+                <DatePicker.SelectedDate>
+                    <Binding Path="BDate" UpdateSourceTrigger="PropertyChanged" StringFormat="dd/MM/yyyy">
+                        <Binding.ValidationRules>
+                            <local:ValidationBDate/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </DatePicker.SelectedDate>
             </DatePicker>
         </StackPanel>
         
         <!---Phone-->
-        <StackPanel Grid.Row="7" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="7">
             <materialDesign:PackIcon Kind="Phone" Width="20" Height="25"/>
             <TextBox x:Name="tbxPhone"
                      materialDesign:HintAssist.Hint="Phone Number"
@@ -860,7 +897,7 @@
         </StackPanel>
         
         <!--Username-->
-        <StackPanel Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="8">
             <materialDesign:PackIcon Kind="Account"/>
             <TextBox x:Name="tbxUsername" materialDesign:HintAssist.Hint="Username"
                     materialDesign:HintAssist.Foreground="Maroon"
@@ -876,7 +913,7 @@
         </StackPanel>
 
         <!--Password-->
-        <StackPanel Grid.Row="9" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="9">
             <materialDesign:PackIcon Kind="Key" Width="25"/>
             <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
                  materialDesign:HintAssist.Foreground="Maroon"
@@ -884,10 +921,12 @@
                          PasswordChanged="pbxPassword_PasswordChanged"/>
             <TextBox x:Name="tbxPassword" Visibility="Collapsed"/>
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPassword" Width="17" Margin="10,10,0,0"/>
+            <Label x:Name="lbPasswordError" FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
+                                       Foreground="Red"/>
         </StackPanel>
 
         <!--Password Confirm-->
-        <StackPanel Grid.Row="10" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Grid.Row="10">
             <materialDesign:PackIcon Kind="KeyStar" Width="25"/>
             <PasswordBox x:Name="pbxPasswordCheck" materialDesign:HintAssist.Hint="Confirm Password"
          materialDesign:HintAssist.Foreground="Maroon"
@@ -895,6 +934,8 @@
                          PasswordChanged="pbxPasswordCheck_PasswordChanged"/>
             <TextBox x:Name="tbxPasswordCheck" Visibility="Collapsed"/>
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPasswordCheck" Width="17" Margin="10,10,0,0"/>
+            <Label x:Name="lbPasswordCheckError" FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
+                           Foreground="Red"/>
         </StackPanel>
 
         <StackPanel Grid.Row="11" Orientation="Horizontal" HorizontalAlignment="Center" >

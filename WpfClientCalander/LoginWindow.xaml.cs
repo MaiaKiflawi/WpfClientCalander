@@ -42,13 +42,15 @@ namespace WpfClientCalander
                 MessageBox.Show("User does not exist.\nGo to sign up", "ERROR", MessageBoxButton.OK);
                 return;
             }
-            if (user.IsGroupAdmin)
+            if (user.IsManager)
             {
-
+                ManagerWindow managerWindow = new ManagerWindow();
+                managerWindow.ShowDialog();
             }
-            else if (user.IsManager)
+            else if (user.IsGroupAdmin)
             {
-
+                GroupAdminWindow groupAdminWindow = new GroupAdminWindow();
+                groupAdminWindow.ShowDialog();
             }
             else
             {
@@ -60,7 +62,7 @@ namespace WpfClientCalander
 
         private void btnClear_Click(object sender, RoutedEventArgs e) //clear
         {
-
+            tbxPassword.Text = pbxPassword.Password = tbxPassword.Text = string.Empty;
         }
 
         private void btnSignupPage_Click(object sender, RoutedEventArgs e) //go to signup page
