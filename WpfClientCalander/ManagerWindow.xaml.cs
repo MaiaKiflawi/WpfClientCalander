@@ -19,7 +19,7 @@ namespace WpfClientCalander
     /// </summary>
     public partial class ManagerWindow : Window
     {
-        public ManagerWindow()
+        public ManagerWindow(ServiceCalander.Users user)
         {
             InitializeComponent();
         }

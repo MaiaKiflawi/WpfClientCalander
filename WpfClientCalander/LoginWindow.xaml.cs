@@ -34,6 +34,16 @@ namespace WpfClientCalander
 
         private void btnLogin_Click(object sender, RoutedEventArgs e) //login
         {
+            if (Validation.GetHasError(tbxUsername))
+            {
+                MessageBox.Show("Username invalid.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            if (Validation.GetHasError(tbxPassword))
+            {
+                MessageBox.Show("Password invalid.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
             user.UserName = tbxUsername.Text;
             user.Password = pbxPassword.Password;
             user = serviceCal.Login(user);
@@ -44,17 +54,17 @@ namespace WpfClientCalander
             }
             if (user.IsManager)
             {
-                ManagerWindow managerWindow = new ManagerWindow();
+                ManagerWindow managerWindow = new ManagerWindow(user);
                 managerWindow.ShowDialog();
             }
             else if (user.IsGroupAdmin)
             {
-                GroupAdminWindow groupAdminWindow = new GroupAdminWindow();
+                GroupAdminWindow groupAdminWindow = new GroupAdminWindow(user);
                 groupAdminWindow.ShowDialog();
             }
             else
             {
-                UserWindow userWindow = new UserWindow();
+                UserWindow userWindow = new UserWindow(user);
                 userWindow.ShowDialog();
             }
             tbxUsername.Text = pbxPassword.Password = string.Empty;
@@ -88,6 +98,17 @@ namespace WpfClientCalander
                 tbxPassword.Visibility = Visibility.Visible;
                 pbxPassword.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void pbxPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            tbxPassword.Text = pbxPassword.Password;
+        }
+
+        private void tbxPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbxPassword.Visibility == Visibility.Visible)
+                pbxPassword.Password = tbxPassword.Text;
         }
     }
 }

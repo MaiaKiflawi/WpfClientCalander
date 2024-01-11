@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace WpfClientCalander
 {
     /// <summary>
-    /// Interaction logic for GroupAdminWindow.xaml
+    /// Interaction logic for FirstGroupsWindow.xaml
     /// </summary>
-    public partial class GroupAdminWindow : Window
+    public partial class FirstGroupsWindow : Window
     {
-        public GroupAdminWindow(ServiceCalander.Users user)
+        public FirstGroupsWindow(ServiceCalander.Users user)
         {
             InitializeComponent();
         }

@@ -27,6 +27,11 @@
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="MinHeight" Value="10"/>
             <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Validation.ErrorTemplate">
+                <Setter.Value>
+                    <ControlTemplate/>
+                </Setter.Value>
+            </Setter>
         </Style>
         <Style TargetType="PasswordBox" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}">
             <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -88,9 +93,9 @@
         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Key" Width="25"/>
             <PasswordBox x:Name="pbxPassword" materialDesign:HintAssist.Hint="Password"
-                         materialDesign:HintAssist.Foreground="Maroon"
+                         materialDesign:HintAssist.Foreground="Maroon" PasswordChanged="pbxPassword_PasswordChanged"
                          materialDesign:TextFieldAssist.UnderlineBrush="Maroon"/>
-            <TextBox x:Name="tbxPassword" Visibility="Collapsed">
+            <TextBox x:Name="tbxPassword" Visibility="Collapsed" TextChanged="tbxPassword_TextChanged" >
                 <TextBox.Text>
                     <Binding Path="Password" UpdateSourceTrigger="PropertyChanged">
                         <Binding.ValidationRules>

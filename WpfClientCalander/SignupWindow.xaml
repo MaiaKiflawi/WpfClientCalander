@@ -864,7 +864,7 @@
             <materialDesign:PackIcon Kind="CakeVariant" Width="20" Height="25"/>
             <DatePicker x:Name="dtpBday" 
                         materialDesign:HintAssist.Hint="Birthday"
-             materialDesign:HintAssist.Foreground="Maroon"
+             materialDesign:HintAssist.Foreground="Maroon" 
              materialDesign:TextFieldAssist.UnderlineBrush="Maroon" CalendarStyle="{StaticResource CalendarStyle}">
                 <DatePicker.Resources>
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
@@ -919,7 +919,7 @@
                  materialDesign:HintAssist.Foreground="Maroon"
                  materialDesign:TextFieldAssist.UnderlineBrush="Maroon" 
                          PasswordChanged="pbxPassword_PasswordChanged"/>
-            <TextBox x:Name="tbxPassword" Visibility="Collapsed"/>
+            <TextBox x:Name="tbxPassword" Visibility="Collapsed" TextChanged="tbxPassword_TextChanged"/>
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPassword" Width="17" Margin="10,10,0,0"/>
             <Label x:Name="lbPasswordError" FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
                                        Foreground="Red"/>
@@ -932,7 +932,7 @@
          materialDesign:HintAssist.Foreground="Maroon"
          materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
                          PasswordChanged="pbxPasswordCheck_PasswordChanged"/>
-            <TextBox x:Name="tbxPasswordCheck" Visibility="Collapsed"/>
+            <TextBox x:Name="tbxPasswordCheck" Visibility="Collapsed" TextChanged="tbxPasswordCheck_TextChanged"/>
             <materialDesign:PackIcon Kind="EyeOff" MouseDown="RevealPasswordCheck" Width="17" Margin="10,10,0,0"/>
             <Label x:Name="lbPasswordCheckError" FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
                            Foreground="Red"/>

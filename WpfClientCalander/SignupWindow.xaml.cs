@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -56,6 +57,9 @@ namespace WpfClientCalander
                 return;
             }
             MessageBox.Show("Signed up successfully!", "SUCCESS", MessageBoxButton.OK);
+            user=myService.Login(user);
+            FirstGroupsWindow firstGroupsWindow = new FirstGroupsWindow(user);
+            firstGroupsWindow.Show();
             this.Close();
         }
 
@@ -148,6 +152,18 @@ namespace WpfClientCalander
             if (Validation.GetHasError(tbxPhone)) return false;
             if (Validation.GetHasError(tbxUsername)) return false;
             return true;
+        }
+
+        private void tbxPasswordCheck_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbxPasswordCheck.Visibility==Visibility.Visible)
+                pbxPasswordCheck.Password= tbxPasswordCheck.Text;
+        }
+
+        private void tbxPassword_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (tbxPassword.Visibility == Visibility.Visible)
+                pbxPassword.Password = tbxPassword.Text;
         }
     }
 }

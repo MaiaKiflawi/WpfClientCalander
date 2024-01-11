@@ -68,8 +68,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FirstGroupsWindow.xaml.cs">
+      <DependentUpon>FirstGroupsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GroupAdminWindow.xaml.cs">
       <DependentUpon>GroupAdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupsInfoViewUC.xaml.cs">
+      <DependentUpon>GroupsInfoViewUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagerWindow.xaml.cs">
       <DependentUpon>ManagerWindow.xaml</DependentUpon>
@@ -81,7 +87,15 @@
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validations.cs" />
+    <Page Include="FirstGroupsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GroupAdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GroupsInfoViewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +171,7 @@
     <None Include="Connected Services\ServiceCalander\WpfClientCalander.ServiceCalander.UsersList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Images\AppleExample.webp" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace WpfClientCalander
 {
     /// <summary>
-    /// Interaction logic for GroupAdminWindow.xaml
+    /// Interaction logic for GroupsInfoViewUC.xaml
     /// </summary>
-    public partial class GroupAdminWindow : Window
+    public partial class GroupsInfoViewUC : UserControl
     {
-        public GroupAdminWindow(ServiceCalander.Users user)
+        public GroupsInfoViewUC()
         {
             InitializeComponent();
         }
