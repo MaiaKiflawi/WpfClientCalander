@@ -35,10 +35,13 @@
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
                             Margin="0 4">
-                        <materialDesign:PackIcon Kind="Information"
-                                                 Foreground="Maroon"
-                                                 Width="20"
-                                                 Height="20"/>
+                        <StackPanel>
+                            <materialDesign:PackIcon Kind="Information"
+                                                     Foreground="Maroon"
+                                                     Width="20"
+                                                     Height="20" />
+                            <TextBlock Text="Info" />
+                        </StackPanel>
                     </Button>
                 </StackPanel>
             </Grid>

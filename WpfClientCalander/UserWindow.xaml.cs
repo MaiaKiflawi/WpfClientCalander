@@ -23,5 +23,50 @@ namespace WpfClientCalander
         {
             InitializeComponent();
         }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdHome_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdAnalytics_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdMessages_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdCollections_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdUsers_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRestore_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Themes_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
