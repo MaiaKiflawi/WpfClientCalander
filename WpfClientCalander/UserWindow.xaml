@@ -5,11 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfClientCalander"
         mc:Ignorable="d"
-        Title="UserWindow" Height="450" Width="800"
-        WindowStartupLocation="CenterScreen" WindowStyle="None"
-        Background="Transparent" AllowsTransparency="True"
-        ResizeMode="NoResize" WindowState="Normal" FontFamily="Poppins">
+        Title="UserWindow"
+        Height="720"
+        Width="1100"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        ResizeMode="NoResize"
+        WindowState="Normal"
+        FontFamily="Poppins">
     
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleForWindows.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Border CornerRadius="10"
             Background="AntiqueWhite">
         <Grid>
@@ -31,24 +44,25 @@
                     <!-- Logo -->
                     <StackPanel Grid.Row="0"
                                 Orientation="Horizontal">
-                        <Ellipse Height="36"
-                                 Width="36"
+                        <Ellipse Height="50"
+                                 Width="50"
                                  VerticalAlignment="Center"
                                  Margin="10 0 0 0">
                             <Ellipse.Fill>
                                 <ImageBrush ImageSource="/Images/projectLogo.jpg"
-                               Stretch="UniformToFill"/>
+                                            Stretch="UniformToFill" />
                             </Ellipse.Fill>
                         </Ellipse>
-                        
-                        <Label Content="My Shared Calender"
-                               Foreground="{DynamicResource SecundaryBlueColor}"
-                               FontWeight="Bold"
-                               FontSize="24"
-                               VerticalAlignment="Center"
-                               HorizontalContentAlignment="Left"
-                               HorizontalAlignment="Left"
-                               Margin="5 0 0 0" />
+                        <TextBlock Text="My Shared Calender"
+                                   Foreground="{DynamicResource SecundaryBlueColor}"
+                                   FontWeight="Bold"
+                                   FontSize="24"
+                                   TextAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   Margin="5 0 0 0"
+                                   Width="176" />
                     </StackPanel>
                     <StackPanel Grid.Row="1">
                         <RadioButton x:Name="rdHome"
@@ -91,32 +105,6 @@
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Tag="{DynamicResource settings}" />
                     </StackPanel>
-                    <Border Grid.Row="2"
-                            Margin="20 0"
-                            CornerRadius="15"
-                            Background="{DynamicResource SecundaryBlueColor}">
-                        <Border.BitmapEffect>
-                            <DropShadowBitmapEffect ShadowDepth="1"
-                                                    Direction="0"
-                                                    Color="#efebe7"
-                                                    Softness="0.9" />
-                        </Border.BitmapEffect>
-                        <Grid Margin="20">
-                            <Label Content="Discover Pro"
-                                   FontWeight="SemiBold"
-                                   FontSize="18"
-                                   Foreground="{DynamicResource TertiaryWhiteColor}"
-                                   Margin="0 -12 0 0" />
-                            <Label Content="Get Unlimited Statistics And Data"
-                                   FontWeight="Regular"
-                                   FontSize="10"
-                                   Foreground="{DynamicResource PrimaryWhiteColor}"
-                                   Margin="0 18 0 0" />
-                            <Button Content="Upgrade"
-                                    Style="{DynamicResource MaterialDesignRaisedButton}"
-                                    Margin="0 50 0 0" />
-                        </Grid>
-                    </Border>
                     <Path Grid.Row="3"
                           Data="{DynamicResource information}"
                           Fill="{DynamicResource TertiaryTextColor}"
@@ -151,13 +139,12 @@
                                   Fill="{DynamicResource PrimaryWhiteColor}"
                                   VerticalAlignment="Center" />
                         </StackPanel>
-                        <!--<Border.BitmapEffect>
-                            <DropShadowBitmapEffect
-                                            ShadowDepth="1"
-                                            Direction="0"
-                                            Color="#5B8DEF"
-                                            Softness="0.8"/>
-                        </Border.BitmapEffect>-->
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect ShadowDepth="1"
+                                                    Direction="0"
+                                                    Color="#5B8DEF"
+                                                    Softness="0.8" />
+                        </Border.BitmapEffect>
                     </Border>
                 </Grid>
             </Border>
@@ -177,7 +164,7 @@
                             Orientation="Horizontal"
                             FlowDirection="RightToLeft">
                     <Button x:Name="btnClose"
-                            Style="{StaticResource MaterialDesignFlatDarkBgButton}"
+                            Style="{DynamicResource IconButtonsStyle}"
                             Content="{DynamicResource close}"
                             Click="btnClose_Click"
                             Tag="IsCloseButton" />
@@ -186,7 +173,7 @@
                             Click="btnRestore_Click">
                         <Button.Style>
                             <Style TargetType="{x:Type Button}"
-                                   BasedOn="{StaticResource MaterialDesignFlatDarkBgButton}">
+                                   BasedOn="{StaticResource IconButtonsStyle}">
                                 <Setter Property="Content"
                                         Value="{DynamicResource maximize}" />
                                 <Style.Triggers>
