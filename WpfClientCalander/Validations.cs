@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Xml.Linq;
 
 namespace WpfClientCalander
 {
@@ -35,7 +36,7 @@ namespace WpfClientCalander
         }
     }
 
-    public class ValidationName : ValidationRule //first name, fist name, 
+    public class ValidationName : ValidationRule //first name, fist name, group name
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
@@ -165,4 +166,5 @@ namespace WpfClientCalander
         }
     }
 
+    
 }

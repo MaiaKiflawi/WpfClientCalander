@@ -34,6 +34,7 @@ namespace WpfClientCalander
 
         private void btnLogin_Click(object sender, RoutedEventArgs e) //login
         {
+            user = new Users { UserName = "Alma1user", Password = "Alma1_pass" };
             if (Validation.GetHasError(tbxUsername))
             {
                 MessageBox.Show("Username invalid.", "ERROR", MessageBoxButton.OK);
@@ -44,14 +45,15 @@ namespace WpfClientCalander
                 MessageBox.Show("Password invalid.", "ERROR", MessageBoxButton.OK);
                 return;
             }
-            user.UserName = tbxUsername.Text;
-            user.Password = pbxPassword.Password;
-            user = serviceCal.Login(user);
-            if (user == null)
+            //user.UserName = tbxUsername.Text;
+            //user.Password = pbxPassword.Password;
+            Users temp = serviceCal.Login(user);
+            if (temp == null)
             {
-                MessageBox.Show("User does not exist.\nGo to sign up", "ERROR", MessageBoxButton.OK);
+                MessageBox.Show("User does not exist.\nGo to sign up.", "ERROR", MessageBoxButton.OK);
                 return;
             }
+            user = temp;
             if (user.IsManager)
             {
                 ManagerWindow managerWindow = new ManagerWindow(user);

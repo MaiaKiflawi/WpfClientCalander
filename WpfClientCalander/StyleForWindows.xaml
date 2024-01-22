@@ -4,8 +4,10 @@
     <!-- Start: Button | Minimize | Maximize | Close -->
     <Style x:Key="IconButtonsStyle"
            TargetType="{x:Type Button}">
+        <Setter Property="Foreground"
+                Value="AntiqueWhite"/>
         <Setter Property="Background"
-                Value="Transparent" />
+                Value="#1b0000" />
         <Setter Property="Cursor"
                 Value="Hand" />
         <Setter Property="BorderThickness"
@@ -32,9 +34,20 @@
                         <Trigger Property="IsMouseOver"
                                  Value="True">
                             <Setter Property="Background"
-                                    Value="{DynamicResource SecundaryBackgroundColor}" />
+                                    Value="#6d4c41" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="AntiqueWhite" />
                         </Trigger>
-                        <MultiTrigger>
+                        <Trigger Property="IsMouseOver"
+                                 Value="False">
+                            <Setter Property="Background"
+                                    Value="#1b0000" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="AntiqueWhite" />
+                        </Trigger>
+                        <MultiTrigger> <!--close-->
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver"
                                            Value="True" />
@@ -45,7 +58,33 @@
                                     Value="#F72626" />
                             <Setter TargetName="ico"
                                     Property="Fill"
-                                    Value="#FFFFFF" />
+                                    Value="AntiqueWhite" />
+                        </MultiTrigger>
+                        <MultiTrigger> <!--restore-->
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="Tag"
+                                           Value="IsRestoreButton" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background"
+                                    Value="#ffd600" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="AntiqueWhite" />
+                        </MultiTrigger>
+                        <MultiTrigger> <!--minimize-->
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver"
+                                           Value="True" />
+                                <Condition Property="Tag"
+                                           Value="IsMinimizeButton" />
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Background"
+                                    Value="#aeea00" />
+                            <Setter TargetName="ico"
+                                    Property="Fill"
+                                    Value="AntiqueWhite" />
                         </MultiTrigger>
                         <Trigger Property="IsPressed"
                                  Value="True">
@@ -102,7 +141,7 @@
                                 <Rectangle.BitmapEffect>
                                     <DropShadowBitmapEffect ShadowDepth="3"
                                                             Direction="0"
-                                                            Color="#5B8DEF"
+                                                            Color="AntiqueWhite"
                                                             Softness="0.6" />
                                 </Rectangle.BitmapEffect>
                             </Rectangle>
