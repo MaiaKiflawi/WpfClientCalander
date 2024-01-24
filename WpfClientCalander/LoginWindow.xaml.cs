@@ -34,7 +34,8 @@ namespace WpfClientCalander
 
         private void btnLogin_Click(object sender, RoutedEventArgs e) //login
         {
-            user = new Users { UserName = "Alma1user", Password = "Alma1_pass" };
+            //user = new Users { UserName = "Alma1user", Password = "Alma1_pass" }; //user
+            user = new Users { UserName = "Maia1user", Password = "12ABcd#" }; //manager
             if (Validation.GetHasError(tbxUsername))
             {
                 MessageBox.Show("Username invalid.", "ERROR", MessageBoxButton.OK);
