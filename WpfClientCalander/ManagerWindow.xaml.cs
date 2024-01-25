@@ -20,15 +20,12 @@ namespace WpfClientCalander
     /// </summary>
     public partial class ManagerWindow : Window
     {
-        public ManagerWindow(ServiceCalander.Users user)
+        Users user;
+        public ManagerWindow(Users user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
-        private void btnCreateGroup_Click(object sender, RoutedEventArgs e)
-        {
-            CreateGroupWindow createGroupWindow = new CreateGroupWindow();
-            createGroupWindow.Show();
-        }
     }
 }

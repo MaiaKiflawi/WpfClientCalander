@@ -25,7 +25,7 @@
                 <Ellipse Width="150"
                          Height="150">
                     <Ellipse.Fill>
-                        <ImageBrush ImageSource="c:\users\win10\onedrive\documents\מדמח\אפליקציות 2023-2024\project\wpfclientcalander\wpfclientcalander\images\appleexample.webp" />
+                        <ImageBrush x:Name="imgName" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <StackPanel Grid.Row="1"

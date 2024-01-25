@@ -99,7 +99,9 @@
                         Background="#bbb5c3"
                         Click="btnChangeFile_Click"/>
                 <Button HorizontalAlignment="Right" 
-                        Background="#a64841" Content="Update" Foreground="AntiqueWhite"/>
+                        x:Name="btnCreateGroup"
+                        Background="#a64841" Content="Create" Foreground="AntiqueWhite"
+                        Click="btnCreateGroup_Click"/>
             </Grid>
             
             

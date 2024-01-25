@@ -59,7 +59,7 @@ namespace WpfClientCalander
             MessageBox.Show("Signed up successfully!", "SUCCESS", MessageBoxButton.OK);
             user=myService.Login(user);
             FirstGroupsWindow firstGroupsWindow = new FirstGroupsWindow(user);
-            firstGroupsWindow.Show();
+            firstGroupsWindow.ShowDialog();
             this.Close();
         }
 

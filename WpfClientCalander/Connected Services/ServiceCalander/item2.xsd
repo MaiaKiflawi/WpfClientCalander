@@ -45,6 +45,7 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
+          <xs:element minOccurs="0" name="GroupAdmin" nillable="true" type="tns:Users" />
           <xs:element minOccurs="0" name="GroupDescription" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UsersList" />
@@ -53,12 +54,6 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Groups" nillable="true" type="tns:Groups" />
-  <xs:complexType name="UsersList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="UsersList" nillable="true" type="tns:UsersList" />
   <xs:complexType name="Users">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseEntity">
@@ -79,6 +74,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Users" nillable="true" type="tns:Users" />
+  <xs:complexType name="UsersList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UsersList" nillable="true" type="tns:UsersList" />
   <xs:complexType name="GroupsList">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Groups" nillable="true" type="tns:Groups" />

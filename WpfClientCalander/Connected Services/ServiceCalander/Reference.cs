@@ -170,6 +170,9 @@ namespace WpfClientCalander.ServiceCalander {
     public partial class Groups : WpfClientCalander.ServiceCalander.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private WpfClientCalander.ServiceCalander.Users GroupAdminField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GroupDescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -177,6 +180,19 @@ namespace WpfClientCalander.ServiceCalander {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private WpfClientCalander.ServiceCalander.UsersList UsersField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public WpfClientCalander.ServiceCalander.Users GroupAdmin {
+            get {
+                return this.GroupAdminField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GroupAdminField, value) != true)) {
+                    this.GroupAdminField = value;
+                    this.RaisePropertyChanged("GroupAdmin");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string GroupDescription {
@@ -510,6 +526,12 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetGroupsByUser", ReplyAction="http://tempuri.org/ICalanderService/GetGroupsByUserResponse")]
         System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.GroupsList> GetGroupsByUserAsync(WpfClientCalander.ServiceCalander.Users user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsGroupNameFree", ReplyAction="http://tempuri.org/ICalanderService/IsGroupNameFreeResponse")]
+        bool IsGroupNameFree(string groupName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsGroupNameFree", ReplyAction="http://tempuri.org/ICalanderService/IsGroupNameFreeResponse")]
+        System.Threading.Tasks.Task<bool> IsGroupNameFreeAsync(string groupName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllUsers", ReplyAction="http://tempuri.org/ICalanderService/GetAllUsersResponse")]
         WpfClientCalander.ServiceCalander.UsersList GetAllUsers();
         
@@ -696,6 +718,14 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.GroupsList> GetGroupsByUserAsync(WpfClientCalander.ServiceCalander.Users user) {
             return base.Channel.GetGroupsByUserAsync(user);
+        }
+        
+        public bool IsGroupNameFree(string groupName) {
+            return base.Channel.IsGroupNameFree(groupName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsGroupNameFreeAsync(string groupName) {
+            return base.Channel.IsGroupNameFreeAsync(groupName);
         }
         
         public WpfClientCalander.ServiceCalander.UsersList GetAllUsers() {

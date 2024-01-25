@@ -91,6 +91,12 @@
   <wsdl:message name="ICalanderService_GetGroupsByUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGroupsByUserResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_IsGroupNameFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsGroupNameFree" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_IsGroupNameFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsGroupNameFreeResponse" />
+  </wsdl:message>
   <wsdl:message name="ICalanderService_GetAllUsers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllUsers" />
   </wsdl:message>
@@ -195,6 +201,10 @@
     <wsdl:operation name="GetGroupsByUser">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetGroupsByUser" message="tns:ICalanderService_GetGroupsByUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetGroupsByUserResponse" message="tns:ICalanderService_GetGroupsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsGroupNameFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/IsGroupNameFree" message="tns:ICalanderService_IsGroupNameFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/IsGroupNameFreeResponse" message="tns:ICalanderService_IsGroupNameFree_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllUsers" message="tns:ICalanderService_GetAllUsers_InputMessage" />
@@ -350,6 +360,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetGroupsByUser">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/GetGroupsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsGroupNameFree">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/IsGroupNameFree" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

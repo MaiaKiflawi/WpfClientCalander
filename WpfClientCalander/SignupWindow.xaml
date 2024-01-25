@@ -681,7 +681,7 @@
                             <Label Content="*" FontSize="20" Foreground="Red"/>
                             <AdornedElementPlaceholder x:Name="errorPhonlder"/>
                             <TextBlock FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
-                                       Foreground="Red" Text="{Binding [0].ErrorContent}" TextWrapping="WrapWithOverflow"/>
+                                       Foreground="Red" Text="{Binding [0].ErrorContent}" TextWrapping="Wrap"/>
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>
@@ -737,7 +737,8 @@
                             <Label Content="*" FontSize="20" Foreground="Red"/>
                             <AdornedElementPlaceholder x:Name="errorPhonlder"/>
                             <TextBlock FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
-                                       Foreground="Red" Text="{Binding [0].ErrorContent}" TextWrapping="WrapWithOverflow"/>
+                                       Foreground="Red" Text="{Binding [0].ErrorContent}" TextWrapping="Wrap"/> 
+                            <!--error with errors for password and confirm password-->
                         </StackPanel>
                     </ControlTemplate>
                 </Setter.Value>

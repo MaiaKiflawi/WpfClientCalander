@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
 {
@@ -19,9 +20,17 @@ namespace WpfClientCalander
     /// </summary>
     public partial class GroupAdminWindow : Window
     {
-        public GroupAdminWindow(ServiceCalander.Users user)
+        Users user;
+        public GroupAdminWindow(Users user)
         {
             InitializeComponent();
+            this.user = user;
+        }
+
+        private void btnCreateGroup_Click(object sender, RoutedEventArgs e)
+        {
+            CreateGroupWindow createGroupWindow = new CreateGroupWindow(user);
+            createGroupWindow.Show();
         }
     }
 }

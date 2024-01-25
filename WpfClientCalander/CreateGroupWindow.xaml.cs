@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using WpfClientCalander.ServiceCalander;
+using System.Text.RegularExpressions;
 
 namespace WpfClientCalander
 {
@@ -21,11 +23,19 @@ namespace WpfClientCalander
     /// </summary>
     public partial class CreateGroupWindow : Window
     {
-        public CreateGroupWindow()
+        Users user;
+        Groups group;
+        string filePath;
+        CalanderServiceClient client;
+        public CreateGroupWindow(Users user)
         {
+            this.user = user;
             InitializeComponent();
             btnOpenFile.Visibility = Visibility.Visible;
             btnChangeFile.Visibility = Visibility.Hidden;
+            group = new Groups();
+            this.DataContext = group;
+            client = new CalanderServiceClient();
         }
 
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
@@ -37,11 +47,12 @@ namespace WpfClientCalander
                 openFileDialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*";
                 try
                 {
+                    filePath = openFileDialog.FileName;
                     // Read the image file as a byte array
-                    byte[] imageData = File.ReadAllBytes(openFileDialog.FileName);
+                    byte[] imageData = File.ReadAllBytes(filePath);
 
                     // Create a BitmapImage and set its stream source
-                    var bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
+                    BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
                     bitmapImage.EndInit();
@@ -68,11 +79,12 @@ namespace WpfClientCalander
                 openFileDialog.Filter = "Image files (*.png;*.jpeg)|*.png;*.jpeg|All files (*.*)|*.*";
                 try
                 {
+                    filePath = openFileDialog.FileName;
                     // Read the image file as a byte array
-                    byte[] imageData = File.ReadAllBytes(openFileDialog.FileName);
+                    byte[] imageData = File.ReadAllBytes(filePath);
 
                     // Create a BitmapImage and set its stream source
-                    var bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
+                    BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
                     bitmapImage.EndInit();
@@ -88,6 +100,39 @@ namespace WpfClientCalander
                     MessageBox.Show($"Error loading image: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
+        }
+
+
+        private void btnCreateGroup_Click(object sender, RoutedEventArgs e)
+        {
+            if (Validation.GetHasError(tbxGroupName)  == true)
+            {
+                MessageBox.Show("Group name invalid.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            if (tbxGroupDes.Text.Length > 300)
+            {
+                MessageBox.Show("Description too long.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            if (!client.IsGroupNameFree(tbxGroupName.Text))
+            {
+                MessageBox.Show("Description too long.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            group.GroupAdmin = user;
+            if(client.InsertGroup(group) != 1)
+            {
+                MessageBox.Show("System error.\n Try again.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            FileInfo fileInfo = new FileInfo(filePath);
+            string strUri =Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/"+ group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
+            fileInfo.MoveTo(strUri);
+            MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
+            GroupAdminWindow groupAdminWindow = new GroupAdminWindow(user);
+            groupAdminWindow.ShowDialog();
+            this.Close();
         }
     }
 }
