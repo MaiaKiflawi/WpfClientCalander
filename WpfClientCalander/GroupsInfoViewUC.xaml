@@ -6,8 +6,9 @@
              xmlns:local="clr-namespace:WpfClientCalander"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             Height="266"
-             Width="210">
+             Height="276"
+             Width="250">
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -15,27 +16,34 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    
+    <!--front-->
     <materialDesign:Flipper Style="{StaticResource MaterialDesignCardFlipper}">
         <materialDesign:Flipper.FrontContent>
             <Grid Background="AntiqueWhite">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="160" />
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="145"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="31"/>
                 </Grid.RowDefinitions>
-                <Ellipse Width="150"
-                         Height="150">
+                <Ellipse Grid.Row="0" Width="135" Height="135"
+                         VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Ellipse.Fill>
-                        <ImageBrush x:Name="imgName" />
+                        <ImageBrush x:Name="imgName"
+                                    Stretch="UniformToFill" />
                     </Ellipse.Fill>
                 </Ellipse>
                 <StackPanel Grid.Row="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                    <TextBlock Text="{Binding Path=GroupName}" />
+                    <TextBlock Text="{Binding Path=GroupName}" FontSize="27" FontWeight="Bold" Foreground="Maroon"/>
+                    <TextBlock Text="{Binding Path=GroupAdmin}" FontSize="15" Foreground="#FF3C2929"/>
+                </StackPanel>
+                <StackPanel Grid.Row="2">
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                            Margin="0 4">
-                        <StackPanel>
+                            Margin="0">
+                        <StackPanel >
                             <materialDesign:PackIcon Kind="Information"
                                                      Foreground="Maroon"
                                                      Width="20"
@@ -46,6 +54,8 @@
                 </StackPanel>
             </Grid>
         </materialDesign:Flipper.FrontContent>
+        
+        <!--back-->
         <materialDesign:Flipper.BackContent>
             <Grid Height="256"
                   Width="200">

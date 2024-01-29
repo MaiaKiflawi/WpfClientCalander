@@ -27,10 +27,12 @@ namespace WpfClientCalander
         Groups group;
         string filePath;
         CalanderServiceClient client;
+        public List<string> ImageUris { get; set; } = new List<string>();
+
         public CreateGroupWindow(Users user)
         {
-            this.user = user;
             InitializeComponent();
+            this.user = user; 
             btnOpenFile.Visibility = Visibility.Visible;
             btnChangeFile.Visibility = Visibility.Hidden;
             group = new Groups();
@@ -127,12 +129,48 @@ namespace WpfClientCalander
                 return;
             }
             FileInfo fileInfo = new FileInfo(filePath);
-            string strUri =Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/"+ group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
-            fileInfo.MoveTo(strUri);
-            MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
+            string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + fileInfo.Extension;
+            try
+            {
+                fileInfo.MoveTo(strUri);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error moving image file: {ex.Message}", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            ImageUris.Add(strUri);
+            SaveImageUrisToFile();
+            //fileInfo.MoveTo(strUri);
+            //MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             GroupAdminWindow groupAdminWindow = new GroupAdminWindow(user);
             groupAdminWindow.ShowDialog();
             this.Close();
+        }
+
+        private void SaveImageUrisToFile()
+        {
+            try
+            {
+                // Create an instance of XmlSerializer for the ImageUris type
+                System.Xml.Serialization.XmlSerializer serializer = new System.Xml.Serialization.XmlSerializer(typeof(List<string>));
+
+                // Specify the path where you want to save the file
+                string filePath = "ImageUris.xml";
+
+                // Create a FileStream to write the XML file
+                using (FileStream fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    // Serialize the ImageUris collection to the XML file
+                    serializer.Serialize(fileStream, ImageUris);
+                }
+
+                MessageBox.Show("Image URIs saved to file successfully!", "SUCCESS", MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving image URIs: {ex.Message}", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
