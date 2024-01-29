@@ -30,7 +30,6 @@ namespace WpfClientCalander
 
             BitmapImage bitmapImage = new BitmapImage();
             bitmapImage.BeginInit();
-
             try
             {
                 bitmapImage.UriSource = new Uri("pack://application:,,,/Images/imgGroups/" + group.GroupName + ".png");
@@ -43,7 +42,15 @@ namespace WpfClientCalander
                 }
                 catch (Exception)
                 {
-                    bitmapImage.UriSource = new Uri("pack://application:,,,/Images/projectLogo.jpg");
+                    try
+                    {
+                        bitmapImage.UriSource = new Uri("pack://application:,,,/Images/projectLogo.jpg");
+                    }
+                    catch
+                    {
+                        bitmapImage.EndInit();
+                        return;
+                    }
                 }
             }
             bitmapImage.EndInit();

@@ -114,5 +114,12 @@ namespace WpfClientCalander
             if (tbxPassword.Visibility == Visibility.Visible)
                 pbxPassword.Password = tbxPassword.Text;
         }
+
+        private void btnSkip_Click(object sender, RoutedEventArgs e)
+        {
+            Users x = new Users();
+            FirstGroupsWindow firstGroupsWindow = new FirstGroupsWindow(x);
+            firstGroupsWindow.ShowDialog();
+        }
     }
 }
