@@ -165,11 +165,11 @@ namespace WpfClientCalander
                     serializer.Serialize(fileStream, ImageUris);
                 }
 
-                MessageBox.Show("Image URIs saved to file successfully!", "SUCCESS", MessageBoxButton.OK);
+                MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saving image URIs: {ex.Message}", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Error saving image: {ex.Message}.\n Try again.", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

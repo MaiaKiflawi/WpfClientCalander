@@ -33,17 +33,17 @@ namespace WpfClientCalander
 
             try
             {
-                bitmapImage.UriSource = new Uri("path://application:,,,/Images/imgGroups/" + group.GroupName + ".png");
+                bitmapImage.UriSource = new Uri("pack://application:,,,/Images/imgGroups/" + group.GroupName + ".png");
             }
             catch (Exception)
             {
                 try
                 {
-                    bitmapImage.UriSource = new Uri("path://application:,,,/Images/imgGroups/" + group.GroupName + ".jpeg");
+                    bitmapImage.UriSource = new Uri("pack://application:,,,/Images/imgGroups/" + group.GroupName + ".jpeg");
                 }
                 catch (Exception)
                 {
-                    bitmapImage.UriSource = new Uri("c:\\users\\win10\\onedrive\\documents\\מדמח\\אפליקציות 2023-2024\\project\\wpfclientcalander\\wpfclientcalander\\images\\projectLogo.jpg");
+                    bitmapImage.UriSource = new Uri("pack://application:,,,/Images/projectLogo.jpg");
                 }
             }
             bitmapImage.EndInit();

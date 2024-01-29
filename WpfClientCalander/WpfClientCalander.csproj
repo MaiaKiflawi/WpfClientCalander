@@ -182,7 +182,6 @@
     <None Include="Connected Services\ServiceCalander\WpfClientCalander.ServiceCalander.UsersList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Images\AppleExample.webp" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
