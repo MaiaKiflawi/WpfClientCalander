@@ -7,7 +7,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Height="276"
-             Width="250">
+             Width="220">
     
     <UserControl.Resources>
         <ResourceDictionary>
@@ -22,10 +22,11 @@
         <materialDesign:Flipper.FrontContent>
             <Grid Background="AntiqueWhite">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="145"/>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="31"/>
+                    <RowDefinition Height="145" />
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="31" />
                 </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Background="#b0696a" Opacity="10"/>
                 <Ellipse Grid.Row="0" Width="135" Height="135"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center">
@@ -62,56 +63,55 @@
         
         <!--back-->
         <materialDesign:Flipper.BackContent>
-            <Grid Height="256"
-                  Width="200">
+            <Grid Height="276"
+                  Width="220"
+                  Background="AntiqueWhite">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="30" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <materialDesign:ColorZone Padding="6">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
-                                Command="{x:Static materialDesign:Flipper.FlipCommand}"
-                                HorizontalAlignment="Left">
-                            <materialDesign:PackIcon Kind="ArrowLeft"
-                                                     HorizontalAlignment="Right" />
-                        </Button>
-                        <TextBlock Margin="8 0 0 0"
-                                   VerticalAlignment="Center">
-                            Back
-                        </TextBlock>
-                    </StackPanel>
-                </materialDesign:ColorZone>
+                <StackPanel Orientation="Horizontal" Background="#b0696a">
+                    <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
+                            Command="{x:Static materialDesign:Flipper.FlipCommand}"
+                            HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="ArrowLeft"
+                                                 HorizontalAlignment="Right" 
+                                                 FontSize="27"/>
+                    </Button>
+                    <TextBlock Margin="8 0 0 0"
+                               VerticalAlignment="Center"
+                               FontSize="20" Text="back"
+                               Foreground="#FF3C2929"/>
+                </StackPanel>
                 <Grid Grid.Row="1"
                       Margin="0 6 0 0"
                       HorizontalAlignment="Center"
-                      VerticalAlignment="Top"
-                      Width="172">
+                      VerticalAlignment="Top">
                     <Grid.RowDefinitions>
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
-                        <RowDefinition />
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
-                    <TextBlock materialDesign:HintAssist.Hint="Group Name"
-                             materialDesign:HintAssist.IsFloating="True"
-                             Margin="0 12 0 0"/>
+                    <TextBlock Grid.Row="0" FontSize="25"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=GroupName}"
+                               Foreground="Maroon"/>
+                    <TextBlock Grid.Row="1"
+                               FontSize="15"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"
+                               VerticalAlignment="Center"
+                               Text="{Binding Path=GroupDescription}"
+                               Foreground="Black" />
                     <StackPanel Grid.Row="2"
                                 Orientation="Horizontal"
-                                Margin="0 12 0 0"
-                                HorizontalAlignment="Right">
-                        <TextBlock VerticalAlignment="Center"
-                                   Text="{Binding Path=GroupDescription}" />
-                        <ToggleButton Margin="8 0 0 0" />
-                    </StackPanel>
-                    <StackPanel Grid.Row="3"
-                                Orientation="Horizontal"
-                                Margin="0 12 0 0"
-                                HorizontalAlignment="Right">
-                        <TextBlock VerticalAlignment="Center">
-                            Telephone Contact
-                        </TextBlock>
-                        <ToggleButton Margin="8 0 0 0" />
+                                HorizontalAlignment="Left">
+                        <TextBlock VerticalAlignment="Center" Text="Join Group"
+                                   Foreground="#FF3C2929"
+                                   FontSize="15"/>
+                        <ToggleButton Margin="8 0 0 0"/>
                     </StackPanel>
                 </Grid>
             </Grid>
