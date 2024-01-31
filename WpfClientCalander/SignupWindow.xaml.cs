@@ -57,7 +57,7 @@ namespace WpfClientCalander
                 return;
             }
             MessageBox.Show("Signed up successfully!", "SUCCESS", MessageBoxButton.OK);
-            user=myService.Login(user);
+            user = myService.Login(user);
             FirstGroupsWindow firstGroupsWindow = new FirstGroupsWindow(user);
             firstGroupsWindow.ShowDialog();
             this.Close();

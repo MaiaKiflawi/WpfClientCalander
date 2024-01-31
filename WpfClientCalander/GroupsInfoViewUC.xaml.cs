@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -27,34 +28,27 @@ namespace WpfClientCalander
             InitializeComponent();
             this.group = group;
             this.DataContext = group;
-
-            BitmapImage bitmapImage = new BitmapImage();
-            bitmapImage.BeginInit();
-            try
+            string encodedGroupName = Uri.EscapeDataString(group.GroupName);
+            string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
+            uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
+            uriStr = uriStr + @"\Images\imgGroups\";
+            BitmapImage bitmapImage = new BitmapImage(); 
+            DirectoryInfo hdDirectoryInWhichToSearch = new DirectoryInfo(uriStr);
+            FileInfo[] filesInDir = hdDirectoryInWhichToSearch.GetFiles(encodedGroupName+".*");
+            if (filesInDir.Length > 0)
             {
-                bitmapImage.UriSource = new Uri("pack://application:,,,/Images/imgGroups/" + group.GroupName + ".png");
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri(filesInDir[0].FullName);
+                bitmapImage.EndInit();
+                imgName.ImageSource = bitmapImage;
             }
-            catch (Exception)
+            else
             {
-                try
-                {
-                    bitmapImage.UriSource = new Uri("pack://application:,,,/Images/imgGroups/" + group.GroupName + ".jpeg");
-                }
-                catch (Exception)
-                {
-                    try
-                    {
-                        bitmapImage.UriSource = new Uri("pack://application:,,,/Images/projectLogo.jpg");
-                    }
-                    catch
-                    {
-                        bitmapImage.EndInit();
-                        return;
-                    }
-                }
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri(@"pack://application:,,,/Images/projectLogo.jpg");
+                bitmapImage.EndInit();
+                imgName.ImageSource = bitmapImage;
             }
-            bitmapImage.EndInit();
-            imgName.ImageSource = bitmapImage;
         }
     }
 }

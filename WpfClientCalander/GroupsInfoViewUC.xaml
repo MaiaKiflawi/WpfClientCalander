@@ -27,17 +27,22 @@
                     <RowDefinition Height="31"/>
                 </Grid.RowDefinitions>
                 <Ellipse Grid.Row="0" Width="135" Height="135"
-                         VerticalAlignment="Center" HorizontalAlignment="Center">
+                         VerticalAlignment="Center"
+                         HorizontalAlignment="Center">
                     <Ellipse.Fill>
                         <ImageBrush x:Name="imgName"
-                                    Stretch="UniformToFill" />
+                                    Stretch="UniformToFill"/>
                     </Ellipse.Fill>
                 </Ellipse>
                 <StackPanel Grid.Row="1"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center">
-                    <TextBlock Text="{Binding Path=GroupName}" FontSize="27" FontWeight="Bold" Foreground="Maroon"/>
-                    <TextBlock Text="{Binding Path=GroupAdmin}" FontSize="15" Foreground="#FF3C2929"/>
+                    <TextBlock TextAlignment="Center" Text="{Binding Path=GroupName}" FontSize="27" FontWeight="Bold" Foreground="Maroon"/>
+                    <TextBlock TextAlignment="Center" FontSize="15"
+                               Foreground="#FF3C2929">
+                        <Run Text="{Binding Path=GroupAdmin.FirstName}" />
+                        <Run Text="{Binding Path=GroupAdmin.LastName}" />
+                    </TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
                     <Button Style="{StaticResource MaterialDesignFlatButton}"
