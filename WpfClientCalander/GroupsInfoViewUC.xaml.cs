@@ -28,7 +28,7 @@ namespace WpfClientCalander
             InitializeComponent();
             this.group = group;
             this.DataContext = group;
-            string encodedGroupName = Uri.EscapeDataString(group.GroupName);
+            string encodedGroupName = group.GroupName;
             string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
             uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
             uriStr = uriStr + @"\Images\imgGroups\";
@@ -49,6 +49,11 @@ namespace WpfClientCalander
                 bitmapImage.EndInit();
                 imgName.ImageSource = bitmapImage;
             }
+        }
+
+        private void tgbJoinGroup_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

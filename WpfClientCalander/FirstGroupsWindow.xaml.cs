@@ -32,5 +32,10 @@ namespace WpfClientCalander
                 panel.Children.Add(uC); 
             }
         }
+
+        private void panel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
+        }
     }
 }

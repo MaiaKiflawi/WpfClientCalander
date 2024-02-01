@@ -9,6 +9,7 @@
              Height="276"
              Width="220">
     
+    
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,6 +17,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+    
+    
     
     <!--front-->
     <materialDesign:Flipper Style="{StaticResource MaterialDesignCardFlipper}">
@@ -88,8 +91,8 @@
                       HorizontalAlignment="Center"
                       VerticalAlignment="Top">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="35"/>
-                        <RowDefinition Height="140"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="145"/>
                         <RowDefinition Height="20"/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" FontSize="25"
@@ -97,6 +100,7 @@
                                TextAlignment="Center"
                                VerticalAlignment="Center"
                                Text="{Binding Path=GroupName}"
+                               TextWrapping="Wrap"
                                Foreground="Maroon"/>
                     <TextBlock Grid.Row="1"
                                FontSize="15"
@@ -104,14 +108,17 @@
                                TextAlignment="Center"
                                VerticalAlignment="Center"
                                Text="{Binding Path=GroupDescription}"
-                               Foreground="Black" />
+                               Foreground="Black" TextWrapping="Wrap"/>
                     <StackPanel Grid.Row="2"
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
                         <TextBlock VerticalAlignment="Center" Text="Join Group"
                                    Foreground="#FF3C2929"
                                    FontSize="15"/>
-                        <ToggleButton Margin="8 0 0 0"/>
+                        <ToggleButton x:Name="tgbJoinGroup" 
+                                      Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                                      ToolTip="MaterialDesignSwitchDarkToggleButton"
+                                      IsChecked="False"  Margin="8 0 0 0" Click="tgbJoinGroup_Click"/>
                     </StackPanel>
                 </Grid>
             </Grid>

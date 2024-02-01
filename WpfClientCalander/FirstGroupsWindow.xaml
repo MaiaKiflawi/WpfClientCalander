@@ -6,15 +6,33 @@
         xmlns:local="clr-namespace:WpfClientCalander"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="FirstGroupsWindow" Height="450" Width="800">
-    <Grid>
+        Title="FirstGroupsWindow"
+        Height="720"
+        Width="1100"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="AntiqueWhite"
+        AllowsTransparency="True"
+        WindowState="Normal">
+    <Window.Resources>
+        <Style TargetType="ScrollViewer">
+            <Setter Property="Background"
+                    Value="FloralWhite" />
+        </Style>
+    </Window.Resources>
+   
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
-            <RowDefinition />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock  Grid.Row="0" Text="Welcome"/>
-        <WrapPanel x:Name="panel"
-                   Grid.Row="1">
-        </WrapPanel>
+        <TextBlock Grid.Row="0" Text="Welcome" />
+        <TextBlock Grid.Row="1" Text="Welcome" />
+        <ScrollViewer Grid.Row="2" Padding="15" VerticalScrollBarVisibility="Visible">
+            <WrapPanel x:Name="panel"
+                       ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                       HorizontalAlignment="Center" />
+        </ScrollViewer>
     </Grid>
 </Window>
