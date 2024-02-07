@@ -56,7 +56,8 @@
                             <materialDesign:PackIcon Kind="Information"
                                                      Foreground="Maroon"
                                                      Width="20"
-                                                     Height="20" />
+                                                     Height="20" 
+                                                     HorizontalAlignment="Center"/>
                             <TextBlock Text="Info" />
                         </StackPanel>
                     </Button>

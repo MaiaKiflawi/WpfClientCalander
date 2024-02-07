@@ -14,25 +14,89 @@
         Background="AntiqueWhite"
         AllowsTransparency="True"
         WindowState="Normal">
+    
     <Window.Resources>
-        <Style TargetType="ScrollViewer">
-            <Setter Property="Background"
-                    Value="FloralWhite" />
-        </Style>
+        <ResourceDictionary>
+            <Style TargetType="ScrollViewer">
+                <Setter Property="Background"
+                        Value="FloralWhite" />
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+            </Style>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="StyleForWindows.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
-   
+    
     <Grid Margin="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100" />
-            <RowDefinition Height="40" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="80" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Welcome" />
-        <TextBlock Grid.Row="1" Text="Welcome" />
-        <ScrollViewer Grid.Row="2" Padding="15" VerticalScrollBarVisibility="Visible">
+        <TextBlock Grid.Row="0" Text="My Shared Calander:" />
+        <TextBlock Grid.Row="1" 
+                   Text="Welcome to your shared calander, here you can read about different groups and join the ones that catch your eye." 
+                   TextAlignment="Center" TextWrapping="Wrap" FontSize="20" Foreground="#FF3C2929" VerticalAlignment="Center"/>
+        <ScrollViewer Grid.Row="2"
+                      Padding="15"
+                      x:Name="MyScrollViewer"
+                      VerticalScrollBarVisibility="Auto"
+                      Foreground="#FF3C2929">
             <WrapPanel x:Name="panel"
-                       ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                       ScrollViewer.HorizontalScrollBarVisibility="Auto"
                        HorizontalAlignment="Center" />
         </ScrollViewer>
+        <Grid Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <!-- Start: Button Close | Restore | Minimize -->
+            <StackPanel Grid.Row="0"
+                        Grid.Column="4"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Margin="0,5,10,0"
+                        Height="30"
+                        Orientation="Horizontal"
+                        FlowDirection="RightToLeft">
+                <Button x:Name="btnClose"
+                        Style="{DynamicResource IconButtonsStyle}"
+                        Content="{DynamicResource close}"
+                        Click="btnClose_Click"
+                        Tag="IsCloseButton" />
+                <Button x:Name="btnRestore"
+                        Margin="5 0"
+                        Click="btnRestore_Click"
+                        Tag="IsRestoreButton">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}"
+                               BasedOn="{StaticResource IconButtonsStyle}">
+                            <Setter Property="Content"
+                                    Value="{DynamicResource maximize}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=home, Path=WindowState}"
+                                             Value="Maximized">
+                                    <Setter Property="Content"
+                                            Value="{DynamicResource restore}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnMinimize"
+                        Style="{DynamicResource IconButtonsStyle}"
+                        Content="{DynamicResource minimize}"
+                        Click="btnMinimize_Click"
+                        Tag="IsMinimizeButton" />
+            </StackPanel>
+            <!-- End: Button Close | Restore | Minimize -->
+        </Grid>
     </Grid>
 </Window>

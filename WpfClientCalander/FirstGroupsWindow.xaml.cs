@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -29,13 +30,32 @@ namespace WpfClientCalander
             {
                 GroupsInfoViewUC uC = new GroupsInfoViewUC(group);
                 uC.Margin = new Thickness(3);
-                panel.Children.Add(uC); 
+                panel.Children.Add(uC);
             }
         }
 
         private void panel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
         {
-
+            
         }
+
+        private void btnRestore_Click(object sender, RoutedEventArgs e)
+        {
+            if (WindowState == WindowState.Normal)
+                WindowState = WindowState.Maximized;
+            else
+                WindowState = WindowState.Normal;
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
     }
 }
