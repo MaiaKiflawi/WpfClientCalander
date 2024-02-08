@@ -56,7 +56,7 @@ namespace WpfClientCalander
 
         private void rdHome_Click(object sender, RoutedEventArgs e)
         {
-            //frameContent.Navigate(new Home());
+            //frameContent.Navigate(new FirstGroupsWindow(user));
         }
 
         private void rdAnalytics_Click(object sender, RoutedEventArgs e)

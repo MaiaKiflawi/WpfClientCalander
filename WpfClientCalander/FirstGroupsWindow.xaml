@@ -39,7 +39,7 @@
             <RowDefinition Height="80" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="My Shared Calander:" />
+        <TextBlock Grid.Row="0" Text="My Shared Calender:" />
         <TextBlock Grid.Row="1" 
                    Text="Welcome to your shared calander, here you can read about different groups and join the ones that catch your eye." 
                    TextAlignment="Center" TextWrapping="Wrap" FontSize="20" Foreground="#FF3C2929" VerticalAlignment="Center"/>

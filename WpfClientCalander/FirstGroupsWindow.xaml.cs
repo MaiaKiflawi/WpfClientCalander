@@ -29,7 +29,7 @@ namespace WpfClientCalander
             foreach (Groups group in list)
             {
                 GroupsInfoViewUC uC = new GroupsInfoViewUC(group);
-                uC.Margin = new Thickness(3);
+                uC.Margin = new Thickness(10);
                 panel.Children.Add(uC);
             }
         }
