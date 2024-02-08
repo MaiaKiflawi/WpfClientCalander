@@ -1,6 +1,6 @@
-﻿using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +11,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
 using WpfClientCalander.ServiceCalander;
+using Microsoft.Win32;
 using System.Text.RegularExpressions;
 
 namespace WpfClientCalander
 {
     /// <summary>
-    /// Interaction logic for CreateGroupWindow.xaml
+    /// Interaction logic for CreateGroupUC.xaml
     /// </summary>
-    public partial class CreateGroupWindow : Window
+    public partial class CreateGroupUC : UserControl
     {
         Users user;
         Groups group;
@@ -29,10 +30,10 @@ namespace WpfClientCalander
         CalanderServiceClient client;
         public List<string> ImageUris { get; set; } = new List<string>();
 
-        public CreateGroupWindow(Users user)
+        public CreateGroupUC(Users user)
         {
             InitializeComponent();
-            this.user = user; 
+            this.user = user;
             btnOpenFile.Visibility = Visibility.Visible;
             btnChangeFile.Visibility = Visibility.Hidden;
             group = new Groups();
@@ -132,9 +133,8 @@ namespace WpfClientCalander
             string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
             fileInfo.MoveTo(strUri);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
-            GroupAdminWindow groupAdminWindow = new GroupAdminWindow(user);
-            groupAdminWindow.ShowDialog();
-            this.Close();
+
+            //להוסיף מעבר ביוזר קונטרול ל-גרופ אדמין
         }
     }
 }

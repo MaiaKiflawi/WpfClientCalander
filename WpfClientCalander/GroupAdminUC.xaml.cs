@@ -10,18 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
 {
     /// <summary>
-    /// Interaction logic for GroupAdminWindow.xaml
+    /// Interaction logic for GroupAdminUC.xaml
     /// </summary>
-    public partial class GroupAdminWindow : Window
+    public partial class GroupAdminUC : UserControl
     {
         Users user;
-        public GroupAdminWindow(Users user)
+        public GroupAdminUC(Users user)
         {
             InitializeComponent();
             this.user = user;
@@ -31,6 +32,8 @@ namespace WpfClientCalander
         {
             CreateGroupWindow createGroupWindow = new CreateGroupWindow(user);
             createGroupWindow.Show();
+
+            //להוסיף מעבר ביוזר קונטרול ל-קריאט גרופ
         }
     }
 }

@@ -65,45 +65,39 @@
                                    Width="176" />
                     </StackPanel>
                     <StackPanel Grid.Row="1">
-                        <RadioButton x:Name="rdHome"
+                        <RadioButton x:Name="rdbHome"
                                      Content="Home"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Tag="{DynamicResource home}"
                                      Margin="0 30 0 0"
-                                     Click="rdHome_Click" />
-                        <RadioButton x:Name="rdAnalytics"
-                                     Content="Analytics"
+                                     Click="rdbHome_Click" />
+                        <RadioButton x:Name="rdbCreateGroup"
+                                     Content="Create Group"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Tag="{DynamicResource analytics}"
                                      Margin="0 1 0 1"
-                                     Click="rdAnalytics_Click" />
-                        <RadioButton x:Name="rdMessages"
-                                     Content="Messages"
+                                     Click="rdbCreateGroup_Click" />
+                        <RadioButton x:Name="rdbGroupAdmin"
+                                     Content="Group Admin"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Tag="{DynamicResource messages}"
-                                     Click="rdMessages_Click" />
-                        <RadioButton x:Name="rdCollections"
-                                     Content="Collections"
+                                     Click="rdbGroupAdmin_Click" />
+                        <RadioButton x:Name="rdbManagerSettings"
+                                     Content="Manager Settings"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Tag="{DynamicResource collections}"
                                      Margin="0 1 0 1"
-                                     Click="rdCollections_Click" />
-                        <RadioButton x:Name="rdUsers"
-                                     Content="Users"
+                                     Click="rdbManagerSettings_Click" />
+                        <ComboBox x:Name="userGroups">
+                            
+                        </ComboBox>
+                        <Separator Margin="50 50"
+                                   Background="{DynamicResource TertiaryBackgroundColor}" />
+                        <RadioButton x:Name="rdbMyProfile"
+                                     Content="My Profile"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Tag="{DynamicResource users}"
-                                     Click="rdUsers_Click" />
-                        <Separator Margin="20 20"
-                                   Background="{DynamicResource TertiaryBackgroundColor}" />
-                        <RadioButton x:Name="rdNotifications"
-                                     Content="Notifications"
-                                     Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource notifications}"
-                                     Margin="0 1 0 1" />
-                        <RadioButton x:Name="rdSettings"
-                                     Content="Settings"
-                                     Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource settings}" />
+                                     Click="rdbMyProfile_Click" />
                     </StackPanel>
                 </Grid>
             </Border>
@@ -157,9 +151,7 @@
                 <Border Grid.Row="1"
                         CornerRadius="0 0 5 0"
                         Background="Transparent">
-                    <Frame x:Name="frameContent"
-                           NavigationUIVisibility="Hidden"
-                           Margin="10" />
+                    <Grid x:Name="ucGrid" />
                 </Border>
                 <!-- End: Frame Container -->
             </Grid>
