@@ -28,12 +28,14 @@ namespace WpfClientCalander
         Groups group;
         string filePath;
         CalanderServiceClient client;
+        private Grid grid;
         public List<string> ImageUris { get; set; } = new List<string>();
 
-        public CreateGroupUC(Users user)
+        public CreateGroupUC(Users user, ref Grid grid)
         {
             InitializeComponent();
             this.user = user;
+            this.grid = grid;
             btnOpenFile.Visibility = Visibility.Visible;
             btnChangeFile.Visibility = Visibility.Hidden;
             group = new Groups();
@@ -133,8 +135,12 @@ namespace WpfClientCalander
             string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
             fileInfo.MoveTo(strUri);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
+        }
 
-            //להוסיף מעבר ביוזר קונטרול ל-גרופ אדמין
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new GroupAdminUC(user, ref grid));
         }
     }
 }

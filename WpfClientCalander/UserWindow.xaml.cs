@@ -8,6 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -29,7 +30,6 @@ namespace WpfClientCalander
             if (user.IsManager)
             {
                 rdbHome.Visibility = Visibility.Visible;
-                rdbCreateGroup.Visibility = Visibility.Visible;
                 rdbGroupAdmin.Visibility = Visibility.Visible;
                 rdbManagerSettings.Visibility = Visibility.Visible;
                 rdbMyProfile.Visibility = Visibility.Visible;
@@ -38,7 +38,6 @@ namespace WpfClientCalander
             if (user.IsGroupAdmin)
             {
                 rdbHome.Visibility = Visibility.Visible;
-                rdbCreateGroup.Visibility = Visibility.Visible;
                 rdbGroupAdmin.Visibility = Visibility.Visible;
                 rdbManagerSettings.Visibility = Visibility.Collapsed;
                 rdbMyProfile.Visibility = Visibility.Visible;
@@ -47,7 +46,6 @@ namespace WpfClientCalander
             else
             {
                 rdbHome.Visibility = Visibility.Visible;
-                rdbCreateGroup.Visibility = Visibility.Collapsed;
                 rdbGroupAdmin.Visibility = Visibility.Collapsed;
                 rdbManagerSettings.Visibility = Visibility.Collapsed;
                 rdbMyProfile.Visibility = Visibility.Visible;
@@ -86,16 +84,11 @@ namespace WpfClientCalander
             ucGrid.Children.Add(new ChooseGroupsUC(user));
         }
 
-        private void rdbCreateGroup_Click(object sender, RoutedEventArgs e)
-        {
-            ucGrid.Children.Clear();
-            ucGrid.Children.Add(new CreateGroupUC(user));
-        }
 
         private void rdbGroupAdmin_Click(object sender, RoutedEventArgs e)
         {
             ucGrid.Children.Clear();
-            ucGrid.Children.Add(new GroupAdminUC(user));
+            ucGrid.Children.Add(new GroupAdminUC(user, ref ucGrid));
         }
 
         private void rdbManagerSettings_Click(object sender, RoutedEventArgs e)

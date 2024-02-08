@@ -71,12 +71,6 @@
                                      Tag="{DynamicResource home}"
                                      Margin="0 30 0 0"
                                      Click="rdbHome_Click" />
-                        <RadioButton x:Name="rdbCreateGroup"
-                                     Content="Create Group"
-                                     Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource analytics}"
-                                     Margin="0 1 0 1"
-                                     Click="rdbCreateGroup_Click" />
                         <RadioButton x:Name="rdbGroupAdmin"
                                      Content="Group Admin"
                                      Style="{DynamicResource MenuRadioButtonStyle}"

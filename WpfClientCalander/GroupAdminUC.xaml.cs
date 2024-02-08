@@ -22,18 +22,18 @@ namespace WpfClientCalander
     public partial class GroupAdminUC : UserControl
     {
         Users user;
-        public GroupAdminUC(Users user)
+        private Grid grid;
+        public GroupAdminUC(Users user, ref Grid grid)
         {
             InitializeComponent();
             this.user = user;
+            this.grid = grid;
         }
 
         private void btnCreateGroup_Click(object sender, RoutedEventArgs e)
         {
-            CreateGroupWindow createGroupWindow = new CreateGroupWindow(user);
-            createGroupWindow.Show();
-
-            //להוסיף מעבר ביוזר קונטרול ל-קריאט גרופ
+            grid.Children.Clear();
+            grid.Children.Add(new CreateGroupUC(user, ref grid));
         }
     }
 }

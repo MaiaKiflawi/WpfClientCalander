@@ -22,16 +22,12 @@
             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="#1e0000" />
         </Style>
         <Style TargetType="TextBlock">
-            <Setter Property="Foreground"
-                    Value="Maroon" />
-            <Setter Property="FontWeight"
-                    Value="Bold" />
+            <Setter Property="Foreground" Value="Maroon" />
+            <Setter Property="FontWeight" Value="Bold" />
         </Style>
         <Style TargetType="StackPanel">
-            <Setter Property="VerticalAlignment"
-                    Value="Top" />
-            <Setter Property="HorizontalAlignment"
-                    Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedButton}">
             <Setter Property="Background" Value="AliceBlue" />
@@ -42,21 +38,30 @@
     
     <Grid Background="AntiqueWhite">
         <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
             <RowDefinition Height="110" />
             <RowDefinition Height="70" />
             <RowDefinition Height="150" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
+        <!--Back-->
+        <Button Grid.Row="0" x:Name="btnBack" Style="{StaticResource MaterialDesignToolForegroundButton}"
+                Click="btnBack_Click"
+                HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="ArrowLeft"
+                                     HorizontalAlignment="Right"
+                                     FontSize="27" />
+        </Button>
         <!--title-->
-        <TextBlock Grid.Row="0"
+        <TextBlock Grid.Row="1"
                    Text="Create New Group:"
                    FontSize="35"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
         
         <!--group name-->
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="2">
             <TextBox x:Name="tbxGroupName"
                      materialDesign:HintAssist.Hint="Group Name"
                      Width="150">
@@ -72,7 +77,7 @@
         </StackPanel>
         
         <!--group description-->
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="3">
             <TextBox x:Name="tbxGroupDes"
                      materialDesign:HintAssist.Hint="Group Description"
                      TextWrapping="Wrap"
@@ -85,7 +90,7 @@
         </StackPanel>
         
         <!--image-->
-        <StackPanel Grid.Row="3"
+        <StackPanel Grid.Row="4"
                     HorizontalAlignment="Center">
             <Image x:Name="imgDisplay"
                    Height="150"
