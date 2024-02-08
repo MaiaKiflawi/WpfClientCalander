@@ -26,6 +26,32 @@ namespace WpfClientCalander
         {
             InitializeComponent();
             this.user = user;
+            if (user.IsManager)
+            {
+                rdbHome.Visibility = Visibility.Visible;
+                rdbCreateGroup.Visibility = Visibility.Visible;
+                rdbGroupAdmin.Visibility = Visibility.Visible;
+                rdbManagerSettings.Visibility = Visibility.Visible;
+                rdbMyProfile.Visibility = Visibility.Visible;
+                
+            }
+            if (user.IsGroupAdmin)
+            {
+                rdbHome.Visibility = Visibility.Visible;
+                rdbCreateGroup.Visibility = Visibility.Visible;
+                rdbGroupAdmin.Visibility = Visibility.Visible;
+                rdbManagerSettings.Visibility = Visibility.Collapsed;
+                rdbMyProfile.Visibility = Visibility.Visible;
+
+            }
+            else
+            {
+                rdbHome.Visibility = Visibility.Visible;
+                rdbCreateGroup.Visibility = Visibility.Collapsed;
+                rdbGroupAdmin.Visibility = Visibility.Collapsed;
+                rdbManagerSettings.Visibility = Visibility.Collapsed;
+                rdbMyProfile.Visibility = Visibility.Visible;
+            }
         }
 
         private void Themes_Click(object sender, RoutedEventArgs e)
@@ -54,29 +80,34 @@ namespace WpfClientCalander
             WindowState = WindowState.Minimized;
         }
 
-        private void rdHome_Click(object sender, RoutedEventArgs e)
+        private void rdbHome_Click(object sender, RoutedEventArgs e)
         {
-            //frameContent.Navigate(new FirstGroupsWindow(user));
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(new ChooseGroupsUC(user));
         }
 
-        private void rdAnalytics_Click(object sender, RoutedEventArgs e)
+        private void rdbCreateGroup_Click(object sender, RoutedEventArgs e)
         {
-            //frameContent.Navigate(new Analytics());
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(new CreateGroupUC(user));
         }
 
-        private void rdMessages_Click(object sender, RoutedEventArgs e)
+        private void rdbGroupAdmin_Click(object sender, RoutedEventArgs e)
         {
-            //frameContent.Navigate(new Messages());
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(new GroupAdminUC(user));
         }
 
-        private void rdCollections_Click(object sender, RoutedEventArgs e)
+        private void rdbManagerSettings_Click(object sender, RoutedEventArgs e)
         {
-            //frameContent.Navigate(new Collections());
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(new AppManagerUC(user));
         }
 
-        private void rdUsers_Click(object sender, RoutedEventArgs e)
+        private void rdbMyProfile_Click(object sender, RoutedEventArgs e)
         {
-            frameContent.Navigate(new Users());
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(new UserProfileUC(user));
         }
     }
 }

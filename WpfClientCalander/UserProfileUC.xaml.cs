@@ -10,22 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
 {
     /// <summary>
-    /// Interaction logic for ManagerWindow.xaml
+    /// Interaction logic for UserProfileUC.xaml
     /// </summary>
-    public partial class ManagerWindow : Window
+    public partial class UserProfileUC : UserControl
     {
-        Users user;
-        public ManagerWindow(Users user)
+        private Users user;
+        public UserProfileUC(Users user)
         {
             InitializeComponent();
-            this.user = user;
         }
-
     }
 }

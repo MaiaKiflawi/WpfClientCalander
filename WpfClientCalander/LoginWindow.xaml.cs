@@ -56,22 +56,10 @@ namespace WpfClientCalander
                 return;
             }
             user = temp;
-            if (user.IsManager)
-            {
-                ManagerWindow managerWindow = new ManagerWindow(user);
-                managerWindow.ShowDialog();
-            }
-            else if (user.IsGroupAdmin)
-            {
-                GroupAdminWindow groupAdminWindow = new GroupAdminWindow(user);
-                groupAdminWindow.ShowDialog();
-            }
-            else
-            {
-                UserWindow userWindow = new UserWindow(user);
-                userWindow.ShowDialog();
-            }
             tbxUsername.Text = pbxPassword.Password = string.Empty;
+            UserWindow userWindow = new UserWindow(user);
+            this.Close();
+            userWindow.ShowDialog();
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e) //clear
@@ -118,8 +106,8 @@ namespace WpfClientCalander
         private void btnSkip_Click(object sender, RoutedEventArgs e)
         {
             Users x = new Users();
-            FirstGroupsWindow firstGroupsWindow = new FirstGroupsWindow(x);
-            firstGroupsWindow.ShowDialog();
+            UserWindow userWindow = new UserWindow(x);
+            userWindow.ShowDialog();
         }
     }
 }

@@ -48,8 +48,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -68,37 +70,44 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CreateGroupWindow.xaml.cs">
-      <DependentUpon>CreateGroupWindow.xaml</DependentUpon>
+    <Compile Include="AppManagerUC.xaml.cs">
+      <DependentUpon>AppManagerUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FirstGroupsWindow.xaml.cs">
-      <DependentUpon>FirstGroupsWindow.xaml</DependentUpon>
+    <Compile Include="ChooseGroupsUC.xaml.cs">
+      <DependentUpon>ChooseGroupsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroupAdminWindow.xaml.cs">
-      <DependentUpon>GroupAdminWindow.xaml</DependentUpon>
+    <Compile Include="CreateGroupUC.xaml.cs">
+      <DependentUpon>CreateGroupUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupAdminUC.xaml.cs">
+      <DependentUpon>GroupAdminUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="GroupsInfoViewUC.xaml.cs">
       <DependentUpon>GroupsInfoViewUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ManagerWindow.xaml.cs">
-      <DependentUpon>ManagerWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SignupWindow.xaml.cs">
       <DependentUpon>SignupWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserProfileUC.xaml.cs">
+      <DependentUpon>UserProfileUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validations.cs" />
-    <Page Include="CreateGroupWindow.xaml">
+    <Page Include="AppManagerUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="FirstGroupsWindow.xaml">
+    <Page Include="ChooseGroupsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GroupAdminWindow.xaml">
+    <Page Include="CreateGroupUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GroupAdminUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,15 +131,15 @@
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
-    <Page Include="ManagerWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="SignupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StyleForWindows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserProfileUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

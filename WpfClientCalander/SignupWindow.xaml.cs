@@ -58,9 +58,9 @@ namespace WpfClientCalander
             }
             MessageBox.Show("Signed up successfully!", "SUCCESS", MessageBoxButton.OK);
             user = myService.Login(user);
-            FirstGroupsWindow firstGroupsWindow = new FirstGroupsWindow(user);
-            firstGroupsWindow.ShowDialog();
+            UserWindow userWindow = new UserWindow(user);
             this.Close();
+            userWindow.ShowDialog();
         }
 
         private void btnLoginPage_Click(object sender, RoutedEventArgs e) //go to login page
