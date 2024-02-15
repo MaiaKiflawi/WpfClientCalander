@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:WpfClientCalander"
         mc:Ignorable="d"
         Title="UserWindow"
@@ -14,8 +15,7 @@
         AllowsTransparency="True"
         ResizeMode="NoResize"
         WindowState="Normal"
-        FontFamily="Poppins">
-    
+        FontFamily="Poppins">    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -68,31 +68,27 @@
                         <RadioButton x:Name="rdbHome"
                                      Content="Home"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource home}"
                                      Margin="0 30 0 0"
                                      Click="rdbHome_Click" />
                         <RadioButton x:Name="rdbGroupAdmin"
-                                     Content="Group Admin"
+                                     Content="Group Admin Page"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource messages}"
-                                     Click="rdbGroupAdmin_Click" />
+                                     Margin="0 1 0 1"
+                                     Click="rdbGroupAdmin_Click"/>
                         <RadioButton x:Name="rdbManagerSettings"
                                      Content="Manager Settings"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource collections}"
-                                     Margin="0 1 0 1"
-                                     Click="rdbManagerSettings_Click" />
-                        <ComboBox x:Name="userGroups">
-                            
-                        </ComboBox>
-                        <Separator Margin="50 50"
+                                     Click="rdbManagerSettings_Click"/>
+                        
+                        <Separator Margin="20 20"
                                    Background="{DynamicResource TertiaryBackgroundColor}" />
+                        <WrapPanel Name="GroupsView" />
                         <RadioButton x:Name="rdbMyProfile"
                                      Content="My Profile"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
-                                     Tag="{DynamicResource users}"
-                                     Click="rdbMyProfile_Click" />
-                    </StackPanel>
+                                     Margin="0 1 0 1"
+                                     Click="rdbMyProfile_Click"/>
+                    </StackPanel>                   
                 </Grid>
             </Border>
             <!-- End: GridColumn Left -->

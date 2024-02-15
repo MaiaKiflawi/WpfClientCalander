@@ -6,10 +6,8 @@
              xmlns:local="clr-namespace:WpfClientCalander"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
-             Height="276"
-             Width="220">
-    
-    
+             Height="280"
+             Width="220">   
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -27,7 +25,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="145" />
                     <RowDefinition Height="100" />
-                    <RowDefinition Height="31" />
+                    <RowDefinition Height="35" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Background="#b0696a" Opacity="10"/>
                 <Ellipse Grid.Row="0" Width="135" Height="135"
@@ -74,13 +72,13 @@
                     <RowDefinition Height="30" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Background="#b0696a">
+                <StackPanel Orientation="Horizontal" Background="#b0696a" VerticalAlignment="Top" >
                     <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
                             HorizontalAlignment="Left">
-                        <materialDesign:PackIcon Kind="ArrowLeft"
+                        <materialDesign:PackIcon Kind="ArrowLeft" VerticalAlignment="Top"
                                                  HorizontalAlignment="Right" 
-                                                 FontSize="27"/>
+                                                 Width="20" Height="20"/>
                     </Button>
                     <TextBlock Margin="8 0 0 0"
                                VerticalAlignment="Center"
