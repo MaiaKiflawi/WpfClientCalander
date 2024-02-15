@@ -151,6 +151,8 @@
                                   Kind="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IconConverter}}"
                                   VerticalAlignment="Center"
                                   HorizontalAlignment="Right"
+                                  Height="25"
+                                  Width="25"
                                   Margin="0 0 5 0" />
                             <!-- Text -->
                             <TextBlock x:Name="txtName"
@@ -169,28 +171,28 @@
                                  Value="True">
                             <Setter TargetName="txtName"
                                     Property="Foreground"
-                                    Value="{DynamicResource SecundaryTextColor}" />
+                                    Value="#301a1a" />
                             <Setter TargetName="Icon"
                                     Property="Foreground"
-                                    Value="{DynamicResource SecundaryTextColor}" />
+                                    Value="#301a1a" />
                             <Setter TargetName="btnSelected"
                                     Property="Background"
-                                    Value="{DynamicResource TertiaryBackgroundColor}" />
+                                    Value="#805d57" />
                         </Trigger>
                         <Trigger Property="IsChecked"
                                  Value="True">
                             <Setter TargetName="Icon"
                                     Property="Foreground"
-                                    Value="{DynamicResource TertiaryTextColor}" />
+                                    Value="#301a1a" />
                             <Setter TargetName="Indicator"
                                     Property="Fill"
-                                    Value="{DynamicResource SecundaryBlueColor}" />
+                                    Value="#301a1a" />
                             <Setter TargetName="btnSelected"
                                     Property="Background"
-                                    Value="{DynamicResource TertiaryBackgroundColor}" />
+                                    Value="#805d57" />
                             <Setter TargetName="txtName"
                                     Property="Foreground"
-                                    Value="{DynamicResource TertiaryTextColor}" />
+                                    Value="#301a1a" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

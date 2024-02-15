@@ -145,6 +145,18 @@
   <wsdl:message name="ICalanderService_IsUsernameFree_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsUsernameFreeResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertUserToGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserToGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_InsertUserToGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteUserToGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserToGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_DeleteUserToGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserToGroupResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICalanderService">
     <wsdl:operation name="GetAllCities">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllCities" message="tns:ICalanderService_GetAllCities_InputMessage" />
@@ -237,6 +249,14 @@
     <wsdl:operation name="IsUsernameFree">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/IsUsernameFree" message="tns:ICalanderService_IsUsernameFree_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/IsUsernameFreeResponse" message="tns:ICalanderService_IsUsernameFree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserToGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertUserToGroup" message="tns:ICalanderService_InsertUserToGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertUserToGroupResponse" message="tns:ICalanderService_InsertUserToGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserToGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserToGroup" message="tns:ICalanderService_DeleteUserToGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserToGroupResponse" message="tns:ICalanderService_DeleteUserToGroup_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalanderService" type="tns:ICalanderService">
@@ -441,6 +461,24 @@
     </wsdl:operation>
     <wsdl:operation name="IsUsernameFree">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/IsUsernameFree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUserToGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/InsertUserToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUserToGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUserToGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

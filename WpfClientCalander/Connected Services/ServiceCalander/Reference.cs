@@ -579,6 +579,18 @@ namespace WpfClientCalander.ServiceCalander {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsUsernameFree", ReplyAction="http://tempuri.org/ICalanderService/IsUsernameFreeResponse")]
         System.Threading.Tasks.Task<bool> IsUsernameFreeAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/InsertUserToGroupResponse")]
+        int InsertUserToGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/InsertUserToGroupResponse")]
+        System.Threading.Tasks.Task<int> InsertUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserToGroupResponse")]
+        int DeleteUserToGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserToGroupResponse")]
+        System.Threading.Tasks.Task<int> DeleteUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -790,6 +802,22 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<bool> IsUsernameFreeAsync(string username) {
             return base.Channel.IsUsernameFreeAsync(username);
+        }
+        
+        public int InsertUserToGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.InsertUserToGroup(user, group);
+        }
+        
+        public System.Threading.Tasks.Task<int> InsertUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.InsertUserToGroupAsync(user, group);
+        }
+        
+        public int DeleteUserToGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.DeleteUserToGroup(user, group);
+        }
+        
+        public System.Threading.Tasks.Task<int> DeleteUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.DeleteUserToGroupAsync(user, group);
         }
     }
 }

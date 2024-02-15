@@ -21,14 +21,16 @@ namespace WpfClientCalander
     /// </summary>
     public partial class ChooseGroupsUC : UserControl
     {
+        Users user;
         public ChooseGroupsUC(Users user)
         {
             InitializeComponent();
+            this.user = user;   
             CalanderServiceClient serviceClient = new CalanderServiceClient();
             GroupsList list = serviceClient.GetAllGroups();
             foreach (Groups group in list)
             {
-                GroupsInfoViewUC uC = new GroupsInfoViewUC(group);
+                GroupsInfoViewUC uC = new GroupsInfoViewUC(group, user);
                 uC.Margin = new Thickness(10);
                 panel.Children.Add(uC);
             }

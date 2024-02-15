@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
 using WpfClientCalander.ServiceCalander;
+using System.Configuration;
 
 namespace WpfClientCalander
 {
@@ -23,11 +24,15 @@ namespace WpfClientCalander
     public partial class GroupsInfoViewUC : UserControl
     {
         Groups group;
-        public GroupsInfoViewUC(Groups group)
+        Users user;
+        private CalanderServiceClient serviceClient;
+        public GroupsInfoViewUC(Groups group, Users user)
         {
             InitializeComponent();
             this.group = group;
             this.DataContext = group;
+            this.user = user;
+            serviceClient = new CalanderServiceClient();
             string encodedGroupName = group.GroupName;
             string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
             uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
@@ -53,7 +58,13 @@ namespace WpfClientCalander
 
         private void tgbJoinGroup_Click(object sender, RoutedEventArgs e)
         {
-
+            tgbJoinGroup.IsChecked = true;
+            int worked = serviceClient.InsertUserToGroup(user,group);
+            if (worked == 1)
+            {
+                MessageBox.Show("Added successfully.", "YAY", MessageBoxButton.OK);
+                return;
+            }
         }
     }
 }

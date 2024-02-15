@@ -39,7 +39,7 @@ namespace WpfClientCalander
                 rdbMyProfile.Visibility = Visibility.Visible;
 
             }
-            if (user.IsGroupAdmin)
+            else if (user.IsGroupAdmin)
             {
                 rdbHome.Visibility = Visibility.Visible;
                 rdbGroupAdmin.Visibility = Visibility.Visible;
