@@ -15,7 +15,8 @@ namespace WpfClientCalander
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null) return PackIconKind.Abc;
+            if (value == null) 
+                return PackIconKind.Abc;
             switch (value)
             {
                 case "Home":

@@ -60,20 +60,27 @@ namespace WpfClientCalander
             {
                 StackPanel stackPanel = new StackPanel();
                 stackPanel.Orientation=Orientation.Horizontal;
+                stackPanel.Margin = new Thickness(0, 1, 0, 1);
 
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = group.GroupName;
+                //TextBlock textBlock = new TextBlock();
+                //textBlock.Text = group.GroupName;
+                //textBlock.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0x3C, 0x29, 0x29));
+                //textBlock.FontSize = 20;
+
+                RadioButton grpRdb = new RadioButton();
+                grpRdb.Content = group.GroupName;
+                grpRdb.Style = (Style)FindResource("MenuRadioButtonStyle");
 
                 Ellipse ellipse = new Ellipse();
                 ellipse.VerticalAlignment = VerticalAlignment.Center;
                 ellipse.HorizontalAlignment = HorizontalAlignment.Center;
-                ellipse.Height = ellipse.Width = 100;
+                ellipse.Height = ellipse.Width = 25;
                 ellipse.Margin = new Thickness(5);
                 ImageBrush imageBrush = GetGroupImage(group.GroupName);
                 ellipse.Fill = imageBrush;
 
                 stackPanel.Children.Add(ellipse);
-                stackPanel.Children.Add(textBlock);
+                stackPanel.Children.Add(grpRdb);
                 stackPanel.Tag = group;
                 stackPanel.MouseDown += StackPanel_MouseDown;
                 GroupsView.Children.Add(stackPanel);
