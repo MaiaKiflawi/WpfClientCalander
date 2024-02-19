@@ -69,17 +69,17 @@ namespace WpfClientCalander
 
                 RadioButton grpRdb = new RadioButton();
                 grpRdb.Content = group.GroupName;
-                grpRdb.Style = (Style)FindResource("MenuRadioButtonStyle");
+                grpRdb.Style = (Style)FindResource("MenuGroupRadioButtonStyle");
 
-                Ellipse ellipse = new Ellipse();
-                ellipse.VerticalAlignment = VerticalAlignment.Center;
-                ellipse.HorizontalAlignment = HorizontalAlignment.Center;
-                ellipse.Height = ellipse.Width = 25;
-                ellipse.Margin = new Thickness(5);
-                ImageBrush imageBrush = GetGroupImage(group.GroupName);
-                ellipse.Fill = imageBrush;
+                //Ellipse ellipse = new Ellipse();
+                //ellipse.VerticalAlignment = VerticalAlignment.Center;
+                //ellipse.HorizontalAlignment = HorizontalAlignment.Center;
+                //ellipse.Height = ellipse.Width = 25;
+                //ellipse.Margin = new Thickness(5);
+                //ImageBrush imageBrush = GetGroupImage(group.GroupName);
+                //ellipse.Fill = imageBrush;
 
-                stackPanel.Children.Add(ellipse);
+                //stackPanel.Children.Add(ellipse);
                 stackPanel.Children.Add(grpRdb);
                 stackPanel.Tag = group;
                 stackPanel.MouseDown += StackPanel_MouseDown;

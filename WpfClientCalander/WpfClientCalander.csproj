@@ -85,7 +85,11 @@
     <Compile Include="GroupsInfoViewUC.xaml.cs">
       <DependentUpon>GroupsInfoViewUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GroupsWindowsUC.xaml.cs">
+      <DependentUpon>GroupsWindowsUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IconConverter.cs" />
+    <Compile Include="ImageConverter.cs" />
     <Compile Include="SignupWindow.xaml.cs">
       <DependentUpon>SignupWindow.xaml</DependentUpon>
     </Compile>
@@ -118,6 +122,10 @@
     <Page Include="GroupsInfoViewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="GroupsWindowsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>

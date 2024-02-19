@@ -10,6 +10,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <local:IconConverter x:Key="IconConverter"/>
+            <local:ImageConverter x:Key="ImageConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
