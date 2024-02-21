@@ -46,6 +46,48 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.77\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Grid.Base, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Base.24.2.7\lib\net46\Syncfusion.Grid.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Grid.Windows, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Grid.Windows.24.2.7\lib\net46\Syncfusion.Grid.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.24.2.7\lib\net46\Syncfusion.Licensing.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Base, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Schedule.Base.24.2.7\lib\net46\Syncfusion.Schedule.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Schedule.Windows, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Schedule.Windows.24.2.7\lib\net46\Syncfusion.Schedule.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfRadialMenu.WPF, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfRadialMenu.WPF.18.3.0.53\lib\net46\Syncfusion.SfRadialMenu.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfSchedule.WPF, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfSchedule.WPF.18.3.0.53\lib\net46\Syncfusion.SfSchedule.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SfShared.WPF, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfShared.WPF.18.3.0.53\lib\net46\Syncfusion.SfShared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Base, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Base.24.2.7\lib\net46\Syncfusion.Shared.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.Windows, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.Windows.24.2.7\lib\net46\Syncfusion.Shared.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Shared.WPF, Version=18.3460.0.53, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Shared.WPF.18.3.0.53\lib\net46\Syncfusion.Shared.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.SpellChecker.Base, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SpellChecker.Base.24.2.7\lib\net46\Syncfusion.SpellChecker.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Base, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Base.24.2.7\lib\net46\Syncfusion.Tools.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Tools.Windows, Version=24.2460.7.0, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Tools.Windows.24.2.7\lib\net46\Syncfusion.Tools.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />

@@ -30,17 +30,15 @@
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
                        TextWrapping="Wrap"
-                       Foreground="Black" 
-                       Margin="10"/>
+                       Foreground="Black"
+                       Margin="10" />
             <TextBlock VerticalAlignment="Center"
                        FontSize="15"
                        HorizontalAlignment="Center"
                        Foreground="#FF3C2929"
                        Margin="7">
                 <Run Text="{Binding Path=GroupAdmin.FirstName}" />
-                <Run Text="{Binding Path=GroupAdmin.LastName}" />
-            </TextBlock>
+                <Run Text="{Binding Path=GroupAdmin.LastName}" /></TextBlock>
         </StackPanel>
-        
     </Grid>
 </Window>
