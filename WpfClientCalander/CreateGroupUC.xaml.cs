@@ -135,12 +135,18 @@ namespace WpfClientCalander
             string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
             fileInfo.MoveTo(strUri);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
+            Back();
+        }
+
+        private void Back()
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new GroupAdminUC(user, ref grid));
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            grid.Children.Clear();
-            grid.Children.Add(new GroupAdminUC(user, ref grid));
+            Back();
         }
     }
 }

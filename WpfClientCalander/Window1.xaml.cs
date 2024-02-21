@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
 {
@@ -19,9 +20,12 @@ namespace WpfClientCalander
     /// </summary>
     public partial class Window1 : Window
     {
-        public Window1()
+        Groups group = new Groups();
+        public Window1(ServiceCalander.Groups group)
         {
             InitializeComponent();
+            this.group = group;
+            this.DataContext = group;
         }
     }
 }

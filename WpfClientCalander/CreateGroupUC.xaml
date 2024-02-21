@@ -51,7 +51,7 @@
                 HorizontalAlignment="Left">
             <materialDesign:PackIcon Kind="ArrowLeft"
                                      HorizontalAlignment="Right"
-                                     FontSize="27" />
+                                     FontSize="35" />
         </Button>
         <!--title-->
         <TextBlock Grid.Row="1"

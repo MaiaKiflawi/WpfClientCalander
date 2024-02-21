@@ -29,15 +29,14 @@ namespace WpfClientCalander
         {
             InitializeComponent();
             this.user = user;
+            welcomeUser.Text = $"Welcome {user.FirstName}!";
             serviceClient = new CalanderServiceClient();
-            myGroups= serviceClient.GetGroupsByUser(user);
             if (user.IsManager)
             {
                 rdbHome.Visibility = Visibility.Visible;
                 rdbGroupAdmin.Visibility = Visibility.Visible;
                 rdbManagerSettings.Visibility = Visibility.Visible;
                 rdbMyProfile.Visibility = Visibility.Visible;
-
             }
             else if (user.IsGroupAdmin)
             {
@@ -45,7 +44,6 @@ namespace WpfClientCalander
                 rdbGroupAdmin.Visibility = Visibility.Visible;
                 rdbManagerSettings.Visibility = Visibility.Collapsed;
                 rdbMyProfile.Visibility = Visibility.Visible;
-
             }
             else
             {
@@ -54,32 +52,22 @@ namespace WpfClientCalander
                 rdbManagerSettings.Visibility = Visibility.Collapsed;
                 rdbMyProfile.Visibility = Visibility.Visible;
             }
+            LoadMyGroups();
+        }
 
+        internal void LoadMyGroups() 
+        { 
             GroupsView.Children.Clear();
+            myGroups = serviceClient.GetGroupsByUser(user);
             foreach (Groups group in myGroups) 
             {
                 StackPanel stackPanel = new StackPanel();
                 stackPanel.Orientation=Orientation.Horizontal;
                 stackPanel.Margin = new Thickness(0, 1, 0, 1);
 
-                //TextBlock textBlock = new TextBlock();
-                //textBlock.Text = group.GroupName;
-                //textBlock.Foreground = new SolidColorBrush(Color.FromArgb(0xFF, 0x3C, 0x29, 0x29));
-                //textBlock.FontSize = 20;
-
                 RadioButton grpRdb = new RadioButton();
                 grpRdb.Content = group.GroupName;
                 grpRdb.Style = (Style)FindResource("MenuGroupRadioButtonStyle");
-
-                //Ellipse ellipse = new Ellipse();
-                //ellipse.VerticalAlignment = VerticalAlignment.Center;
-                //ellipse.HorizontalAlignment = HorizontalAlignment.Center;
-                //ellipse.Height = ellipse.Width = 25;
-                //ellipse.Margin = new Thickness(5);
-                //ImageBrush imageBrush = GetGroupImage(group.GroupName);
-                //ellipse.Fill = imageBrush;
-
-                //stackPanel.Children.Add(ellipse);
                 stackPanel.Children.Add(grpRdb);
                 stackPanel.Tag = group;
                 stackPanel.MouseDown += StackPanel_MouseDown;
@@ -91,35 +79,8 @@ namespace WpfClientCalander
         {
             StackPanel stackPanel= (StackPanel)sender;
             Groups group=stackPanel.Tag as Groups;
-
         }
 
-        private ImageBrush GetGroupImage(string groupName)
-        {
-            ImageBrush imageBrush = new ImageBrush();
-            imageBrush.Stretch = Stretch.UniformToFill;
-            string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
-            uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
-            uriStr = uriStr + @"\Images\imgGroups\";
-            BitmapImage bitmapImage = new BitmapImage();
-            DirectoryInfo hdDirectoryInWhichToSearch = new DirectoryInfo(uriStr);
-            FileInfo[] filesInDir = hdDirectoryInWhichToSearch.GetFiles(groupName + ".*");
-            if (filesInDir.Length > 0)
-            {
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filesInDir[0].FullName);
-                bitmapImage.EndInit();
-                imageBrush.ImageSource = bitmapImage;
-            }
-            else
-            {
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(@"pack://application:,,,/Images/projectLogo.jpg");
-                bitmapImage.EndInit();
-                imageBrush.ImageSource = bitmapImage;
-            }
-            return imageBrush;
-        }
 
         private void Themes_Click(object sender, RoutedEventArgs e)
         {
@@ -150,7 +111,7 @@ namespace WpfClientCalander
         private void rdbHome_Click(object sender, RoutedEventArgs e)
         {
             ucGrid.Children.Clear();
-            ucGrid.Children.Add(new ChooseGroupsUC(user));
+            ucGrid.Children.Add(new ChooseGroupsUC(user, this));
         }
 
 

@@ -38,8 +38,6 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="60" />
                         <RowDefinition Height="*" />
-                        <RowDefinition Height="130" />
-                        <RowDefinition Height="80" />
                     </Grid.RowDefinitions>
                     <!-- Logo -->
                     <StackPanel Grid.Row="0"
@@ -98,6 +96,9 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <!-- Start: Button Close | Restore | Minimize -->
+                <TextBlock Grid.Row="0" x:Name="welcomeUser"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left" Margin="25 0 0 0"/>
                 <StackPanel Grid.Row="0"
                             Grid.Column="4"
                             HorizontalAlignment="Right"

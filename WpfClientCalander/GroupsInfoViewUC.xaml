@@ -14,20 +14,17 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </UserControl.Resources>
-    
-    
+    </UserControl.Resources>  
     
     <!--front-->
-    <materialDesign:Flipper Style="{StaticResource MaterialDesignCardFlipper}">
+    <materialDesign:Flipper  Style="{StaticResource MaterialDesignCardFlipper}">
         <materialDesign:Flipper.FrontContent>
-            <Grid Background="AntiqueWhite">
+            <Grid x:Name="titleBgColour"  Background="AntiqueWhite">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="145" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="35" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Background="#b0696a" Opacity="10"/>
                 <Ellipse Grid.Row="0" Width="135" Height="135"
                          VerticalAlignment="Center"
                          HorizontalAlignment="Center">
@@ -47,7 +44,8 @@
                     </TextBlock>
                 </StackPanel>
                 <StackPanel Grid.Row="2">
-                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                    <Button x:Name="btnFlip"
+                            Style="{StaticResource MaterialDesignFlatButton}"
                             Command="{x:Static materialDesign:Flipper.FlipCommand}"
                             Margin="0">
                         <StackPanel >
@@ -65,7 +63,7 @@
         
         <!--back-->
         <materialDesign:Flipper.BackContent>
-            <Grid Height="276"
+            <Grid x:Name="flipBgColour" Height="276"
                   Width="220"
                   Background="AntiqueWhite">
                 <Grid.RowDefinitions>

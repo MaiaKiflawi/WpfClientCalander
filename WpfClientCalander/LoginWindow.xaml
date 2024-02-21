@@ -110,7 +110,7 @@
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" >
             <Button x:Name="btnLogin" Content="LogIn" Click="btnLogin_Click" />
             <Button x:Name="btnClear" Content="Clear" Click="btnClear_Click"/>
-            <Button x:Name="btnSkip" Content="SkipUser" Click="btnSkip_Click"/>
+            <Button x:Name="btnSkip" Content="SkipGroup" Click="btnGroup_Click"/>
         </StackPanel>
 
         <Button Grid.Row="4" x:Name="btnSignupPage" Content="Sign Up page >>>" Click="btnSignupPage_Click"

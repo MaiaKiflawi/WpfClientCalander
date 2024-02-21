@@ -22,18 +22,26 @@ namespace WpfClientCalander
     public partial class ChooseGroupsUC : UserControl
     {
         Users user;
-        public ChooseGroupsUC(Users user)
+        UserWindow parent;
+        public ChooseGroupsUC(Users user,UserWindow window)
         {
             InitializeComponent();
             this.user = user;   
+            this.parent = window;
             CalanderServiceClient serviceClient = new CalanderServiceClient();
             GroupsList list = serviceClient.GetAllGroups();
             foreach (Groups group in list)
             {
-                GroupsInfoViewUC uC = new GroupsInfoViewUC(group, user);
+                GroupsInfoViewUC uC = new GroupsInfoViewUC(group, user,this);
                 uC.Margin = new Thickness(10);
                 panel.Children.Add(uC);
             }
+        }
+
+        internal void NewGroup(GroupsInfoViewUC uc)
+        {
+            parent.LoadMyGroups();
+            uc.ChangeColour();
         }
 
         private void panel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)

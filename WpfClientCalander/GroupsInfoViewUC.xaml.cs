@@ -25,10 +25,12 @@ namespace WpfClientCalander
     {
         Groups group;
         Users user;
+        ChooseGroupsUC parent;
         private CalanderServiceClient serviceClient;
-        public GroupsInfoViewUC(Groups group, Users user)
+        public GroupsInfoViewUC(Groups group, Users user, ChooseGroupsUC uc)
         {
             InitializeComponent();
+            parent = uc;
             this.group = group;
             this.DataContext = group;
             this.user = user;
@@ -54,17 +56,50 @@ namespace WpfClientCalander
                 bitmapImage.EndInit();
                 imgName.ImageSource = bitmapImage;
             }
+            if (group.Users.Exists(u => u.Id == user.Id))
+            {
+                ChangeColour();
+                tgbJoinGroup.IsChecked = true;
+            }
+        }
+
+        internal void ChangeColour()
+        {
+            titleBgColour.Background = Brushes.AliceBlue;
+            flipBgColour.Background = Brushes.AliceBlue;
+        }
+
+        internal void ChangeColourBack()
+        {
+            titleBgColour.Background = Brushes.AntiqueWhite;
+            flipBgColour.Background = Brushes.AntiqueWhite;
         }
 
         private void tgbJoinGroup_Click(object sender, RoutedEventArgs e)
         {
-            tgbJoinGroup.IsChecked = true;
-            int worked = serviceClient.InsertUserToGroup(user,group);
-            if (worked == 1)
+            if (tgbJoinGroup.IsChecked == true)
             {
-                MessageBox.Show("Added successfully.", "YAY", MessageBoxButton.OK);
-                return;
+                int added = serviceClient.InsertUserToGroup(user, group);
+                if (added == 1)
+                {
+                    parent.NewGroup(this);
+                    MessageBox.Show("Added successfully.", "YAY", MessageBoxButton.OK);
+                    btnFlip.Command.Execute(@"{ x: Static materialDesign:Flipper.FlipCommand}");
+                    return;
+                }
             }
+            else
+            {
+                int removed = serviceClient.DeleteUserToGroup(user, group);
+                if (removed == 1)
+                {
+                    parent.NewGroup(this);
+                    ChangeColourBack();
+                    MessageBox.Show("Removed successfully.", "YAY", MessageBoxButton.OK);
+                    btnFlip.Command.Execute(@"{ x: Static materialDesign:Flipper.FlipCommand}");
+                    return;
+                }
+            }            
         }
     }
 }
