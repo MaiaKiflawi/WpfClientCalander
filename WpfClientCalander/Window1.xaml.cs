@@ -26,6 +26,21 @@ namespace WpfClientCalander
             InitializeComponent();
             this.group = group;
             this.DataContext = group;
+            SetGridLines();
+        }
+
+        private void SetGridLines()
+        {
+            calGrid.ShowGridLines = false;
+            calGrid.Background = new SolidColorBrush(Color.FromArgb(0xFF, 0x3C, 0x29, 0x29));
+            for (int i = 0; i < 11; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    //calGrid. set border colour
+                }
+
+            }
         }
     }
 }

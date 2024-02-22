@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
 {
@@ -20,9 +21,12 @@ namespace WpfClientCalander
     /// </summary>
     public partial class GroupsWindowsUC : UserControl
     {
-        public GroupsWindowsUC()
+        Groups group = new Groups();
+        public GroupsWindowsUC(ServiceCalander.Groups group)
         {
             InitializeComponent();
+            this.group = group;
+            this.DataContext = group;
         }
     }
 }
