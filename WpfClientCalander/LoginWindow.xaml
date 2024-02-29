@@ -70,7 +70,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
             <materialDesign:PackIcon Kind="Calendar" Background="LightSalmon"/>
-            <TextBlock Text="My Shared Calender"/>
+            <TextBlock Text="My Shared Calendar"/>
         </StackPanel>
         
         <!--Username-->

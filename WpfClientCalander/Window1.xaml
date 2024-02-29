@@ -21,7 +21,7 @@
             <RowDefinition Height="110"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" FontSize="45" VerticalAlignment="Center" HorizontalAlignment="Center"
+        <TextBlock Grid.Row="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center"
                    Foreground="Maroon"
                    Text="{Binding Path=GroupName}" Margin="0 20 0 20" FontWeight="Bold"/>
         <StackPanel Grid.Row="1">

@@ -29,6 +29,7 @@ namespace WpfClientCalander
         string filePath;
         CalanderServiceClient client;
         private Grid grid;
+        bool imgAdded;
         public List<string> ImageUris { get; set; } = new List<string>();
 
         public CreateGroupUC(Users user, ref Grid grid)
@@ -40,6 +41,7 @@ namespace WpfClientCalander
             btnChangeFile.Visibility = Visibility.Hidden;
             group = new Groups();
             this.DataContext = group;
+            imgAdded = false;
             client = new CalanderServiceClient();
         }
 
@@ -67,6 +69,7 @@ namespace WpfClientCalander
 
                     btnOpenFile.Visibility = Visibility.Hidden;
                     btnChangeFile.Visibility = Visibility.Visible;
+                    imgAdded = true;
                 }
                 catch (Exception ex)
                 {
@@ -99,6 +102,7 @@ namespace WpfClientCalander
 
                     btnOpenFile.Visibility = Visibility.Hidden;
                     btnChangeFile.Visibility = Visibility.Visible;
+                    imgAdded = true;
                 }
                 catch (Exception ex)
                 {
@@ -130,10 +134,13 @@ namespace WpfClientCalander
                 MessageBox.Show("System error.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
             }
-            FileInfo fileInfo = new FileInfo(filePath);
-            //string strUri = Path.Combine(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")), "Images", "imgGroups", group.GroupName + Path.GetExtension(filePath));
-            string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
-            fileInfo.MoveTo(strUri);
+            if (imgAdded)
+            {
+                FileInfo fileInfo = new FileInfo(filePath);
+                //string strUri = Path.Combine(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")), "Images", "imgGroups", group.GroupName + Path.GetExtension(filePath));
+                string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
+                fileInfo.MoveTo(strUri);
+            }
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             Back();
         }
