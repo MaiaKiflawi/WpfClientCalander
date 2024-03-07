@@ -61,6 +61,12 @@
   <wsdl:message name="ICalanderService_GetEventsByUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEventsByUserResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_GetEventsByGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsByGroup" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_GetEventsByGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventsByGroupResponse" />
+  </wsdl:message>
   <wsdl:message name="ICalanderService_GetAllGroups_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGroups" />
   </wsdl:message>
@@ -193,6 +199,10 @@
     <wsdl:operation name="GetEventsByUser">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByUser" message="tns:ICalanderService_GetEventsByUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByUserResponse" message="tns:ICalanderService_GetEventsByUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventsByGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByGroup" message="tns:ICalanderService_GetEventsByGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByGroupResponse" message="tns:ICalanderService_GetEventsByGroup_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllGroups">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllGroups" message="tns:ICalanderService_GetAllGroups_InputMessage" />
@@ -335,6 +345,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEventsByUser">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/GetEventsByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventsByGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/GetEventsByGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

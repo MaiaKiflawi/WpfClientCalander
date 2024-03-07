@@ -123,6 +123,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEventsByGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q11:Groups" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEventsByGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetEventsByGroupResult" nillable="true" type="q12:EventList" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllGroups">
     <xs:complexType>
       <xs:sequence />
@@ -131,14 +145,14 @@
   <xs:element name="GetAllGroupsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllGroupsResult" nillable="true" type="q11:GroupsList" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllGroupsResult" nillable="true" type="q13:GroupsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q12:Groups" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q14:Groups" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -152,7 +166,7 @@
   <xs:element name="UpdateGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q13:Groups" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q15:Groups" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -166,7 +180,7 @@
   <xs:element name="DeleteGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q14:Groups" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q16:Groups" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -180,14 +194,14 @@
   <xs:element name="GetGroupsByUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q15:Users" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q17:Users" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetGroupsByUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetGroupsByUserResult" nillable="true" type="q16:GroupsList" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetGroupsByUserResult" nillable="true" type="q18:GroupsList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -213,14 +227,14 @@
   <xs:element name="GetAllUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q17:UsersList" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetAllUsersResult" nillable="true" type="q19:UsersList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="InsertUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q18:Users" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q20:Users" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -234,7 +248,7 @@
   <xs:element name="UpdateUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q19:Users" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q21:Users" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -248,7 +262,7 @@
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q20:Users" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q22:Users" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -262,42 +276,42 @@
   <xs:element name="GetUsersByGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q21:Groups" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q23:Groups" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersByGroupResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersByGroupResult" nillable="true" type="q22:UsersList" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersByGroupResult" nillable="true" type="q24:UsersList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersByEvent">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="events" nillable="true" type="q23:Event" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="events" nillable="true" type="q25:Event" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetUsersByEventResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersByEventResult" nillable="true" type="q24:UsersList" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="GetUsersByEventResult" nillable="true" type="q26:UsersList" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Login">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q25:Users" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q27:Users" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LoginResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="LoginResult" nillable="true" type="q26:Users" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="LoginResult" nillable="true" type="q28:Users" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -318,8 +332,8 @@
   <xs:element name="InsertUserToGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q27:Users" />
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q28:Groups" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q29:Users" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q30:Groups" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -333,8 +347,8 @@
   <xs:element name="DeleteUserToGroup">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q29:Users" />
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q30:Groups" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q31:Users" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="group" nillable="true" type="q32:Groups" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

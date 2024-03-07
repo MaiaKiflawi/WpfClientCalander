@@ -496,6 +496,12 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetEventsByUser", ReplyAction="http://tempuri.org/ICalanderService/GetEventsByUserResponse")]
         System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.EventList> GetEventsByUserAsync(WpfClientCalander.ServiceCalander.Users user);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetEventsByGroup", ReplyAction="http://tempuri.org/ICalanderService/GetEventsByGroupResponse")]
+        WpfClientCalander.ServiceCalander.EventList GetEventsByGroup(WpfClientCalander.ServiceCalander.Groups group);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetEventsByGroup", ReplyAction="http://tempuri.org/ICalanderService/GetEventsByGroupResponse")]
+        System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.EventList> GetEventsByGroupAsync(WpfClientCalander.ServiceCalander.Groups group);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllGroups", ReplyAction="http://tempuri.org/ICalanderService/GetAllGroupsResponse")]
         WpfClientCalander.ServiceCalander.GroupsList GetAllGroups();
         
@@ -690,6 +696,14 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.EventList> GetEventsByUserAsync(WpfClientCalander.ServiceCalander.Users user) {
             return base.Channel.GetEventsByUserAsync(user);
+        }
+        
+        public WpfClientCalander.ServiceCalander.EventList GetEventsByGroup(WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.GetEventsByGroup(group);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.EventList> GetEventsByGroupAsync(WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.GetEventsByGroupAsync(group);
         }
         
         public WpfClientCalander.ServiceCalander.GroupsList GetAllGroups() {
