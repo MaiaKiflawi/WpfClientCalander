@@ -79,8 +79,10 @@
                                      Click="rdbManagerSettings_Click"/>
                         
                         <Separator Margin="20 20"
-                                   Background="{DynamicResource TertiaryBackgroundColor}" />
+                                   Background="#6d4c41" />
                         <WrapPanel Name="GroupsView" />
+                        <Separator Margin="20 20"
+                                   Background="#6d4c41" />
                         <RadioButton x:Name="rdbMyProfile"
                                      Content="My Profile"
                                      Style="{DynamicResource MenuRadioButtonStyle}"

@@ -72,7 +72,8 @@ namespace WpfClientCalander
 
         private void ViewEvent_Click(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            //temporary (open uc of info..)
+            MessageBox.Show("Group", "info - example", MessageBoxButton.OK);
         }
 
         private void SetMonthYears()
@@ -101,13 +102,11 @@ namespace WpfClientCalander
                         textBlock.Text = days[j-1];
                         myBorder.Child = textBlock;
                         calWP.Children.Add(myBorder);
-                        //Grid.SetRowSpan(myBorder, i);
-                        //Grid.SetColumnSpan(myBorder, j);
                     }
                     else if (i % 2 == 0)
                     {
                         Border myBorder = new Border();
-                        myBorder.Height = 20;
+                        myBorder.Height = 18;
                         myBorder.Width = 830 / 7;
                         myBorder.Background = new SolidColorBrush(Color.FromArgb(255, 0xf3, 0xe5, 0xf5));
                         myBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 0x7e, 0x4c, 0x45));
@@ -117,13 +116,11 @@ namespace WpfClientCalander
                         myBorder.Child = tb;
                         dates.Add(tb);
                         calWP.Children.Add(myBorder);
-                        //Grid.SetRowSpan(myBorder, i);
-                        //Grid.SetColumnSpan(myBorder, j);
                     }
                     else
                     {
                         Border myBorder = new Border();
-                        myBorder.Height = 60;
+                        myBorder.Height = 57;
                         myBorder.Width = 830 / 7;
                         myBorder.Background = new SolidColorBrush(Color.FromArgb(255, 0xff, 0xf3, 0xe0));
                         myBorder.BorderBrush = new SolidColorBrush(Color.FromArgb(255, 0x7e, 0x4c, 0x45));
@@ -133,8 +130,6 @@ namespace WpfClientCalander
                         myBorder.Child = st;
                         events.Add(st);
                         calWP.Children.Add(myBorder);
-                        //Grid.SetRowSpan(myBorder, i);
-                        //Grid.SetColumnSpan(myBorder, j);
                     }
                 }
             }
