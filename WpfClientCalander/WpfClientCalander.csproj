@@ -79,6 +79,9 @@
     <Compile Include="CreateGroupUC.xaml.cs">
       <DependentUpon>CreateGroupUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EventInfoUC.xaml.cs">
+      <DependentUpon>EventInfoUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GroupAdminUC.xaml.cs">
       <DependentUpon>GroupAdminUC.xaml</DependentUpon>
     </Compile>
@@ -100,9 +103,6 @@
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validations.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Page Include="AppManagerUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +112,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CreateGroupUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventInfoUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,10 +164,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

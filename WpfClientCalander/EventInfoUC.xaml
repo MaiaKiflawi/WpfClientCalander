@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="WpfClientCalander.EventInfoUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfClientCalander"
+             mc:Ignorable="d"
+             Height="660"
+             Width="850">
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#FF3C2929"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="AntiqueWhite">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0"
+                HorizontalAlignment="Left"
+                Content="back"
+                x:Name="backToCalendar"
+                Click="backToCalendar_Click" />
+        <StackPanel Grid.Row="1">
+            <TextBlock VerticalAlignment="Top"
+                       FontWeight="Bold"
+                       Text="{Binding Path=EventName}"
+                       FontSize="35" />
+            <Separator Height="30" />
+            <TextBlock>
+                <Run Text="{Binding Path=EventStart}" />
+                <Run Text=" - " />
+                <Run Text="{Binding Path=EventEnd}" /></TextBlock>
+            <Separator Height="30"/>
+            <StackPanel x:Name="participantsSP" />
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Attend" FontSize="20" Margin="15 0"/>
+            <ToggleButton Width="60"
+                          Height="40"
+                          x:Name="attendEvent"
+                          Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
+                          ToolTip="MaterialDesignSwitchDarkToggleButton"
+                          Click="attendEvent_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

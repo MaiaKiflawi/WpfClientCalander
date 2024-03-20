@@ -103,13 +103,13 @@ namespace WpfClientCalander
                 pbxPassword.Password = tbxPassword.Text;
         }
 
-        private void btnGroup_Click(object sender, RoutedEventArgs e)
-        {
-            user = new Users { UserName = "Maia1user", Password = "12ABcd#" }; //manager
-            user = serviceCal.Login(user);
-            GroupsList g = serviceCal.GetGroupsByUser(user);
-            Window1 groupWindow = new Window1(g[0]);
-            groupWindow.ShowDialog();
-        }
+        //private void btnGroup_Click(object sender, RoutedEventArgs e)
+        //{
+        //    user = new Users { UserName = "Maia1user", Password = "12ABcd#" }; //manager
+        //    user = serviceCal.Login(user);
+        //    GroupsList g = serviceCal.GetGroupsByUser(user);
+        //    Window1 groupWindow = new Window1(g[0]);
+        //    groupWindow.ShowDialog();
+        //}
     }
 }

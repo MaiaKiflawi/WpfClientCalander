@@ -30,6 +30,8 @@ namespace WpfClientCalander
             InitializeComponent();
             this.user = user;
             welcomeUser.Text = $"Welcome {user.FirstName}!";
+            welcomeUser.FontSize = 20;
+            welcomeUser.Foreground = new SolidColorBrush(Color.FromArgb(255, 0x7e, 0x4c, 0x45));
             serviceClient = new CalanderServiceClient();
             if (user.IsManager)
             {
@@ -68,17 +70,34 @@ namespace WpfClientCalander
                 RadioButton grpRdb = new RadioButton();
                 grpRdb.Content = group.GroupName;
                 grpRdb.Style = (Style)FindResource("MenuGroupRadioButtonStyle");
+                grpRdb.Click += Group_Click;
+                grpRdb.Tag = group;
                 stackPanel.Children.Add(grpRdb);
-                stackPanel.Tag = group;
-                stackPanel.MouseDown += StackPanel_MouseDown;
                 GroupsView.Children.Add(stackPanel);
             }
         }
 
-        private void StackPanel_MouseDown(object sender, MouseButtonEventArgs e)
+        internal void Group_Click(object sender, RoutedEventArgs e)
         {
-            StackPanel stackPanel= (StackPanel)sender;
-            Groups group=stackPanel.Tag as Groups;
+            foreach(StackPanel sp in GroupsView.Children)
+                (sp.Children[0] as RadioButton).IsChecked = false;
+            (sender as RadioButton).IsChecked=true;
+            // StackPanel stackPanel = (StackPanel)sender;
+            Groups group=(sender as RadioButton).Tag as Groups;
+            GroupsWindowsUC uc = new GroupsWindowsUC(group,this);
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(uc);
+
+        }
+        internal void Group_Click(Groups group)
+        {
+            foreach (StackPanel sp in GroupsView.Children)
+                (sp.Children[0] as RadioButton).IsChecked = false;
+            // StackPanel stackPanel = (StackPanel)sender;
+            GroupsWindowsUC uc = new GroupsWindowsUC(group, this);
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(uc);
+
         }
 
 
@@ -125,5 +144,10 @@ namespace WpfClientCalander
             ucGrid.Children.Add(new UserProfileUC(user));
         }
 
+        internal void LoadEvent(Event myEvent)
+        {
+            ucGrid.Children.Clear();
+            ucGrid.Children.Add(new EventInfoUC(myEvent, user, this));
+        }
     }
 }

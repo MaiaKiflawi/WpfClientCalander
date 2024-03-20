@@ -359,4 +359,34 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="InsertUserToEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q33:Users" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="events" nillable="true" type="q34:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertUserToEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertUserToEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserToEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="user" nillable="true" type="q35:Users" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Model" minOccurs="0" name="events" nillable="true" type="q36:Event" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserToEventResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteUserToEventResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
