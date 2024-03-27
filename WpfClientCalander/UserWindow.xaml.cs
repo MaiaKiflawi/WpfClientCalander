@@ -33,6 +33,8 @@ namespace WpfClientCalander
             welcomeUser.FontSize = 20;
             welcomeUser.Foreground = new SolidColorBrush(Color.FromArgb(255, 0x7e, 0x4c, 0x45));
             serviceClient = new CalanderServiceClient();
+            rdbHome.IsChecked = true;
+            rdbHome_Click(null, null);
             if (user.IsManager)
             {
                 rdbHome.Visibility = Visibility.Visible;
@@ -79,7 +81,8 @@ namespace WpfClientCalander
 
         internal void Group_Click(object sender, RoutedEventArgs e)
         {
-            foreach(StackPanel sp in GroupsView.Children)
+            rdbHome.IsChecked = rdbGroupAdmin.IsChecked = rdbManagerSettings.IsChecked = rdbMyProfile.IsChecked = false;
+            foreach (StackPanel sp in GroupsView.Children)
                 (sp.Children[0] as RadioButton).IsChecked = false;
             (sender as RadioButton).IsChecked=true;
             // StackPanel stackPanel = (StackPanel)sender;
@@ -87,19 +90,20 @@ namespace WpfClientCalander
             GroupsWindowsUC uc = new GroupsWindowsUC(group,this);
             ucGrid.Children.Clear();
             ucGrid.Children.Add(uc);
-
         }
+
         internal void Group_Click(Groups group)
         {
             foreach (StackPanel sp in GroupsView.Children)
-                (sp.Children[0] as RadioButton).IsChecked = false;
-            // StackPanel stackPanel = (StackPanel)sender;
-            GroupsWindowsUC uc = new GroupsWindowsUC(group, this);
-            ucGrid.Children.Clear();
-            ucGrid.Children.Add(uc);
-
+                if (((sp.Children[0] as RadioButton).Tag as Groups).Id == group.Id)
+                    Group_Click((sp.Children[0] as RadioButton), null);
         }
 
+        private void ClearGroupSelected()
+        {
+            foreach (StackPanel sp in GroupsView.Children)
+                (sp.Children[0] as RadioButton).IsChecked = false;
+        }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +125,7 @@ namespace WpfClientCalander
 
         private void rdbHome_Click(object sender, RoutedEventArgs e)
         {
+            ClearGroupSelected();
             ucGrid.Children.Clear();
             ucGrid.Children.Add(new ChooseGroupsUC(user, this));
         }
@@ -128,18 +133,21 @@ namespace WpfClientCalander
 
         private void rdbGroupAdmin_Click(object sender, RoutedEventArgs e)
         {
+            ClearGroupSelected();
             ucGrid.Children.Clear();
             ucGrid.Children.Add(new GroupAdminUC(user, ref ucGrid));
         }
 
         private void rdbManagerSettings_Click(object sender, RoutedEventArgs e)
         {
+            ClearGroupSelected();
             ucGrid.Children.Clear();
             ucGrid.Children.Add(new AppManagerUC(user));
         }
 
         private void rdbMyProfile_Click(object sender, RoutedEventArgs e)
         {
+            ClearGroupSelected();
             ucGrid.Children.Clear();
             ucGrid.Children.Add(new UserProfileUC(user));
         }

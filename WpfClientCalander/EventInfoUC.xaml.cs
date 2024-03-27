@@ -76,7 +76,7 @@ namespace WpfClientCalander
                 int removed = calanderService.DeleteUserToEvent(user, myEvent);
                 if (removed == 1)
                 {
-                    usersList.Remove(user);
+                    usersList.RemoveAll(us=>us.Id==user.Id);
                     MessageBox.Show("Removed successfully.", "YAY", MessageBoxButton.OK);
                     ShowEventsUsers();
                     return;

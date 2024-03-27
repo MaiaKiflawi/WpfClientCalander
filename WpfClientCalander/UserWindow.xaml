@@ -67,7 +67,7 @@
                                      Content="Home"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
                                      Margin="0 30 0 0"
-                                     Click="rdbHome_Click" />
+                                     Click="rdbHome_Click" IsChecked="True"/>
                         <RadioButton x:Name="rdbGroupAdmin"
                                      Content="Group Admin Page"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
@@ -83,6 +83,7 @@
                         <WrapPanel Name="GroupsView" />
                         <Separator Margin="20 20"
                                    Background="#6d4c41" />
+                        
                         <RadioButton x:Name="rdbMyProfile"
                                      Content="My Profile"
                                      Style="{DynamicResource MenuRadioButtonStyle}"
