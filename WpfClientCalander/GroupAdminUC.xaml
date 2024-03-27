@@ -8,9 +8,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="AntiqueWhite">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="TextBlock">
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="30"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="#FF3C2929"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
-        <Button x:Name="btnCreateGroup"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0">
+            <Run Text="Group Admin: "/>
+            <Run Text="{Binding Path=FirstName}"/>
+            <Run Text="{Binding Path=LastName}"/>
+        </TextBlock>
+        <Button Grid.Row="1" x:Name="btnCreateGroup"
                 Content="Create Group"
+                Background="#6d4c41"
+                Foreground="WhiteSmoke"
+                HorizontalAlignment="Center"
+                FontSize="22"
+                VerticalAlignment="Center"
                 Click="btnCreateGroup_Click" />
+        <WrapPanel x:Name="adminGroups"/>
     </Grid>
 </UserControl>

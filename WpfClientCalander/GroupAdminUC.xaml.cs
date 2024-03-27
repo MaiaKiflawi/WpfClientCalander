@@ -23,10 +23,12 @@ namespace WpfClientCalander
     {
         Users user;
         private Grid grid;
+
         public GroupAdminUC(Users user, ref Grid grid)
         {
             InitializeComponent();
             this.user = user;
+            this.DataContext = user;
             this.grid = grid;
         }
 
@@ -35,5 +37,7 @@ namespace WpfClientCalander
             grid.Children.Clear();
             grid.Children.Add(new CreateGroupUC(user, ref grid));
         }
+
+
     }
 }
