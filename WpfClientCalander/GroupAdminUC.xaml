@@ -38,6 +38,6 @@
                 FontSize="22"
                 VerticalAlignment="Center"
                 Click="btnCreateGroup_Click" />
-        <WrapPanel x:Name="adminGroups"/>
+        <WrapPanel Grid.Row="2" x:Name="adminGroups"/>
     </Grid>
 </UserControl>
