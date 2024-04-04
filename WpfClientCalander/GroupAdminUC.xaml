@@ -19,10 +19,10 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="80"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0">
@@ -38,6 +38,14 @@
                 FontSize="22"
                 VerticalAlignment="Center"
                 Click="btnCreateGroup_Click" />
-        <WrapPanel Grid.Row="2" x:Name="adminGroups"/>
+        <ScrollViewer  Grid.Row="2"
+                       Padding="15"
+                       Background="White"
+                       x:Name="myScrollViewer"
+                       VerticalScrollBarVisibility="Auto">
+            <WrapPanel x:Name="adminGroups" ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                       HorizontalAlignment="Center" />
+        </ScrollViewer>
+        
     </Grid>
 </UserControl>

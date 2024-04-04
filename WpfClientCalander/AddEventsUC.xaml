@@ -692,14 +692,14 @@
     
     <materialDesign:Flipper  Style="{StaticResource MaterialDesignCardFlipper}">
         <materialDesign:Flipper.FrontContent>
-            <Grid Background="AntiqueWhite">
+            <Grid Background="AliceBlue">
                 <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                    <RowDefinition />
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="25"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
-                           Text="{Binding Path=GroupName}" />
+                           Text="{Binding Path=GroupName}" FontSize="25"/>
                 <WrapPanel Grid.Row="1"
                            x:Name="existingEvents" />
                 <StackPanel Grid.Row="2">
@@ -759,7 +759,8 @@
                             materialDesign:HintAssist.Hint="Event Start"
                             materialDesign:HintAssist.Foreground="Maroon"
                             materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
-                            CalendarStyle="{StaticResource CalendarStyle}">
+                            CalendarStyle="{StaticResource CalendarStyle}"
+                            SelectedDateChanged="dtpStart_SelectedDateChanged">
                     <DatePicker.Resources>
                         <SolidColorBrush x:Key="MaterialDesignPaper"
                                          Color="AntiqueWhite" />
@@ -777,7 +778,8 @@
                             materialDesign:HintAssist.Hint="Event End"
                             materialDesign:HintAssist.Foreground="Maroon"
                             materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
-                            CalendarStyle="{StaticResource CalendarStyle}">
+                            CalendarStyle="{StaticResource CalendarStyle}"
+                            SelectedDateChanged="dtpEnd_SelectedDateChanged">
                     <DatePicker.Resources>
                         <SolidColorBrush x:Key="MaterialDesignPaper"
                                          Color="AntiqueWhite" />

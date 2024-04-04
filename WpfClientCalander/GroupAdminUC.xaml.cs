@@ -34,7 +34,7 @@ namespace WpfClientCalander
             GroupsList list = calendarService.GetGroupsByUser(user);
             foreach (Groups group in list)
             {
-                AddEventsUC uC = new AddEventsUC(group,this);
+                AddEventsUC uC = new AddEventsUC(group, user, ref grid);
                 uC.Margin = new Thickness(19);
                 adminGroups.Children.Add(uC);
 
