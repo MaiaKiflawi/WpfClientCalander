@@ -90,7 +90,7 @@ namespace WpfClientCalander
             }
             else
             {
-                int removed = serviceClient.DeleteUserToGroup(user, group);
+                int removed = serviceClient.DeleteUserFromGroup(user, group);
                 if (removed == 1)
                 {
                     parent.NewGroup(this);

@@ -752,44 +752,55 @@
                          materialDesign:HintAssist.Hint="Event Name"
                          materialDesign:HintAssist.Foreground="Maroon"
                          materialDesign:TextFieldAssist.UnderlineBrush="Maroon" />
-                <DatePicker Grid.Row="2"
-                            Margin="3"
-                            FontSize="15"
-                            x:Name="dtpStart"
-                            materialDesign:HintAssist.Hint="Event Start"
-                            materialDesign:HintAssist.Foreground="Maroon"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
-                            CalendarStyle="{StaticResource CalendarStyle}"
-                            SelectedDateChanged="dtpStart_SelectedDateChanged">
-                    <DatePicker.Resources>
-                        <SolidColorBrush x:Key="MaterialDesignPaper"
-                                         Color="AntiqueWhite" />
-                    </DatePicker.Resources>
-                    <DatePicker.SelectedDate>
-                        <Binding Path="BDate"
-                                 UpdateSourceTrigger="PropertyChanged"
-                                 StringFormat="dd/MM/yyyy"></Binding>
-                    </DatePicker.SelectedDate>
-                </DatePicker>
-                <DatePicker Grid.Row="3"
-                            Margin="3"
-                            FontSize="15"
-                            x:Name="dtpEnd"
-                            materialDesign:HintAssist.Hint="Event End"
-                            materialDesign:HintAssist.Foreground="Maroon"
-                            materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
-                            CalendarStyle="{StaticResource CalendarStyle}"
-                            SelectedDateChanged="dtpEnd_SelectedDateChanged">
-                    <DatePicker.Resources>
-                        <SolidColorBrush x:Key="MaterialDesignPaper"
-                                         Color="AntiqueWhite" />
-                    </DatePicker.Resources>
-                    <DatePicker.SelectedDate>
-                        <Binding Path="BDate"
-                                 UpdateSourceTrigger="PropertyChanged"
-                                 StringFormat="dd/MM/yyyy"></Binding>
-                    </DatePicker.SelectedDate>
-                </DatePicker>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <DatePicker Margin="3"
+                                FontSize="15"
+                                x:Name="dtpStart"
+                                materialDesign:HintAssist.Hint="Event Start"
+                                materialDesign:HintAssist.Foreground="Maroon"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                                CalendarStyle="{StaticResource CalendarStyle}"
+                                SelectedDateChanged="dtpStart_SelectedDateChanged">
+                        <DatePicker.Resources>
+                            <SolidColorBrush x:Key="MaterialDesignPaper"
+                                             Color="AntiqueWhite" />
+                        </DatePicker.Resources>
+                        <DatePicker.SelectedDate>
+                            <Binding Path="BDate"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     StringFormat="d"></Binding>
+                        </DatePicker.SelectedDate >
+                    </DatePicker>
+                    <materialDesign:TimePicker x:Name="tpStart"
+                        materialDesign:HintAssist.Hint="Time"
+                        materialDesign:HintAssist.Foreground="Maroon"
+                        materialDesign:TextFieldAssist.UnderlineBrush="Maroon" />
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <DatePicker Margin="3"
+                                FontSize="15"
+                                x:Name="dtpEnd"
+                                materialDesign:HintAssist.Hint="Event End"
+                                materialDesign:HintAssist.Foreground="Maroon"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                                CalendarStyle="{StaticResource CalendarStyle}"
+                                SelectedDateChanged="dtpEnd_SelectedDateChanged">
+                        <DatePicker.Resources>
+                            <SolidColorBrush x:Key="MaterialDesignPaper"
+                                             Color="AntiqueWhite" />
+                        </DatePicker.Resources>
+                        <DatePicker.SelectedDate>
+                            <Binding Path="BDate"
+                                     UpdateSourceTrigger="PropertyChanged"
+                                     StringFormat="d"></Binding>
+                        </DatePicker.SelectedDate>
+                    </DatePicker>
+                    <materialDesign:TimePicker x:Name="tpEnd"
+                                               materialDesign:HintAssist.Hint="Time"
+                                               materialDesign:HintAssist.Foreground="Maroon"
+                                               materialDesign:TextFieldAssist.UnderlineBrush="Maroon" />
+                </StackPanel>
+                
                 <Button Grid.Row="4" Content="Add" x:Name="btnAddEvent" Click="btnAddEvent_Click"/>
             </Grid>
         </materialDesign:Flipper.BackContent>

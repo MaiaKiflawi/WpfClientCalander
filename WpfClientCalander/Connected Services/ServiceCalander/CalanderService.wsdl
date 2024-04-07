@@ -157,11 +157,11 @@
   <wsdl:message name="ICalanderService_InsertUserToGroup_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertUserToGroupResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalanderService_DeleteUserToGroup_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUserToGroup" />
+  <wsdl:message name="ICalanderService_DeleteUserFromGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserFromGroup" />
   </wsdl:message>
-  <wsdl:message name="ICalanderService_DeleteUserToGroup_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUserToGroupResponse" />
+  <wsdl:message name="ICalanderService_DeleteUserFromGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserFromGroupResponse" />
   </wsdl:message>
   <wsdl:message name="ICalanderService_InsertUserToEvent_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertUserToEvent" />
@@ -169,11 +169,11 @@
   <wsdl:message name="ICalanderService_InsertUserToEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertUserToEventResponse" />
   </wsdl:message>
-  <wsdl:message name="ICalanderService_DeleteUserToEvent_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUserToEvent" />
+  <wsdl:message name="ICalanderService_DeleteUserFromEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserFromEvent" />
   </wsdl:message>
-  <wsdl:message name="ICalanderService_DeleteUserToEvent_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUserToEventResponse" />
+  <wsdl:message name="ICalanderService_DeleteUserFromEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserFromEventResponse" />
   </wsdl:message>
   <wsdl:portType name="ICalanderService">
     <wsdl:operation name="GetAllCities">
@@ -276,17 +276,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertUserToGroup" message="tns:ICalanderService_InsertUserToGroup_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertUserToGroupResponse" message="tns:ICalanderService_InsertUserToGroup_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteUserToGroup">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserToGroup" message="tns:ICalanderService_DeleteUserToGroup_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserToGroupResponse" message="tns:ICalanderService_DeleteUserToGroup_OutputMessage" />
+    <wsdl:operation name="DeleteUserFromGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserFromGroup" message="tns:ICalanderService_DeleteUserFromGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserFromGroupResponse" message="tns:ICalanderService_DeleteUserFromGroup_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="InsertUserToEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/InsertUserToEvent" message="tns:ICalanderService_InsertUserToEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/InsertUserToEventResponse" message="tns:ICalanderService_InsertUserToEvent_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteUserToEvent">
-      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserToEvent" message="tns:ICalanderService_DeleteUserToEvent_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserToEventResponse" message="tns:ICalanderService_DeleteUserToEvent_OutputMessage" />
+    <wsdl:operation name="DeleteUserFromEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserFromEvent" message="tns:ICalanderService_DeleteUserFromEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserFromEventResponse" message="tns:ICalanderService_DeleteUserFromEvent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalanderService" type="tns:ICalanderService">
@@ -516,8 +516,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteUserToGroup">
-      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUserToGroup" style="document" />
+    <wsdl:operation name="DeleteUserFromGroup">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUserFromGroup" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -534,8 +534,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeleteUserToEvent">
-      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUserToEvent" style="document" />
+    <wsdl:operation name="DeleteUserFromEvent">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUserFromEvent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

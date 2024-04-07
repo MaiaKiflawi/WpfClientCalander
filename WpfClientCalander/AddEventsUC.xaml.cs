@@ -72,9 +72,9 @@ namespace WpfClientCalander
             dtpStart.DisplayDateStart = DateTime.Today.AddYears(-50);
             dtpStart.BlackoutDates.Add(cdr1);
             dtpStart.BlackoutDates.Add(cdr2);
-            dtpEnd.BlackoutDates.Add(cdr1);
-            dtpEnd.BlackoutDates.Add(cdr2);
-            dtpEnd.DisplayDateStart = DateTime.Today.AddYears(-50);
+            //dtpEnd.BlackoutDates.Add(cdr1);
+            //dtpEnd.BlackoutDates.Add(cdr2);
+            //dtpEnd.DisplayDateStart = DateTime.Today.AddYears(-50);
         }
 
         private void Back()
@@ -85,11 +85,11 @@ namespace WpfClientCalander
 
         private void btnAddEvent_Click(object sender, RoutedEventArgs e)
         {
-            if (dtpStart.SelectedDate > dtpEnd.SelectedDate)
-            {
-                MessageBox.Show("Event start date can't be after event end date.", "ERROR", MessageBoxButton.OK);
-                return;
-            }
+            //if (dtpStart.SelectedDate > dtpEnd.SelectedDate)
+            //{
+            //    MessageBox.Show("Event start date can't be after event end date.", "ERROR", MessageBoxButton.OK);
+            //    return;
+            //}
             if (tbxEventName.Text == null || tbxEventName.Text == " " || tbxEventName.Text == "")
             {
                 MessageBox.Show("Event name can't be empty.\n Try again.", "ERROR", MessageBoxButton.OK);
@@ -113,7 +113,7 @@ namespace WpfClientCalander
         private void dtpStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             CalendarDateRange cdr = new CalendarDateRange(DateTime.Today, DateTime.Parse(dtpStart.Text).AddDays(-1));
-            dtpEnd.BlackoutDates.Add(cdr);
+            //dtpEnd.BlackoutDates.Add(cdr);
         }
         private void dtpEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {

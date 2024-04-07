@@ -870,7 +870,7 @@
                     <SolidColorBrush x:Key="MaterialDesignPaper" Color="AntiqueWhite"/>
                 </DatePicker.Resources>
                 <DatePicker.SelectedDate>
-                    <Binding Path="BDate" UpdateSourceTrigger="PropertyChanged" StringFormat="dd/MM/yyyy">
+                    <Binding Path="BDate" UpdateSourceTrigger="PropertyChanged" StringFormat="d">
                         <Binding.ValidationRules>
                             <local:ValidationBDate/>
                         </Binding.ValidationRules>

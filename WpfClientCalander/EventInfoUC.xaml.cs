@@ -73,7 +73,7 @@ namespace WpfClientCalander
             }
             else
             {
-                int removed = calanderService.DeleteUserToEvent(user, myEvent);
+                int removed = calanderService.DeleteUserFromEvent(user, myEvent);
                 if (removed == 1)
                 {
                     usersList.RemoveAll(us=>us.Id==user.Id);
@@ -86,7 +86,7 @@ namespace WpfClientCalander
 
         private void backToCalendar_Click(object sender, RoutedEventArgs e)
         {
-            parent.Group_Click(myEvent.EventGroup);
+            parent.Group_Click(myEvent.EventGroup, !parent.isProfile);
         }
     }
 }

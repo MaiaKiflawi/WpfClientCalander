@@ -25,6 +25,7 @@ namespace WpfClientCalander
         private Users user;
         private GroupsList myGroups;
         private CalanderServiceClient serviceClient;
+        public bool isProfile = false;
         public UserWindow(Users user)
         {
             InitializeComponent();
@@ -81,6 +82,7 @@ namespace WpfClientCalander
 
         internal void Group_Click(object sender, RoutedEventArgs e)
         {
+            isProfile = false;
             rdbHome.IsChecked = rdbGroupAdmin.IsChecked = rdbManagerSettings.IsChecked = rdbMyProfile.IsChecked = false;
             foreach (StackPanel sp in GroupsView.Children)
                 (sp.Children[0] as RadioButton).IsChecked = false;
@@ -92,11 +94,23 @@ namespace WpfClientCalander
             ucGrid.Children.Add(uc);
         }
 
-        internal void Group_Click(Groups group)
+        internal void Group_Click(Groups group, bool fromGroup)
         {
             foreach (StackPanel sp in GroupsView.Children)
+            {
                 if (((sp.Children[0] as RadioButton).Tag as Groups).Id == group.Id)
-                    Group_Click((sp.Children[0] as RadioButton), null);
+                {
+                    if (fromGroup)
+                    {
+                        Group_Click((sp.Children[0] as RadioButton), null);
+                    }
+                    else
+                    {
+                        rdbMyProfile_Click(null, null);
+                    }
+                }
+            }    
+                        
         }
 
         private void ClearGroupSelected()
@@ -147,9 +161,10 @@ namespace WpfClientCalander
 
         private void rdbMyProfile_Click(object sender, RoutedEventArgs e)
         {
+            isProfile = true;
             ClearGroupSelected();
             ucGrid.Children.Clear();
-            ucGrid.Children.Add(new UserProfileUC(user));
+            ucGrid.Children.Add(new UserProfileUC(user, this));
         }
 
         internal void LoadEvent(Event myEvent)

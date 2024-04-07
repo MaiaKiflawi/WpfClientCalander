@@ -592,11 +592,11 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/InsertUserToGroupResponse")]
         System.Threading.Tasks.Task<int> InsertUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserToGroupResponse")]
-        int DeleteUserToGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserFromGroup", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserFromGroupResponse")]
+        int DeleteUserFromGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserToGroup", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserToGroupResponse")]
-        System.Threading.Tasks.Task<int> DeleteUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserFromGroup", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserFromGroupResponse")]
+        System.Threading.Tasks.Task<int> DeleteUserFromGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertUserToEvent", ReplyAction="http://tempuri.org/ICalanderService/InsertUserToEventResponse")]
         int InsertUserToEvent(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
@@ -604,11 +604,11 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/InsertUserToEvent", ReplyAction="http://tempuri.org/ICalanderService/InsertUserToEventResponse")]
         System.Threading.Tasks.Task<int> InsertUserToEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserToEvent", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserToEventResponse")]
-        int DeleteUserToEvent(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserFromEvent", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserFromEventResponse")]
+        int DeleteUserFromEvent(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserToEvent", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserToEventResponse")]
-        System.Threading.Tasks.Task<int> DeleteUserToEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserFromEvent", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserFromEventResponse")]
+        System.Threading.Tasks.Task<int> DeleteUserFromEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -838,12 +838,12 @@ namespace WpfClientCalander.ServiceCalander {
             return base.Channel.InsertUserToGroupAsync(user, group);
         }
         
-        public int DeleteUserToGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
-            return base.Channel.DeleteUserToGroup(user, group);
+        public int DeleteUserFromGroup(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.DeleteUserFromGroup(user, group);
         }
         
-        public System.Threading.Tasks.Task<int> DeleteUserToGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
-            return base.Channel.DeleteUserToGroupAsync(user, group);
+        public System.Threading.Tasks.Task<int> DeleteUserFromGroupAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Groups group) {
+            return base.Channel.DeleteUserFromGroupAsync(user, group);
         }
         
         public int InsertUserToEvent(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events) {
@@ -854,12 +854,12 @@ namespace WpfClientCalander.ServiceCalander {
             return base.Channel.InsertUserToEventAsync(user, events);
         }
         
-        public int DeleteUserToEvent(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events) {
-            return base.Channel.DeleteUserToEvent(user, events);
+        public int DeleteUserFromEvent(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events) {
+            return base.Channel.DeleteUserFromEvent(user, events);
         }
         
-        public System.Threading.Tasks.Task<int> DeleteUserToEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events) {
-            return base.Channel.DeleteUserToEventAsync(user, events);
+        public System.Threading.Tasks.Task<int> DeleteUserFromEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events) {
+            return base.Channel.DeleteUserFromEventAsync(user, events);
         }
     }
 }
