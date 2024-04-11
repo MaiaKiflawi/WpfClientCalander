@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -67,14 +68,50 @@ namespace WpfClientCalander
             existingEvents.Children.Add(tb);
             foreach (Event events in list)
             {
+                StackPanel st = new StackPanel();
+                st.Orientation = Orientation.Horizontal;
+                st.Width = 180;
+                st.Height = 50;
                 TextBlock tblkEvents = new TextBlock();
                 tblkEvents.Text = "* " + events.EventName + ":  " + events.EventStart.ToString("dd/MM/yyyy HH:mm") + " - " + events.EventEnd.ToString("dd/MM/yyyy HH:mm");
                 tblkEvents.FontSize = 13;
                 tblkEvents.Foreground = new SolidColorBrush(Colors.DarkGray);
                 tblkEvents.TextWrapping = TextWrapping.WrapWithOverflow;
                 tblkEvents.Margin = new Thickness(2);
-                existingEvents.Children.Add(tblkEvents);
+                tblkEvents.Width = 130;
+                Button btnDel = new Button();
+                PackIcon icon= (new PackIcon());
+                icon.Kind = PackIconKind.TrashCan;
+                icon.Width = 30;
+                icon.Height = 30;
+                btnDel.Content = icon;
+                btnDel.Visibility = Visibility.Collapsed;
+                btnDel.Click += BtnDel_Click;
+                st.Children.Add(tblkEvents);
+                st.Children.Add(btnDel);
+                st.MouseEnter += AddEventsUC_MouseEnter;
+                st.MouseLeave += AddEventsUC_MouseLeave;
+                existingEvents.Children.Add(st);
             }
+        }
+
+        private void AddEventsUC_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            StackPanel st =sender as StackPanel;
+            st.Children[1].Visibility = Visibility.Collapsed;
+        }
+
+        private void AddEventsUC_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+            StackPanel st = sender as StackPanel;
+            st.Children[1].Visibility = Visibility.Visible;
+        }
+
+        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void SetSelectionDates()
@@ -84,7 +121,6 @@ namespace WpfClientCalander
             dtpStart.BlackoutDates.Add(cdr1);
             dtpStart.BlackoutDates.Add(cdr2);
             dtpEnd.BlackoutDates.Add(cdr2);
-
 
             tpStart.SelectedTime = DateTime.Now;
             tpEnd.SelectedTime = DateTime.Now.AddMinutes(5);
