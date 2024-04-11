@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="WpfClientCalander.AddEventsUC"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfClientCalander"
@@ -689,17 +689,17 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    
     <materialDesign:Flipper  Style="{StaticResource MaterialDesignCardFlipper}">
         <materialDesign:Flipper.FrontContent>
             <Grid Background="AliceBlue">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="25" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"
-                           Text="{Binding Path=GroupName}" FontSize="25"/>
+                           Text="{Binding Path=GroupName}"
+                           FontSize="25" />
                 <WrapPanel Grid.Row="1"
                            x:Name="existingEvents" />
                 <StackPanel Grid.Row="2">
@@ -721,7 +721,8 @@
         </materialDesign:Flipper.FrontContent>
         <!--back-->
         <materialDesign:Flipper.BackContent>
-            <Grid Background="AntiqueWhite">
+            <Grid Background="AntiqueWhite"
+                  x:Name="EvenInfotGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
                     <RowDefinition Height="*" />
@@ -729,7 +730,8 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal"
+                <StackPanel Grid.Row="0"
+                            Orientation="Horizontal"
                             Background="#b0696a"
                             VerticalAlignment="Top">
                     <Button Style="{StaticResource MaterialDesignToolForegroundButton}"
@@ -752,56 +754,86 @@
                          materialDesign:HintAssist.Hint="Event Name"
                          materialDesign:HintAssist.Foreground="Maroon"
                          materialDesign:TextFieldAssist.UnderlineBrush="Maroon" />
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
-                    <DatePicker Margin="3"
-                                FontSize="15"
-                                x:Name="dtpStart"
-                                materialDesign:HintAssist.Hint="Event Start"
-                                materialDesign:HintAssist.Foreground="Maroon"
-                                materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
-                                CalendarStyle="{StaticResource CalendarStyle}"
-                                SelectedDateChanged="dtpStart_SelectedDateChanged">
-                        <DatePicker.Resources>
-                            <SolidColorBrush x:Key="MaterialDesignPaper"
-                                             Color="AntiqueWhite" />
-                        </DatePicker.Resources>
-                        <DatePicker.SelectedDate>
-                            <Binding Path="BDate"
-                                     UpdateSourceTrigger="PropertyChanged"
-                                     StringFormat="d"></Binding>
-                        </DatePicker.SelectedDate >
-                    </DatePicker>
-                    <materialDesign:TimePicker x:Name="tpStart"
-                        materialDesign:HintAssist.Hint="Time"
-                        materialDesign:HintAssist.Foreground="Maroon"
-                        materialDesign:TextFieldAssist.UnderlineBrush="Maroon" />
+                <StackPanel Grid.Row="2">
+                    <TextBlock FontSize="10"
+                               Text="{Binding Path=EventStart, StringFormat={}{0: dd/MM/yyyy HH:mm}}" />
+                    <StackPanel Orientation="Horizontal">
+                        <DatePicker Margin="3"
+                                    FontSize="15"
+                                    x:Name="dtpStart"
+                                    materialDesign:HintAssist.Hint="Event Start"
+                                    materialDesign:HintAssist.Foreground="Maroon"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                                    CalendarStyle="{StaticResource CalendarStyle}"
+                                    SelectedDateChanged="dtpStart_SelectedDateChanged">
+                            <DatePicker.Resources>
+                                <SolidColorBrush x:Key="MaterialDesignPaper"
+                                                 Color="AntiqueWhite" />
+                            </DatePicker.Resources>
+                            <DatePicker.SelectedDate>
+                                <Binding Path="BDate"
+                                         UpdateSourceTrigger="PropertyChanged"
+                                         StringFormat="d"></Binding>
+                            </DatePicker.SelectedDate >
+                        </DatePicker>
+                        <materialDesign:TimePicker x:Name="tpStart"
+                                                   Is24Hours="True"
+                                                   Margin="3"
+                                                   Width="80"
+                                                   FontSize="15"
+                                                   SelectedTimeChanged="tpStart_SelectedTimeChanged"
+                                                   materialDesign:HintAssist.Hint="Time"
+                                                   materialDesign:HintAssist.Foreground="Maroon"
+                                                   materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                            <materialDesign:TimePicker.Resources>
+                                <SolidColorBrush x:Key="MaterialDesignPaper"
+                                                 Color="AntiqueWhite" />
+                            </materialDesign:TimePicker.Resources>
+                        </materialDesign:TimePicker>
+                    </StackPanel>
                 </StackPanel>
-                <StackPanel Grid.Row="3" Orientation="Horizontal">
-                    <DatePicker Margin="3"
-                                FontSize="15"
-                                x:Name="dtpEnd"
-                                materialDesign:HintAssist.Hint="Event End"
-                                materialDesign:HintAssist.Foreground="Maroon"
-                                materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
-                                CalendarStyle="{StaticResource CalendarStyle}"
-                                SelectedDateChanged="dtpEnd_SelectedDateChanged">
-                        <DatePicker.Resources>
-                            <SolidColorBrush x:Key="MaterialDesignPaper"
-                                             Color="AntiqueWhite" />
-                        </DatePicker.Resources>
-                        <DatePicker.SelectedDate>
-                            <Binding Path="BDate"
-                                     UpdateSourceTrigger="PropertyChanged"
-                                     StringFormat="d"></Binding>
-                        </DatePicker.SelectedDate>
-                    </DatePicker>
-                    <materialDesign:TimePicker x:Name="tpEnd"
-                                               materialDesign:HintAssist.Hint="Time"
-                                               materialDesign:HintAssist.Foreground="Maroon"
-                                               materialDesign:TextFieldAssist.UnderlineBrush="Maroon" />
+                <StackPanel Grid.Row="3">
+                    <TextBlock FontSize="10"
+                               Text="{Binding Path=EventEnd, StringFormat={}{0: dd/MM/yyyy HH:mm}}" />
+                    <StackPanel Orientation="Horizontal">
+                        <DatePicker Margin="3"
+                                    FontSize="15"
+                                    x:Name="dtpEnd"
+                                    materialDesign:HintAssist.Hint="Event End"
+                                    materialDesign:HintAssist.Foreground="Maroon"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                                    CalendarStyle="{StaticResource CalendarStyle}"
+                                    SelectedDateChanged="dtpEnd_SelectedDateChanged">
+                            <DatePicker.Resources>
+                                <SolidColorBrush x:Key="MaterialDesignPaper"
+                                                 Color="AntiqueWhite" />
+                            </DatePicker.Resources>
+                            <DatePicker.SelectedDate>
+                                <Binding Path="BDate"
+                                         UpdateSourceTrigger="PropertyChanged"
+                                         StringFormat="d"></Binding>
+                            </DatePicker.SelectedDate>
+                        </DatePicker>
+                        <materialDesign:TimePicker x:Name="tpEnd"
+                                                   Is24Hours="True"
+                                                   Margin="3"
+                                                   Width="80"
+                                                   FontSize="15"
+                                                   SelectedTimeChanged="tpEnd_SelectedTimeChanged"
+                                                   materialDesign:HintAssist.Hint="Time"
+                                                   materialDesign:HintAssist.Foreground="Maroon"
+                                                   materialDesign:TextFieldAssist.UnderlineBrush="Maroon">
+                            <materialDesign:TimePicker.Resources>
+                                <SolidColorBrush x:Key="MaterialDesignPaper"
+                                                 Color="AntiqueWhite" />
+                            </materialDesign:TimePicker.Resources>
+                        </materialDesign:TimePicker>
+                    </StackPanel>
                 </StackPanel>
-                
-                <Button Grid.Row="4" Content="Add" x:Name="btnAddEvent" Click="btnAddEvent_Click"/>
+                <Button Grid.Row="4"
+                        Content="Add"
+                        x:Name="btnAddEvent"
+                        Click="btnAddEvent_Click" />
             </Grid>
         </materialDesign:Flipper.BackContent>
     </materialDesign:Flipper>

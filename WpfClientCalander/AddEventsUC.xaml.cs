@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,14 +24,22 @@ namespace WpfClientCalander
     /// </summary>
     public partial class AddEventsUC : UserControl
     {
-        Groups group;
-        EventList list;
-        Users user;
+        private Groups group;
+        private EventList list;
+        private Users user;
         private CalanderServiceClient serviceClient;
         private Grid grid;
+        private Event myEvent;
+
         public AddEventsUC(Groups group, Users user, ref Grid grid)
         {
             InitializeComponent();
+
+            CultureInfo ci = CultureInfo.CreateSpecificCulture(CultureInfo.CurrentCulture.Name);
+            ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
+            ci.DateTimeFormat.ShortTimePattern = "HH:mm";
+            Thread.CurrentThread.CurrentCulture = ci;
+
             this.group = group;
             this.DataContext = group;
             this.grid = grid;
@@ -38,6 +48,8 @@ namespace WpfClientCalander
             list = serviceClient.GetEventsByGroup(group);
             ShowEvents();
             SetSelectionDates();
+            myEvent = new Event();
+            EvenInfotGrid.DataContext = myEvent;
         }
 
         private void ShowEvents()
@@ -56,7 +68,7 @@ namespace WpfClientCalander
             foreach (Event events in list)
             {
                 TextBlock tblkEvents = new TextBlock();
-                tblkEvents.Text = "* " + events.EventName + ":  " + events.EventStart + " - " + events.EventEnd;
+                tblkEvents.Text = "* " + events.EventName + ":  " + events.EventStart.ToString("dd/MM/yyyy HH:mm") + " - " + events.EventEnd.ToString("dd/MM/yyyy HH:mm");
                 tblkEvents.FontSize = 13;
                 tblkEvents.Foreground = new SolidColorBrush(Colors.DarkGray);
                 tblkEvents.TextWrapping = TextWrapping.WrapWithOverflow;
@@ -69,12 +81,14 @@ namespace WpfClientCalander
         {
             CalendarDateRange cdr1 = new CalendarDateRange(DateTime.Today.AddYears(5), DateTime.Today.AddYears(1000));
             CalendarDateRange cdr2 = new CalendarDateRange(DateTime.Today.AddYears(-50), DateTime.Today);
-            dtpStart.DisplayDateStart = DateTime.Today.AddYears(-50);
             dtpStart.BlackoutDates.Add(cdr1);
             dtpStart.BlackoutDates.Add(cdr2);
-            //dtpEnd.BlackoutDates.Add(cdr1);
-            //dtpEnd.BlackoutDates.Add(cdr2);
-            //dtpEnd.DisplayDateStart = DateTime.Today.AddYears(-50);
+            dtpEnd.BlackoutDates.Add(cdr2);
+
+
+            tpStart.SelectedTime = DateTime.Now;
+            tpEnd.SelectedTime = DateTime.Now.AddMinutes(5);
+            dtpStart.SelectedDate = DateTime.Today.AddDays(1);
         }
 
         private void Back()
@@ -95,13 +109,11 @@ namespace WpfClientCalander
                 MessageBox.Show("Event name can't be empty.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
             }
-            Event events = new Event();
-            events.EventGroup = new Groups();
-            events.EventGroup.Id = this.group.Id;
-            events.EventName = tbxEventName.Text;
-            events.EventStart = DateTime.Parse(dtpStart.Text);
-            events.EventEnd = DateTime.Parse(dtpEnd.Text);
-            if (serviceClient.InsertEvent(events) != 1)
+            myEvent.EventGroup = group;
+            myEvent.EventName = tbxEventName.Text;
+            myEvent.EventStart = DateTime.Parse(dtpStart.Text);
+            myEvent.EventEnd = DateTime.Parse(dtpEnd.Text);
+            if (serviceClient.InsertEvent(myEvent) != 1)
             {
                 MessageBox.Show("System error.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
@@ -112,13 +124,31 @@ namespace WpfClientCalander
 
         private void dtpStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            CalendarDateRange cdr = new CalendarDateRange(DateTime.Today, DateTime.Parse(dtpStart.Text).AddDays(-1));
-            //dtpEnd.BlackoutDates.Add(cdr);
+            CalendarDateRange cdr = new CalendarDateRange(DateTime.Today.AddDays(-50), DateTime.Parse(dtpStart.Text).AddDays(-1));
+            dtpEnd.BlackoutDates.Clear();
+            dtpEnd.BlackoutDates.Add(cdr);
+            if (myEvent != null)
+                myEvent.EventStart = DateTime.Parse(dtpStart.Text + " " + tpStart.Text);
         }
         private void dtpEnd_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             CalendarDateRange cdr = new CalendarDateRange(DateTime.Parse(dtpEnd.Text).AddDays(+1), DateTime.Today.AddYears(1000));
             dtpStart.BlackoutDates.Add(cdr);
+            if (myEvent != null)
+                myEvent.EventEnd = DateTime.Parse(dtpEnd.Text + " "+tpEnd.Text);
+        }
+
+        private void tpStart_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
+        {
+            if(dtpStart.Text!=string.Empty && tpStart.Text!= string.Empty && myEvent != null)
+                    myEvent.EventStart = DateTime.Parse(dtpStart.Text +" "+ tpStart.Text);
+        }
+
+        private void tpEnd_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
+        {
+            if (dtpEnd.Text != string.Empty && tpEnd.Text != string.Empty && myEvent != null)
+
+                myEvent.EventEnd = DateTime.Parse(dtpEnd.Text +" "+ tpEnd.Text);
         }
     }
 }

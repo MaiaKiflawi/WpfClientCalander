@@ -17,7 +17,8 @@
                                    FontSize="15"
                                    FontWeight="Bold"
                                    Foreground="#FF3C2929"
-                                   Text="{TemplateBinding Content}" />
+                                   Text="{TemplateBinding Content}" 
+                                   TextWrapping="WrapWithOverflow"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver"

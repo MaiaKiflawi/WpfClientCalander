@@ -100,7 +100,7 @@
     </Style>
     <!-- End: Button | Minimize | Maximize | Close -->
     
-    <!-- Start: VerticalMenuStyle -->
+    <!-- Start: GroupMenuStyle -->
     <Style x:Key="MenuGroupRadioButtonStyle"
            TargetType="{x:Type RadioButton}">
         <Setter Property="Background"
@@ -128,7 +128,7 @@
                             <Border x:Name="btnSelected"
                                     Grid.ColumnSpan="2"
                                     CornerRadius="10"
-                                    Width="225"
+                                    Width="200"
                                     HorizontalAlignment="Right"></Border>
                             <!-- Indicator -->
                             <Rectangle Name="Indicator"
@@ -197,7 +197,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <!-- End: VerticalMenuStyle -->
+    <!-- End: GroupMenuStyle -->
     
     <!-- Start: VerticalMenuStyle -->
     <Style x:Key="MenuRadioButtonStyle"
@@ -298,6 +298,107 @@
         </Setter>
     </Style>
     <!-- End: VerticalMenuStyle -->
+    
+    <!-- Start: ManagerMenuStyle -->
+    <Style x:Key="ManagerMenuRadioButtonStyle"
+           TargetType="{x:Type RadioButton}">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="#FF3C2929" />
+        <Setter Property="FontWeight"
+                Value="Medium" />
+        <Setter Property="FontSize"
+                Value="20" />
+        <Setter Property="Height"
+                Value="48" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <Border x:Name="menuButton"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <!-- Selected  -->
+                            <Border x:Name="btnSelected"
+                                    Grid.ColumnSpan="2"
+                                    CornerRadius="10"
+                                    Width="150"
+                                    Background="Bisque"
+                                    HorizontalAlignment="Center"></Border>
+                            <!-- Indicator -->
+                            <Rectangle Name="Indicator"
+                                       HorizontalAlignment="Left"
+                                       Width="6"
+                                       Height="25"
+                                       VerticalAlignment="Center"
+                                       RadiusX="3"
+                                       RadiusY="3">
+                                <Rectangle.BitmapEffect>
+                                    <DropShadowBitmapEffect ShadowDepth="3"
+                                                            Direction="0"
+                                                            Color="AntiqueWhite"
+                                                            Softness="0.6" />
+                                </Rectangle.BitmapEffect>
+                            </Rectangle>
+                            <!-- Icon -->
+                            <materialDesign:PackIcon x:Name="Icon"
+                                                     Kind="{Binding Content, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IconConverter}}"
+                                                     VerticalAlignment="Center"
+                                                     HorizontalAlignment="Right"
+                                                     Height="25"
+                                                     Width="25"
+                                                     Margin="0 0 5 0" />
+                            <!-- Text -->
+                            <TextBlock x:Name="txtName"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="12 0 0 0"
+                                       Grid.Column="1"
+                                       Text="{TemplateBinding Content}"
+                                       Foreground="{TemplateBinding Foreground}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       FontSize="{TemplateBinding FontSize}" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="True">
+                            <Setter TargetName="txtName"
+                                    Property="Foreground"
+                                    Value="#301a1a" />
+                            <Setter TargetName="Icon"
+                                    Property="Foreground"
+                                    Value="#301a1a" />
+                            <Setter TargetName="btnSelected"
+                                    Property="Background"
+                                    Value="#805d57" />
+                        </Trigger>
+                        <Trigger Property="IsChecked"
+                                 Value="True">
+                            <Setter TargetName="Icon"
+                                    Property="Foreground"
+                                    Value="#301a1a" />
+                            <Setter TargetName="Indicator"
+                                    Property="Fill"
+                                    Value="#301a1a" />
+                            <Setter TargetName="btnSelected"
+                                    Property="Background"
+                                    Value="#805d57" />
+                            <Setter TargetName="txtName"
+                                    Property="Foreground"
+                                    Value="#301a1a" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- End: ManagerMenuStyle -->
     
     <!-- Start: ToggleButtonStyle -->
     <Style x:Key="ToggleButtonStyle"

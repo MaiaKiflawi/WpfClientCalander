@@ -30,6 +30,14 @@ namespace WpfClientCalander
                     return PackIconKind.AccountSupervisorCircle;
                 case "My Profile":
                     return PackIconKind.HomeAccount;
+                case "All":
+                    return PackIconKind.BorderAll;
+                case "Users":
+                    return PackIconKind.BadgeAccount;
+                case "Groups":
+                    return PackIconKind.AccountsGroup;
+                case "Admins":
+                    return PackIconKind.CalendarAccount;
                 default:
                         break;
                 }

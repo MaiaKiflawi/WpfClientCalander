@@ -26,6 +26,27 @@ namespace WpfClientCalander
         {
             InitializeComponent();
             this.user = user;
+            tblAppManager.Text = $"App Manager - {user.UserName}, Page:";
+        }
+
+        private void userTbls_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void adminTbls_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void groupsTbls_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void allTbls_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

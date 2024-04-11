@@ -131,8 +131,8 @@ namespace WpfClientCalander
                         myBorder.BorderThickness = new Thickness(1);
                         myBorder.Margin = new Thickness(.3);
                         StackPanel st = new StackPanel();
-                        st.Children.Add(scrollViewer);
-                        myBorder.Child = st;
+                        scrollViewer.Content = st;
+                        myBorder.Child = scrollViewer;
                         events.Add(st);
                         calWP.Children.Add(myBorder);
                     }
