@@ -41,5 +41,8 @@
                          Margin="3 0 3 0"
                          Click="adminTbls_Click"/>
         </StackPanel>
+        <Border Grid.Row="2">
+            <Grid x:Name="tblsGrid"/>
+        </Border>
     </Grid>
 </UserControl>

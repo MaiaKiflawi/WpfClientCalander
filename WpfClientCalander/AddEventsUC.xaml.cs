@@ -71,7 +71,7 @@ namespace WpfClientCalander
                 StackPanel st = new StackPanel();
                 st.Orientation = Orientation.Horizontal;
                 st.Width = 180;
-                st.Height = 50;
+                st.MinHeight = 50;
                 TextBlock tblkEvents = new TextBlock();
                 tblkEvents.Text = "* " + events.EventName + ":  " + events.EventStart.ToString("dd/MM/yyyy HH:mm") + " - " + events.EventEnd.ToString("dd/MM/yyyy HH:mm");
                 tblkEvents.FontSize = 13;
@@ -80,13 +80,13 @@ namespace WpfClientCalander
                 tblkEvents.Margin = new Thickness(2);
                 tblkEvents.Width = 130;
                 Button btnDel = new Button();
-                PackIcon icon= (new PackIcon());
+                PackIcon icon = (new PackIcon());
                 icon.Kind = PackIconKind.TrashCan;
-                icon.Width = 30;
-                icon.Height = 30;
+                icon.Width = 14;
+                icon.Height = 20;
                 btnDel.Content = icon;
                 btnDel.Visibility = Visibility.Collapsed;
-                btnDel.Click += BtnDel_Click;
+                btnDel.Click += (s, e) => BtnDel_Click(s, e, events);
                 st.Children.Add(tblkEvents);
                 st.Children.Add(btnDel);
                 st.MouseEnter += AddEventsUC_MouseEnter;
@@ -98,7 +98,7 @@ namespace WpfClientCalander
         private void AddEventsUC_MouseLeave(object sender, MouseEventArgs e)
         {
 
-            StackPanel st =sender as StackPanel;
+            StackPanel st = sender as StackPanel;
             st.Children[1].Visibility = Visibility.Collapsed;
         }
 
@@ -109,10 +109,28 @@ namespace WpfClientCalander
             st.Children[1].Visibility = Visibility.Visible;
         }
 
-        private void BtnDel_Click(object sender, RoutedEventArgs e)
+        private void BtnDel_Click(object sender, RoutedEventArgs e, Event eventToDelete)
         {
-            throw new NotImplementedException();
+            //serviceClient.DeleteEvent(eventToDelete);
+            //ShowEvents();
+            Button btn = sender as Button;
+            if (btn != null)
+            {
+                // Delete the event from the service
+                if (serviceClient.DeleteEvent(eventToDelete) != 1)
+                {
+                    MessageBox.Show("Error deleting event from service.\n Try again.", "ERROR", MessageBoxButton.OK);
+                    return;
+                }
+
+                // Find the parent StackPanel and remove it from the UI
+                StackPanel parentStackPanel = (StackPanel)btn.Parent;
+                existingEvents.Children.Remove(parentStackPanel);
+                MessageBox.Show("Event deleted successfully.", "SUCCESS", MessageBoxButton.OK);
+                return;
+            }
         }
+
 
         private void SetSelectionDates()
         {
