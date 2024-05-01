@@ -15,7 +15,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="70" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="330" />
         </Grid.RowDefinitions>
         <TextBlock x:Name="tblAppManager" Grid.Row="0" Foreground="Maroon" FontSize="35"
                    FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>

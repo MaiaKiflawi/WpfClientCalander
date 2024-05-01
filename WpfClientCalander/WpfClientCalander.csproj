@@ -73,6 +73,9 @@
     <Compile Include="AddEventsUC.xaml.cs">
       <DependentUpon>AddEventsUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AllTblUC.xaml.cs">
+      <DependentUpon>AllTblUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AppManagerUC.xaml.cs">
       <DependentUpon>AppManagerUC.xaml</DependentUpon>
     </Compile>
@@ -102,11 +105,18 @@
     <Compile Include="UserProfileUC.xaml.cs">
       <DependentUpon>UserProfileUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserTblUC.xaml.cs">
+      <DependentUpon>UserTblUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserWindow.xaml.cs">
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validations.cs" />
     <Page Include="AddEventsUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllTblUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +177,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserProfileUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserTblUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

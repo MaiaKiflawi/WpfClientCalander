@@ -788,6 +788,7 @@
                             <materialDesign:TimePicker.Resources>
                                 <SolidColorBrush x:Key="MaterialDesignPaper"
                                                  Color="AntiqueWhite" />
+                                
                             </materialDesign:TimePicker.Resources>
                         </materialDesign:TimePicker>
                     </StackPanel>

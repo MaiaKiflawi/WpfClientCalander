@@ -32,25 +32,25 @@ namespace WpfClientCalander
         private void userTbls_Click(object sender, RoutedEventArgs e)
         {
             //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new );
+            //tblsGrid.Children.Add(new UserTblUC());
         }
 
         private void adminTbls_Click(object sender, RoutedEventArgs e)
         {
             //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new );
+            //tblsGrid.Children.Add(new AdminTblUC());
         }
 
         private void groupsTbls_Click(object sender, RoutedEventArgs e)
         {
             //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new );
+            //tblsGrid.Children.Add(new GroupsTblUC());
         }
 
         private void allTbls_Click(object sender, RoutedEventArgs e)
         {
             //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new );
+            //tblsGrid.Children.Add(new AllTblUC());
         }
     }
 }

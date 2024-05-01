@@ -165,8 +165,12 @@ namespace WpfClientCalander
             }
             myEvent.EventGroup = group;
             myEvent.EventName = tbxEventName.Text;
-            myEvent.EventStart = DateTime.Parse(dtpStart.Text);
-            myEvent.EventEnd = DateTime.Parse(dtpEnd.Text);
+            DateTime dtStart = DateTime.Parse(dtpStart.Text).AddMinutes(DateTime.Parse(tpStart.Text).Minute).AddHours(DateTime.Parse(tpStart.Text).Hour);
+            //myEvent.EventStart = DateTime.Parse(dtpStart.Text);
+            myEvent.EventStart = dtStart;
+            DateTime dtEnd = DateTime.Parse(dtpEnd.Text).AddMinutes(DateTime.Parse(tpEnd.Text).Minute).AddHours(DateTime.Parse(tpEnd.Text).Hour);
+            //myEvent.EventEnd = DateTime.Parse(dtpEnd.Text);
+            myEvent.EventEnd = dtEnd;
             if (serviceClient.InsertEvent(myEvent) != 1)
             {
                 MessageBox.Show("System error.\n Try again.", "ERROR", MessageBoxButton.OK);
