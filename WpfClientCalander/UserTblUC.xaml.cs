@@ -24,5 +24,10 @@ namespace WpfClientCalander
         {
             InitializeComponent();
         }
+
+        private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

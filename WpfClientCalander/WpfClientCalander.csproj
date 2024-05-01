@@ -82,6 +82,7 @@
     <Compile Include="ChooseGroupsUC.xaml.cs">
       <DependentUpon>ChooseGroupsUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConverterForTbls.cs" />
     <Compile Include="CreateGroupUC.xaml.cs">
       <DependentUpon>CreateGroupUC.xaml</DependentUpon>
     </Compile>

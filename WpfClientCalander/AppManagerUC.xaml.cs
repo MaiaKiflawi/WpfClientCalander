@@ -31,8 +31,8 @@ namespace WpfClientCalander
 
         private void userTbls_Click(object sender, RoutedEventArgs e)
         {
-            //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new UserTblUC());
+            tblsGrid.Children.Clear();
+            tblsGrid.Children.Add(new UserTblUC());
         }
 
         private void adminTbls_Click(object sender, RoutedEventArgs e)
