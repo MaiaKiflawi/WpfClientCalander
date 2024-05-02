@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
 {
@@ -20,14 +21,17 @@ namespace WpfClientCalander
     /// </summary>
     public partial class UserTblUC : UserControl
     {
+        private CalanderServiceClient serviceClient;
         public UserTblUC()
         {
             InitializeComponent();
+            serviceClient = new CalanderServiceClient();
         }
 
-        private void usersListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UserName_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+        .
     }
 }

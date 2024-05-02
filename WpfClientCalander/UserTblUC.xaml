@@ -10,51 +10,63 @@
              d:DesignHeight="330"
              d:DesignWidth="800">
     <UserControl.Resources></UserControl.Resources>
-    <Grid >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
+    <Grid>
         <ListView x:Name="usersListView"
-                  ScrollViewer.CanContentScroll="True"
-                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
-                  Grid.Column="0"
-                  SelectionChanged="usersListView_SelectionChanged">
+                  FontSize="12"                  
+                  HorizontalContentAlignment="Stretch">
             <ListView.View>
                 <GridView>
+                    <!--User Name-->
                     <GridViewColumn Header="User Name:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding UserName}"/>
-                    <GridViewColumn Header="Password:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding Password}" />
-                    <GridViewColumn Header="First Name:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding FirstName}" />
-                    <GridViewColumn Header="Last Name:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding LastName}" />
-                    <GridViewColumn Header="Email"
-                                    Width="80"
+                                    Width="133" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox x:Name="UserName"
+                                         Text="{Binding UserName, UpdateSourceTrigger=PropertyChanged}"
+                                         TextChanged="UserName_TextChanged"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!-- Name-->
+                    <GridViewColumn Header="Name:"
+                                    Width="133">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock>
+                                    <Run Text="{Binding FirstName}" />
+                                    <Run Text="{Binding LastName}" />
+                                </TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!--Email-->
+                    <GridViewColumn Header="Email:"
+                                    Width="133"
                                     DisplayMemberBinding="{Binding Email}" />
-                    <GridViewColumn Header="Birth Date:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding BDate}" />
-                    <GridViewColumn Header="Gender"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding isManager, Converter={StaticResource ConverterForTbls}}" />
+                    <!--Phone-->
                     <GridViewColumn Header="Phone:"
-                                    Width="80"
+                                    Width="130"
                                     DisplayMemberBinding="{Binding Phone}" />
+                    <!--Manager-->
                     <GridViewColumn Header="Manager:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding IsManager}" />
+                                    Width="131">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="Manager" IsChecked="{Binding IsManager}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!--Group Admin-->
                     <GridViewColumn Header="Group Admin:"
-                                    Width="80"
-                                    DisplayMemberBinding="{Binding IsGroupAdmin}" />
+                                    Width="140">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox x:Name="GroupAdmin" IsChecked="{Binding IsGroupAdmin}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
-
     </Grid>
 </UserControl>

@@ -22,10 +22,10 @@ namespace WpfClientCalander
             {
                 case "True":
                 case "true":
-                    return "Female";
+                    return "";
                 case "False":
                 case "false":
-                    return "Male";
+                    return "";
             }
             return "Empty";
         }
