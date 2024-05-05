@@ -52,7 +52,7 @@
                                     Width="131">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="Manager" IsChecked="{Binding IsManager}"/>
+                                <CheckBox x:Name="cbxManager" IsChecked="{Binding IsManager}" Click="ManagerChanged" Background="Maroon"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -61,7 +61,7 @@
                                     Width="140">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="GroupAdmin" IsChecked="{Binding IsGroupAdmin}"/>
+                                <CheckBox x:Name="cbxGroupAdmin" IsChecked="{Binding IsGroupAdmin}" Click="GroupAdminChanged" Background="Maroon"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
