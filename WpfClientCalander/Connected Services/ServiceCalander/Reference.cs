@@ -466,6 +466,12 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteCity", ReplyAction="http://tempuri.org/ICalanderService/DeleteCityResponse")]
         System.Threading.Tasks.Task<int> DeleteCityAsync(WpfClientCalander.ServiceCalander.City city);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalData", ReplyAction="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalDataResponse")]
+        void UpdateCitiesFromExternalData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalData", ReplyAction="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalDataResponse")]
+        System.Threading.Tasks.Task UpdateCitiesFromExternalDataAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllEvents", ReplyAction="http://tempuri.org/ICalanderService/GetAllEventsResponse")]
         WpfClientCalander.ServiceCalander.EventList GetAllEvents();
         
@@ -668,6 +674,14 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<int> DeleteCityAsync(WpfClientCalander.ServiceCalander.City city) {
             return base.Channel.DeleteCityAsync(city);
+        }
+        
+        public void UpdateCitiesFromExternalData() {
+            base.Channel.UpdateCitiesFromExternalData();
+        }
+        
+        public System.Threading.Tasks.Task UpdateCitiesFromExternalDataAsync() {
+            return base.Channel.UpdateCitiesFromExternalDataAsync();
         }
         
         public WpfClientCalander.ServiceCalander.EventList GetAllEvents() {

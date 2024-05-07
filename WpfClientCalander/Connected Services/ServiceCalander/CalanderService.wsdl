@@ -31,6 +31,12 @@
   <wsdl:message name="ICalanderService_DeleteCity_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteCityResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateCitiesFromExternalData_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCitiesFromExternalData" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_UpdateCitiesFromExternalData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCitiesFromExternalDataResponse" />
+  </wsdl:message>
   <wsdl:message name="ICalanderService_GetAllEvents_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllEvents" />
   </wsdl:message>
@@ -192,6 +198,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteCity" message="tns:ICalanderService_DeleteCity_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteCityResponse" message="tns:ICalanderService_DeleteCity_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateCitiesFromExternalData">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalData" message="tns:ICalanderService_UpdateCitiesFromExternalData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalDataResponse" message="tns:ICalanderService_UpdateCitiesFromExternalData_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetAllEvents">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllEvents" message="tns:ICalanderService_GetAllEvents_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetAllEventsResponse" message="tns:ICalanderService_GetAllEvents_OutputMessage" />
@@ -320,6 +330,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteCity">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCitiesFromExternalData">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/UpdateCitiesFromExternalData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
