@@ -22,42 +22,13 @@ namespace WpfClientCalander
     public partial class UserTblUC : UserControl
     {
         private CalanderServiceClient serviceClient;
+        UsersList userLst;
         public UserTblUC()
         {
             InitializeComponent();
             serviceClient = new CalanderServiceClient();
-            UsersList userLst = serviceClient.GetAllUsers();
+            userLst = serviceClient.GetAllUsers();
             usersListView.ItemsSource = userLst;
-            SetStatus();
-        }
-
-        private void SetStatus()
-        {
-            CheckBox cbxManager = new CheckBox();
-            cbxManager = cbxManager as CheckBox;
-            if (cbxManager.IsChecked == true )
-            {
-                cbxManager.Background = Brushes.Maroon;
-            }
-            else
-            {
-                cbxManager.Background = Brushes.Gray;
-            }
-            CheckBox cbxGroupAdmin = new CheckBox();
-            cbxGroupAdmin = cbxGroupAdmin as CheckBox;
-            if (cbxGroupAdmin.IsChecked == true)
-            {
-                cbxGroupAdmin.Background = Brushes.Maroon;
-            }
-            else
-            {
-                cbxGroupAdmin.Background = Brushes.Gray;
-            }
-        }
-
-        private void ChangedStatus()
-        {
-
         }
 
         private void UserName_TextChanged(object sender, TextChangedEventArgs e)
@@ -67,10 +38,17 @@ namespace WpfClientCalander
                 // Retrieve the user object associated with the TextBox
                 Users user = textBox.DataContext as Users;
 
-                if (user != null)
+                if (user != null && user.UserName != string.Empty)
                 {
-                    // Call the service client to update the user
-                    serviceClient.UpdateUser(user);
+                    if (serviceClient.IsUsernameFree(user.UserName))
+                    {
+                        // Call the service client to update the user
+                        serviceClient.UpdateUser(user);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Username taken. \n Try again.", "ERROR", MessageBoxButton.OK);
+                    }
                 }
 
             }
@@ -78,12 +56,56 @@ namespace WpfClientCalander
 
         private void ManagerChanged(object sender, RoutedEventArgs e)
         {
-            
+
+            CheckBox cbMan = (sender as CheckBox);
+            Users user = (sender as CheckBox).Tag as Users;
+            user.IsManager =(bool) cbMan.IsChecked;
+            serviceClient.UpdateUser(user);
+            if (cbMan.IsChecked == true)
+            {
+                cbMan.Background = Brushes.Maroon;
+                user.IsManager = true;
+            }
+            else
+            {
+                cbMan.Background = Brushes.Gray;
+                user.IsManager = false;
+                serviceClient.UpdateUser(user);
+            }
         }
 
         private void GroupAdminChanged(object sender, RoutedEventArgs e)
         {
+            CheckBox cbGAdm = (sender as CheckBox);
+            Users user = (sender as CheckBox).Tag as Users;
+            user.IsGroupAdmin = (bool) cbGAdm.IsChecked;
+            serviceClient.UpdateUser(user);
+            if (cbGAdm.IsChecked == true)
+            {
+                cbGAdm.Background = Brushes.Maroon;
+            }
+            else
+            {
+                cbGAdm.Background = Brushes.Gray;
+            }
+        }
 
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+            foreach(Users user in userLst)
+            {
+                if (user.UserName == unameToDel.Text)
+                {
+                    serviceClient.DeleteUser(user);
+                    userLst = serviceClient.GetAllUsers();
+                    unameToDel.Text = "";
+                    usersListView.ItemsSource = userLst;
+                    MessageBox.Show("User deleted successfully.", "SUCCESS", MessageBoxButton.OK);
+                    return;
+                }
+            }
+            MessageBox.Show("Username doesn't exist.", "ERROR", MessageBoxButton.OK);
+            return;
         }
     }
 }

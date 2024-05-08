@@ -33,7 +33,7 @@ namespace WpfClientCalander
             user.BDate = DateTime.Today.AddYears(-20);
             this.DataContext = user;
             myService = new CalanderServiceClient();
-            cmbCity.ItemsSource = myService.UpdateCitiesFromExternalData();
+            cmbCity.ItemsSource = myService.GetAllCities();
             cmbCity.DisplayMemberPath = "CityName";
         }
 
