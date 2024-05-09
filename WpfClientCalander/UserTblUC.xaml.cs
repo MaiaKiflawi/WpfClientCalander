@@ -50,7 +50,6 @@ namespace WpfClientCalander
                         MessageBox.Show("Username taken. \n Try again.", "ERROR", MessageBoxButton.OK);
                     }
                 }
-
             }
         }
 

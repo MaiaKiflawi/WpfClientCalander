@@ -43,8 +43,8 @@ namespace WpfClientCalander
 
         private void groupsTbls_Click(object sender, RoutedEventArgs e)
         {
-            //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new GroupsTblUC());
+            tblsGrid.Children.Clear();
+            tblsGrid.Children.Add(new GroupsTblUC());
         }
 
         private void allTbls_Click(object sender, RoutedEventArgs e)

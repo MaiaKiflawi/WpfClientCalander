@@ -95,6 +95,9 @@
     <Compile Include="GroupsInfoViewUC.xaml.cs">
       <DependentUpon>GroupsInfoViewUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GroupsTblUC.xaml.cs">
+      <DependentUpon>GroupsTblUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GroupsWindowsUC.xaml.cs">
       <DependentUpon>GroupsWindowsUC.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
     <Page Include="GroupsInfoViewUC.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="GroupsTblUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GroupsWindowsUC.xaml">
       <SubType>Designer</SubType>

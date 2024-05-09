@@ -1,0 +1,135 @@
+﻿<UserControl x:Class="WpfClientCalander.GroupsTblUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfClientCalander"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             Background="AntiqueWhite"
+             d:DesignHeight="480"
+             d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="380" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0"
+                  x:Name="groupsListView"
+                  FontSize="12"
+                  HorizontalContentAlignment="Stretch"
+                  Foreground="#FF710404">
+            <ListView.View>
+                <GridView>
+                    <!--Group Name-->
+                    <GridViewColumn Header="Group Name:"
+                                    Width="140">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox x:Name="groupName"
+                                         TextChanged="groupName_TextChanged">
+                                    <TextBox.Text>
+                                        <Binding Path="GroupName"
+                                                 UpdateSourceTrigger="PropertyChanged">
+                                            <Binding.ValidationRules>
+                                                <local:ValidationName />
+                                            </Binding.ValidationRules>
+                                        </Binding>
+                                    </TextBox.Text>
+                                </TextBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <!--Group Admin-->
+                    <GridViewColumn Header="Group Admin:"
+                                    Width="135"
+                                    DisplayMemberBinding="{Binding Path=GroupAdmin.UserName}" />
+                    <!--Group Description-->
+                    <GridViewColumn Header="Group Description:"
+                                    Width="300"
+                                    DisplayMemberBinding="{Binding GroupDescription}">
+                    </GridViewColumn>
+                    <!--Users-->
+                    <GridViewColumn Header="Users List:"
+                                    Width="150"
+                                    x:Name="gridUsers"></GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--delete group-->
+        <StackPanel  Orientation="Horizontal"
+                     Grid.Row="1"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center">
+            <StackPanel Margin="0 0 10 0">
+                <TextBox x:Name="gnameToDel"
+                         Margin="0 0 0 5"
+                         Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                         materialDesign:HintAssist.Hint="Group name to delete:"
+                         materialDesign:HintAssist.Foreground="Maroon"
+                         materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                         Foreground="Maroon"
+                         FontWeight="Bold" />
+                <Button x:Name="btnDel"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        Width="30"
+                        Height="30"
+                        Margin="8 0 0 0"
+                        VerticalAlignment="Center"
+                        Background="LightGray"
+                        Click="btnDel_Click">
+                    <materialDesign:PackIcon Height="17"
+                                             Width="17">
+                        <materialDesign:PackIcon.Style>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Kind"
+                                        Value="Rubbish" />
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>
+                </Button>
+            </StackPanel>
+            <!--change admin-->
+            <StackPanel Margin="10 0 0 0" Orientation="Vertical">
+                <StackPanel Orientation="Horizontal"
+                            Margin="0 0 0 5">
+                    <TextBox x:Name="adminDel"
+                             Margin="0 0 8 0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             materialDesign:HintAssist.Hint="Group admin to change:"
+                             materialDesign:HintAssist.Foreground="Maroon"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                             Foreground="Maroon"
+                             FontWeight="Bold" />
+                    <TextBox x:Name="adminChange"
+                             Margin="8 0 0 0"
+                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                             materialDesign:HintAssist.Hint="New admin:"
+                             materialDesign:HintAssist.Foreground="Maroon"
+                             materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
+                             Foreground="Maroon"
+                             FontWeight="Bold" />
+                </StackPanel>
+                <Button x:Name="btnChange"
+                        Style="{StaticResource MaterialDesignFloatingActionLightButton}"
+                        Width="30"
+                        Height="30"
+                        Margin="8 0 0 0"
+                        VerticalAlignment="Center"
+                        Background="LightGray"
+                        Click="btnChange_Click">
+                    <materialDesign:PackIcon Height="17"
+                                             Width="17">
+                        <materialDesign:PackIcon.Style>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Kind"
+                                        Value="Exchange" />
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        
+    </Grid>
+</UserControl>
