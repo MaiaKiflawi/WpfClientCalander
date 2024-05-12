@@ -40,6 +40,11 @@
                          Content="Admins"
                          Margin="3 0 3 0"
                          Click="adminTbls_Click"/>
+            <RadioButton x:Name="EventsTbls"
+                         Style="{DynamicResource ManagerMenuRadioButtonStyle}"
+                         Content="Events"
+                         Margin="3 0 3 0"
+                         Click="EventsTbls_Click" />
         </StackPanel>
         <Border Grid.Row="2">
             <Grid x:Name="tblsGrid"/>

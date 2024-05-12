@@ -73,6 +73,9 @@
     <Compile Include="AddEventsUC.xaml.cs">
       <DependentUpon>AddEventsUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminTblUC.xaml.cs">
+      <DependentUpon>AdminTblUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AllTblUC.xaml.cs">
       <DependentUpon>AllTblUC.xaml</DependentUpon>
     </Compile>
@@ -88,6 +91,9 @@
     </Compile>
     <Compile Include="EventInfoUC.xaml.cs">
       <DependentUpon>EventInfoUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EventsTblUC.xaml.cs">
+      <DependentUpon>EventsTblUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="GroupAdminUC.xaml.cs">
       <DependentUpon>GroupAdminUC.xaml</DependentUpon>
@@ -120,6 +126,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminTblUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AllTblUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EventInfoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EventsTblUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

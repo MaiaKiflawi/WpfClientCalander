@@ -73,7 +73,8 @@ namespace WpfClientCalander
                 st.Width = 180;
                 st.MinHeight = 50;
                 TextBlock tblkEvents = new TextBlock();
-                tblkEvents.Text = "* " + events.EventName + ":  " + events.EventStart.ToString("dd/MM/yyyy HH:mm") + " - " + events.EventEnd.ToString("dd/MM/yyyy HH:mm");
+                tblkEvents.Text = "* " + events.EventName + ":  " + events.EventStart.ToString("dd/MM/yyyy HH:mm") + " - " 
+                    + events.EventEnd.ToString("dd/MM/yyyy HH:mm");
                 tblkEvents.FontSize = 13;
                 tblkEvents.Foreground = new SolidColorBrush(Colors.DarkGray);
                 tblkEvents.TextWrapping = TextWrapping.WrapWithOverflow;
@@ -111,8 +112,6 @@ namespace WpfClientCalander
 
         private void BtnDel_Click(object sender, RoutedEventArgs e, Event eventToDelete)
         {
-            //serviceClient.DeleteEvent(eventToDelete);
-            //ShowEvents();
             Button btn = sender as Button;
             if (btn != null)
             {
@@ -153,11 +152,6 @@ namespace WpfClientCalander
 
         private void btnAddEvent_Click(object sender, RoutedEventArgs e)
         {
-            //if (dtpStart.SelectedDate > dtpEnd.SelectedDate)
-            //{
-            //    MessageBox.Show("Event start date can't be after event end date.", "ERROR", MessageBoxButton.OK);
-            //    return;
-            //}
             if (tbxEventName.Text == null || tbxEventName.Text == " " || tbxEventName.Text == "")
             {
                 MessageBox.Show("Event name can't be empty.\n Try again.", "ERROR", MessageBoxButton.OK);

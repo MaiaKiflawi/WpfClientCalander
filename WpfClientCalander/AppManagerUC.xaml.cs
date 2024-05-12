@@ -37,8 +37,8 @@ namespace WpfClientCalander
 
         private void adminTbls_Click(object sender, RoutedEventArgs e)
         {
-            //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new AdminTblUC());
+            tblsGrid.Children.Clear();
+            tblsGrid.Children.Add(new AdminTblUC());
         }
 
         private void groupsTbls_Click(object sender, RoutedEventArgs e)
@@ -49,8 +49,14 @@ namespace WpfClientCalander
 
         private void allTbls_Click(object sender, RoutedEventArgs e)
         {
-            //tblsGrid.Children.Clear();
-            //tblsGrid.Children.Add(new AllTblUC());
+            tblsGrid.Children.Clear();
+            tblsGrid.Children.Add(new AllTblUC());
+        }
+
+        private void EventsTbls_Click(object sender, RoutedEventArgs e)
+        {
+            tblsGrid.Children.Clear();
+            tblsGrid.Children.Add(new EventsTblUC());
         }
     }
 }

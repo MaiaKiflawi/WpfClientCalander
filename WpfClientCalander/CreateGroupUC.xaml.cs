@@ -137,8 +137,8 @@ namespace WpfClientCalander
             if (imgAdded)
             {
                 FileInfo fileInfo = new FileInfo(filePath);
-                //string strUri = Path.Combine(Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")), "Images", "imgGroups", group.GroupName + Path.GetExtension(filePath));
-                string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
+                string strUri = Environment.CurrentDirectory.Substring(0, Environment.CurrentDirectory.IndexOf(@"\bin")) 
+                    + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
                 fileInfo.MoveTo(strUri);
             }
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);

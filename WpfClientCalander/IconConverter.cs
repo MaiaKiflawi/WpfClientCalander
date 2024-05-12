@@ -38,6 +38,8 @@ namespace WpfClientCalander
                     return PackIconKind.AccountsGroup;
                 case "Admins":
                     return PackIconKind.CalendarAccount;
+                case "Events":
+                    return PackIconKind.Event;
                 default:
                         break;
                 }

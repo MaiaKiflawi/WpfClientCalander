@@ -46,7 +46,7 @@ namespace WpfClientCalander
             cmbMonth.SelectedIndex = DateTime.Today.Month - 1;
         }
 
-        private void LoadDates(int month, int year) //load events
+        private void LoadDates(int month, int year) //load dates in grid
         {
             DateTime dt = new DateTime(year, month, 1);
             EventList monthEvents = new EventList();
