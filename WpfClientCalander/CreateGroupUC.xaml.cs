@@ -125,12 +125,11 @@ namespace WpfClientCalander
             }
             if (!client.IsGroupNameFree(tbxGroupName.Text))
             {
-                MessageBox.Show("Description too long.", "ERROR", MessageBoxButton.OK);
+                MessageBox.Show("Group name already exists.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
             }
             group.GroupAdmin = user;
-            group.Id = client.InsertGroup(group);
-            if (group.Id != 1)
+            if (client.InsertGroup(group) != 1)
             {
                 MessageBox.Show("System error.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
@@ -142,7 +141,8 @@ namespace WpfClientCalander
                     + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
                 fileInfo.MoveTo(strUri);
             }
-            client.InsertUserToGroup(user, group);
+            Groups groupTemp = client.GetGroupByGroupName(tbxGroupName.ToString());
+            //client.InsertUserToGroup(user, groupTemp);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             Back();
         }

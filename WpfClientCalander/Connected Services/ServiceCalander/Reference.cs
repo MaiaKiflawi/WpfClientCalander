@@ -544,6 +544,18 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsGroupNameFree", ReplyAction="http://tempuri.org/ICalanderService/IsGroupNameFreeResponse")]
         System.Threading.Tasks.Task<bool> IsGroupNameFreeAsync(string groupName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetGroupByID", ReplyAction="http://tempuri.org/ICalanderService/GetGroupByIDResponse")]
+        WpfClientCalander.ServiceCalander.Groups GetGroupByID(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetGroupByID", ReplyAction="http://tempuri.org/ICalanderService/GetGroupByIDResponse")]
+        System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.Groups> GetGroupByIDAsync(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetGroupByGroupName", ReplyAction="http://tempuri.org/ICalanderService/GetGroupByGroupNameResponse")]
+        WpfClientCalander.ServiceCalander.Groups GetGroupByGroupName(string groupName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetGroupByGroupName", ReplyAction="http://tempuri.org/ICalanderService/GetGroupByGroupNameResponse")]
+        System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.Groups> GetGroupByGroupNameAsync(string groupName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllUsers", ReplyAction="http://tempuri.org/ICalanderService/GetAllUsersResponse")]
         WpfClientCalander.ServiceCalander.UsersList GetAllUsers();
         
@@ -778,6 +790,22 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<bool> IsGroupNameFreeAsync(string groupName) {
             return base.Channel.IsGroupNameFreeAsync(groupName);
+        }
+        
+        public WpfClientCalander.ServiceCalander.Groups GetGroupByID(int Id) {
+            return base.Channel.GetGroupByID(Id);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.Groups> GetGroupByIDAsync(int Id) {
+            return base.Channel.GetGroupByIDAsync(Id);
+        }
+        
+        public WpfClientCalander.ServiceCalander.Groups GetGroupByGroupName(string groupName) {
+            return base.Channel.GetGroupByGroupName(groupName);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.Groups> GetGroupByGroupNameAsync(string groupName) {
+            return base.Channel.GetGroupByGroupNameAsync(groupName);
         }
         
         public WpfClientCalander.ServiceCalander.UsersList GetAllUsers() {
