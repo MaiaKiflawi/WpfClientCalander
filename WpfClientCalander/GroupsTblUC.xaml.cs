@@ -28,24 +28,20 @@ namespace WpfClientCalander
             InitializeComponent();
             serviceClient = new CalanderServiceClient();
             groupLst = serviceClient.GetAllGroups();
+            foreach (Groups group in groupLst)
+            {
+                group.Users = serviceClient.GetUsersByGroup(group);
+            }
             groupsListView.ItemsSource = groupLst;
-            ShowUsersLst();
+            //ShowUsersLst();
         }
 
-        //למה זה לא עובד?
         private void ShowUsersLst()
         {
             Expander expander = new Expander();
-            expander.Width = 150;
-            expander.Header = "SHOW";
-            TextBlock tblkPar = new TextBlock();
-            tblkPar.FontSize = 20;
-            tblkPar.FontWeight = FontWeights.Bold;
-            tblkPar.Foreground = new SolidColorBrush(Colors.Black);
-            tblkPar.Text = "Participants:";
-            expander.Content = tblkPar;
             StackPanel spParLst = new StackPanel();
-            spParLst.Children.Clear();
+            expander.Width = 250;
+            expander.Header = "Participants:";
             foreach (Groups group in groupLst)
             {
                 UsersList users = serviceClient.GetUsersByGroup(group);
@@ -61,8 +57,11 @@ namespace WpfClientCalander
                 DataTemplate dataTemplate = new DataTemplate();
                 FrameworkElementFactory factory = new FrameworkElementFactory(typeof(Expander));
                 factory.SetValue(Expander.HeaderProperty, expander.Header);
-                factory.SetValue(Expander.ContentProperty, expander.Content.ToString());
-                factory.SetBinding(Expander.ContentProperty, new Binding(expander.ContentStringFormat));
+                factory.SetValue(Expander.WidthProperty, expander.Width);
+                //factory.SetValue(Expander.ContentProperty, expander.Content.ToString());
+                factory.SetValue(Expander.ContentProperty, spParLst);
+                //factory.SetBinding(Expander.ContentProperty, new Binding(expander.ContentStringFormat));
+                //factory.SetBinding(Expander.ContentProperty, new Binding(string.Join(", ", spParLst.Children)));
                 dataTemplate.VisualTree = factory;
                 gridUsers.CellTemplate = dataTemplate;
             }

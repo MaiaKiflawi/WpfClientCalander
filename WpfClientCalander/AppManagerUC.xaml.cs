@@ -22,11 +22,13 @@ namespace WpfClientCalander
     public partial class AppManagerUC : UserControl
     {
         Users user;
+        private CalanderServiceClient serviceClient;
         public AppManagerUC(Users user)
         {
             InitializeComponent();
             this.user = user;
             tblAppManager.Text = $"App Manager - {user.UserName}, Page:";
+            serviceClient = new CalanderServiceClient();
         }
 
         private void userTbls_Click(object sender, RoutedEventArgs e)
@@ -47,16 +49,16 @@ namespace WpfClientCalander
             tblsGrid.Children.Add(new GroupsTblUC());
         }
 
-        private void allTbls_Click(object sender, RoutedEventArgs e)
-        {
-            tblsGrid.Children.Clear();
-            tblsGrid.Children.Add(new AllTblUC());
-        }
-
         private void EventsTbls_Click(object sender, RoutedEventArgs e)
         {
             tblsGrid.Children.Clear();
             tblsGrid.Children.Add(new EventsTblUC());
+        }
+
+        private void UpdateCities_Click(object sender, RoutedEventArgs e)
+        {
+            serviceClient.UpdateCitiesFromExternalData();
+            MessageBox.Show("Cities updated successfully.", "SUCCESS", MessageBoxButton.OK);
         }
     }
 }

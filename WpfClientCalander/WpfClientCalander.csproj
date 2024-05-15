@@ -76,9 +76,6 @@
     <Compile Include="AdminTblUC.xaml.cs">
       <DependentUpon>AdminTblUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AllTblUC.xaml.cs">
-      <DependentUpon>AllTblUC.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AppManagerUC.xaml.cs">
       <DependentUpon>AppManagerUC.xaml</DependentUpon>
     </Compile>
@@ -127,10 +124,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminTblUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AllTblUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

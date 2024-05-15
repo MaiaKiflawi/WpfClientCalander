@@ -129,7 +129,8 @@ namespace WpfClientCalander
                 return;
             }
             group.GroupAdmin = user;
-            if (client.InsertGroup(group) != 1)
+            group.Id = client.InsertGroup(group);
+            if (group.Id != 1)
             {
                 MessageBox.Show("System error.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
@@ -141,6 +142,7 @@ namespace WpfClientCalander
                     + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
                 fileInfo.MoveTo(strUri);
             }
+            client.InsertUserToGroup(user, group);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             Back();
         }

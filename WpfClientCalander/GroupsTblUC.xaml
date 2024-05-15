@@ -42,17 +42,34 @@
                     </GridViewColumn>
                     <!--Group Admin-->
                     <GridViewColumn Header="Group Admin:"
-                                    Width="135"
+                                    Width="140"
                                     DisplayMemberBinding="{Binding Path=GroupAdmin.UserName}" />
                     <!--Group Description-->
                     <GridViewColumn Header="Group Description:"
-                                    Width="300"
-                                    DisplayMemberBinding="{Binding GroupDescription}">
+                                    Width="300">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding GroupDescription}"
+                                           TextWrapping="Wrap" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <!--Users-->
                     <GridViewColumn Header="Users List:"
                                     Width="150"
-                                    x:Name="gridUsers"></GridViewColumn>
+                                    x:Name="gridUsers">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Users}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding UserName}" FontSize="15" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
