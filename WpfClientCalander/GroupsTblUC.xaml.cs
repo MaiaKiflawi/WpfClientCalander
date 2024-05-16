@@ -21,7 +21,7 @@ namespace WpfClientCalander
     /// </summary>
     public partial class GroupsTblUC : UserControl
     {
-        private CalanderServiceClient serviceClient;
+        CalanderServiceClient serviceClient;
         GroupsList groupLst;
         public GroupsTblUC()
         {
@@ -33,36 +33,36 @@ namespace WpfClientCalander
                 group.Users = serviceClient.GetUsersByGroup(group);
             }
             groupsListView.ItemsSource = groupLst;
-            ShowUsersLst();
+            //ShowUsersLst();
         }
 
-        private void ShowUsersLst()
-        {
-            Expander expander = new Expander();
-            StackPanel spParLst = new StackPanel();
-            expander.Width = 250;
-            expander.Header = "Participants:";
-            foreach (Groups group in groupLst)
-            {
-                UsersList users = serviceClient.GetUsersByGroup(group);
-                foreach (Users user in users)
-                {
-                    TextBlock tblkUser = new TextBlock();
-                    tblkUser.Text = (user.UserName).ToString();
-                    tblkUser.FontSize = 15;
-                    tblkUser.Foreground = new SolidColorBrush(Colors.Black);
-                    spParLst.Children.Add(tblkUser);
-                }
-                expander.Content = spParLst;
-                DataTemplate dataTemplate = new DataTemplate();
-                FrameworkElementFactory factory = new FrameworkElementFactory(typeof(Expander));
-                factory.SetValue(Expander.HeaderProperty, expander.Header);
-                factory.SetValue(Expander.WidthProperty, expander.Width);
-                factory.SetValue(Expander.ContentProperty, spParLst);
-                dataTemplate.VisualTree = factory;
-                gridUsers.CellTemplate = dataTemplate;
-            }
-        }
+        //private void ShowUsersLst()
+        //{
+        //    Expander expander = new Expander();
+        //    StackPanel spParLst = new StackPanel();
+        //    expander.Width = 250;
+        //    expander.Header = "Participants:";
+        //    foreach (Groups group in groupLst)
+        //    {
+        //        UsersList users = serviceClient.GetUsersByGroup(group);
+        //        foreach (Users user in users)
+        //        {
+        //            TextBlock tblkUser = new TextBlock();
+        //            tblkUser.Text = (user.UserName).ToString();
+        //            tblkUser.FontSize = 15;
+        //            tblkUser.Foreground = new SolidColorBrush(Colors.Black);
+        //            spParLst.Children.Add(tblkUser);
+        //        }
+        //        expander.Content = spParLst;
+        //        DataTemplate dataTemplate = new DataTemplate();
+        //        FrameworkElementFactory factory = new FrameworkElementFactory(typeof(Expander));
+        //        factory.SetValue(Expander.HeaderProperty, expander.Header);
+        //        factory.SetValue(Expander.WidthProperty, expander.Width);
+        //        factory.SetValue(Expander.ContentProperty, spParLst);
+        //        dataTemplate.VisualTree = factory;
+        //        gridUsers.CellTemplate = dataTemplate;
+        //    }
+        //}
 
         private void groupName_TextChanged(object sender, TextChangedEventArgs e)
         {

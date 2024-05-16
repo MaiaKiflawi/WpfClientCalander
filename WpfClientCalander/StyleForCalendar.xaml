@@ -45,8 +45,5 @@
         </Setter>
     </Style>
     
-    <Style TargetType="TextBlock">
-        
-    </Style>
     
 </ResourceDictionary>

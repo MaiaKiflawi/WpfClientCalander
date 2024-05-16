@@ -86,6 +86,7 @@
     <Compile Include="CreateGroupUC.xaml.cs">
       <DependentUpon>CreateGroupUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EmailManager.cs" />
     <Compile Include="EventInfoUC.xaml.cs">
       <DependentUpon>EventInfoUC.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="UserProfileUC.xaml.cs">
       <DependentUpon>UserProfileUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserSettingsUC.xaml.cs">
+      <DependentUpon>UserSettingsUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserTblUC.xaml.cs">
       <DependentUpon>UserTblUC.xaml</DependentUpon>
@@ -192,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserProfileUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserSettingsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

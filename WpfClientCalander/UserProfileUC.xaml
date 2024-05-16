@@ -63,6 +63,22 @@
         <WrapPanel x:Name="calWP"
                    Grid.Row="2"
                    Margin="8, 0, 8, 0" />
-        
+        <Button Grid.Row="3"
+                Background="#d4aea1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="UpdateInfo_Click">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Settings"
+                                         Width="20"
+                                         Foreground="#805d57"
+                                         Height="20"
+                                         Margin="0 0 10 0" />
+                <TextBlock Text="Settings"
+                           Foreground="#805d57"
+                           FontSize="17"
+                           FontWeight="Bold" />
+            </StackPanel>
+        </Button>
     </Grid>
 </UserControl>

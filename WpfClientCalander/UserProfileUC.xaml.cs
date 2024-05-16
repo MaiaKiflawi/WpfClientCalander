@@ -23,14 +23,15 @@ namespace WpfClientCalander
     /// </summary>
     public partial class UserProfileUC : UserControl
     {
-        private Users user;
+        Users user;
         List<TextBlock> dates;
         List<StackPanel> events;
         string[] days = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         EventList userEvents;
         CalanderServiceClient calanderService;
         UserWindow parent;
-        public UserProfileUC(Users user, UserWindow userWindow)
+        Grid grid;
+        public UserProfileUC(Users user, UserWindow userWindow, ref Grid grid)
         {
             InitializeComponent();
             this.user = user;
@@ -43,6 +44,7 @@ namespace WpfClientCalander
             LoadDates(DateTime.Today.Month, DateTime.Today.Year);
             SetMonthYears();
             cmbMonth.SelectedIndex = DateTime.Today.Month - 1;
+            this.grid = grid;
         }
 
         private void LoadDates(int month, int year) //load events
@@ -149,6 +151,12 @@ namespace WpfClientCalander
 
                 LoadDates(cmbMonth.SelectedIndex + 1, (int)cmbYear.SelectedValue);
             }
+        }
+
+        private void UpdateInfo_Click(object sender, RoutedEventArgs e)
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new UserSettingsUC(user, ref grid));
         }
     }
 }

@@ -164,7 +164,7 @@ namespace WpfClientCalander
             isProfile = true;
             ClearGroupSelected();
             ucGrid.Children.Clear();
-            ucGrid.Children.Add(new UserProfileUC(user, this));
+            ucGrid.Children.Add(new UserProfileUC(user, this, ref ucGrid));
         }
 
         internal void LoadEvent(Event myEvent)

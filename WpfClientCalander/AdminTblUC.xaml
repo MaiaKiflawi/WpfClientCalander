@@ -4,9 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfClientCalander"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d"
+             Background="AntiqueWhite"
+             d:DesignHeight="480"
+             d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="380" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <ListView Grid.Row="0"
+                  x:Name="adminsListView"
+                  FontSize="12"
+                  HorizontalContentAlignment="Stretch"
+                  Foreground="#FF710404">
+            <ListView.View>
+                <GridView>
+                    <!--Group Admin User-->
+                    <GridViewColumn Header="Admin User:"
+                                    Width="140"
+                                    DisplayMemberBinding="{Binding Path=Admin.UserName}" />
+                    <!--Groups-->
+                    <GridViewColumn Header="Groups List:"
+                                    Width="350"
+                                    x:Name="gridGroups">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ItemsControl ItemsSource="{Binding Groups}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding GroupName}"
+                                                       FontSize="15" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>
