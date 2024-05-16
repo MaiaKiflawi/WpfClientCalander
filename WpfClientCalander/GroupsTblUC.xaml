@@ -110,10 +110,10 @@
             <StackPanel Margin="10 0 0 0" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal"
                             Margin="0 0 0 5">
-                    <TextBox x:Name="adminDel"
-                             Margin="0 0 8 0"
+                    <TextBox x:Name="GroupChange"
+                             Margin="8 0 0 0"
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
-                             materialDesign:HintAssist.Hint="Group admin to change:"
+                             materialDesign:HintAssist.Hint="In Group:"
                              materialDesign:HintAssist.Foreground="Maroon"
                              materialDesign:TextFieldAssist.UnderlineBrush="Maroon"
                              Foreground="Maroon"

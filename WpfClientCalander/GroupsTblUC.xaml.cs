@@ -33,7 +33,7 @@ namespace WpfClientCalander
                 group.Users = serviceClient.GetUsersByGroup(group);
             }
             groupsListView.ItemsSource = groupLst;
-            //ShowUsersLst();
+            ShowUsersLst();
         }
 
         private void ShowUsersLst()
@@ -58,10 +58,7 @@ namespace WpfClientCalander
                 FrameworkElementFactory factory = new FrameworkElementFactory(typeof(Expander));
                 factory.SetValue(Expander.HeaderProperty, expander.Header);
                 factory.SetValue(Expander.WidthProperty, expander.Width);
-                //factory.SetValue(Expander.ContentProperty, expander.Content.ToString());
                 factory.SetValue(Expander.ContentProperty, spParLst);
-                //factory.SetBinding(Expander.ContentProperty, new Binding(expander.ContentStringFormat));
-                //factory.SetBinding(Expander.ContentProperty, new Binding(string.Join(", ", spParLst.Children)));
                 dataTemplate.VisualTree = factory;
                 gridUsers.CellTemplate = dataTemplate;
             }
@@ -107,9 +104,18 @@ namespace WpfClientCalander
             return;
         }
 
+        //?
         private void btnChange_Click(object sender, RoutedEventArgs e)
         {
-
+            Groups group = serviceClient.GetGroupByGroupName(GroupChange.Text);
+            group.GroupName = adminChange.Text;
+            if (serviceClient.UpdateGroup(group) != 1)
+            {
+                MessageBox.Show("Group admin changed successfully.", "SUCCESS", MessageBoxButton.OK);
+                return;
+            }
+            MessageBox.Show("Group admin couldn't update.", "ERROR", MessageBoxButton.OK);
+            return;
         }
     }
 }

@@ -141,8 +141,8 @@ namespace WpfClientCalander
                     + @"/Images/imgGroups/" + group.GroupName + filePath.Substring(filePath.LastIndexOf("."));
                 fileInfo.MoveTo(strUri);
             }
-            Groups groupTemp = client.GetGroupByGroupName(tbxGroupName.ToString());
-            //client.InsertUserToGroup(user, groupTemp);
+            Groups groupTemp = client.GetGroupByGroupName(tbxGroupName.Text);
+            client.InsertUserToGroup(user, groupTemp);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             Back();
         }
