@@ -26,6 +26,7 @@
                            Margin="0 0 10 0"
                            Foreground="#FF3C2921" FontSize="20" FontWeight="Bold"/>
                 <TextBox x:Name="UserName"
+                         Foreground="#805d57"
                          TextChanged="UserName_TextChanged">
                     <TextBox.Text>
                         <Binding Path="UserName"
@@ -37,8 +38,64 @@
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
-            <StackPanel>
-                
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="First Name:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <TextBox x:Name="firstName"
+                         Foreground="#805d57"
+                         TextChanged="FirstName_TextChanged">
+                    <TextBox.Text>
+                        <Binding Path="FirstName"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidationName />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="Last Name:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <TextBox x:Name="lastName"
+                         Foreground="#805d57"
+                         TextChanged="LastName_TextChanged">
+                    <TextBox.Text>
+                        <Binding Path="LastName"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidationName />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="Email:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <TextBox x:Name="email"
+                         Foreground="#805d57"
+                         TextChanged="Email_TextChanged">
+                    <TextBox.Text>
+                        <Binding Path="Email"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidationName />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
         </StackPanel>
     </Grid>

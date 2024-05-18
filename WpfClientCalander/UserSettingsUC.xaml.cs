@@ -29,5 +29,25 @@ namespace WpfClientCalander
             this.user = user;
             this.grid = grid;
         }
+
+        private void LastName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void FirstName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void UserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Email_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
