@@ -627,6 +627,12 @@ namespace WpfClientCalander.ServiceCalander {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/DeleteUserFromEvent", ReplyAction="http://tempuri.org/ICalanderService/DeleteUserFromEventResponse")]
         System.Threading.Tasks.Task<int> DeleteUserFromEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsUserNameID", ReplyAction="http://tempuri.org/ICalanderService/IsUserNameIDResponse")]
+        bool IsUserNameID(WpfClientCalander.ServiceCalander.Users user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsUserNameID", ReplyAction="http://tempuri.org/ICalanderService/IsUserNameIDResponse")]
+        System.Threading.Tasks.Task<bool> IsUserNameIDAsync(WpfClientCalander.ServiceCalander.Users user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -902,6 +908,14 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<int> DeleteUserFromEventAsync(WpfClientCalander.ServiceCalander.Users user, WpfClientCalander.ServiceCalander.Event events) {
             return base.Channel.DeleteUserFromEventAsync(user, events);
+        }
+        
+        public bool IsUserNameID(WpfClientCalander.ServiceCalander.Users user) {
+            return base.Channel.IsUserNameID(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsUserNameIDAsync(WpfClientCalander.ServiceCalander.Users user) {
+            return base.Channel.IsUserNameIDAsync(user);
         }
     }
 }

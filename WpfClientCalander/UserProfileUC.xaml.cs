@@ -156,7 +156,7 @@ namespace WpfClientCalander
         private void UpdateInfo_Click(object sender, RoutedEventArgs e)
         {
             grid.Children.Clear();
-            grid.Children.Add(new UserSettingsUC(user, ref grid));
+            grid.Children.Add(new UserSettingsUC(user, parent, ref grid));
         }
     }
 }

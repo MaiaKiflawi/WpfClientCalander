@@ -193,6 +193,12 @@
   <wsdl:message name="ICalanderService_DeleteUserFromEvent_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteUserFromEventResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_IsUserNameID_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserNameID" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_IsUserNameID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsUserNameIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="ICalanderService">
     <wsdl:operation name="GetAllCities">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllCities" message="tns:ICalanderService_GetAllCities_InputMessage" />
@@ -317,6 +323,10 @@
     <wsdl:operation name="DeleteUserFromEvent">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserFromEvent" message="tns:ICalanderService_DeleteUserFromEvent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/DeleteUserFromEventResponse" message="tns:ICalanderService_DeleteUserFromEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsUserNameID">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/IsUserNameID" message="tns:ICalanderService_IsUserNameID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/IsUserNameIDResponse" message="tns:ICalanderService_IsUserNameID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalanderService" type="tns:ICalanderService">
@@ -593,6 +603,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteUserFromEvent">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/DeleteUserFromEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsUserNameID">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/IsUserNameID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

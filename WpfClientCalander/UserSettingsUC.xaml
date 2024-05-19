@@ -4,15 +4,28 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfClientCalander"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              Height="660"
              Width="850"
              Background="AntiqueWhite"
              FontFamily="Poppins">
+    <UserControl.Resources>
+        <Style TargetType="Button"
+               BasedOn="{StaticResource MaterialDesignRaisedButton}">
+            <Setter Property="Background"
+                    Value="AliceBlue" />
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="materialDesign:ButtonAssist.CornerRadius"
+                    Value="15" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Text="User Settings:"
                    Grid.Row="0"
@@ -20,13 +33,23 @@
                    HorizontalAlignment="Center"
                    Foreground="Maroon"
                    FontWeight="Bold" VerticalAlignment="Center" />
-        <StackPanel Orientation="Vertical" Grid.Row="1">
+        <Button Grid.Row="1" Margin="10 0 0 0"
+                x:Name="btnBack"
+                Style="{StaticResource MaterialDesignToolForegroundButton}"
+                Click="btnBack_Click"
+                HorizontalAlignment="Left">
+            <materialDesign:PackIcon Kind="ArrowLeft"
+                                     HorizontalAlignment="Right"
+                                     FontSize="35" />
+        </Button>
+        <StackPanel Orientation="Vertical" Grid.Row="2">
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="User Name:"
                            Margin="0 0 10 0"
                            Foreground="#FF3C2921" FontSize="20" FontWeight="Bold"/>
                 <TextBox x:Name="UserName"
                          Foreground="#805d57"
+                         FontSize="17"
                          TextChanged="UserName_TextChanged">
                     <TextBox.Text>
                         <Binding Path="UserName"
@@ -44,18 +67,10 @@
                            Foreground="#FF3C2921"
                            FontSize="20"
                            FontWeight="Bold" />
-                <TextBox x:Name="firstName"
+                <TextBlock x:Name="firstName"
                          Foreground="#805d57"
-                         TextChanged="FirstName_TextChanged">
-                    <TextBox.Text>
-                        <Binding Path="FirstName"
-                                 UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <local:ValidationName />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                         FontSize="17"
+                         Text="{Binding Path=FirstName}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="10">
@@ -63,19 +78,11 @@
                            Margin="0 0 10 0"
                            Foreground="#FF3C2921"
                            FontSize="20"
-                           FontWeight="Bold" />
-                <TextBox x:Name="lastName"
+                           FontWeight="Bold"/>
+                <TextBlock x:Name="lastName"
+                         FontSize="17"
                          Foreground="#805d57"
-                         TextChanged="LastName_TextChanged">
-                    <TextBox.Text>
-                        <Binding Path="LastName"
-                                 UpdateSourceTrigger="PropertyChanged">
-                            <Binding.ValidationRules>
-                                <local:ValidationName />
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                </TextBox>
+                         Text="{Binding Path=LastName}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal"
                         Margin="10">
@@ -86,17 +93,78 @@
                            FontWeight="Bold" />
                 <TextBox x:Name="email"
                          Foreground="#805d57"
+                         FontSize="17"
                          TextChanged="Email_TextChanged">
                     <TextBox.Text>
                         <Binding Path="Email"
                                  UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
-                                <local:ValidationName />
+                                <local:ValidationEmail />
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10" >
+                <TextBlock Text="Birth Date:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <TextBlock x:Name="bDate"
+                           Foreground="#805d57"
+                           FontSize="17"
+                           Text="{Binding Path=BDate}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="City:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <ComboBox x:Name="cmbCity"
+                          SelectedIndex="{Binding Path=CityName}"
+                          Foreground="#805d57"
+                          FontSize="17"
+                          SelectionChanged="City_SelectionChanged">
+                    <ComboBox.Resources>
+                        <SolidColorBrush x:Key="MaterialDesignPaper"
+                                         Color="AntiqueWhite" />
+                    </ComboBox.Resources>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Text="Phone Number:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <TextBox x:Name="phoneNum"
+                         Foreground="#805d57"
+                         FontSize="17"
+                         TextChanged="PhoneNum_TextChanged">
+                    <TextBox.Text>
+                        <Binding Path="Phone"
+                                 UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <local:ValidationPhoneNumber />
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="Gender:"
+                           Margin="0 0 10 0"
+                           Foreground="#FF3C2921"
+                           FontSize="20"
+                           FontWeight="Bold" />
+                <TextBlock Text="{Binding Path=Gender, Converter={StaticResource ConverterForTbls}}"
+                           Foreground="#805d57" FontSize="17"/>
+            </StackPanel>
+            <StackPanel x:Name="statusSP" Margin="10"/>
         </StackPanel>
     </Grid>
 </UserControl>
