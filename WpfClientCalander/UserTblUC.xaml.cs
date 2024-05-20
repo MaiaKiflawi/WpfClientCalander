@@ -71,6 +71,7 @@ namespace WpfClientCalander
                 user.IsManager = false;
                 serviceClient.UpdateUser(user);
             }
+            usersListView.ItemsSource = userLst;
         }
 
         private void GroupAdminChanged(object sender, RoutedEventArgs e)
@@ -87,6 +88,7 @@ namespace WpfClientCalander
             {
                 cbGAdm.Background = Brushes.Gray;
             }
+            usersListView.ItemsSource = userLst;
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)

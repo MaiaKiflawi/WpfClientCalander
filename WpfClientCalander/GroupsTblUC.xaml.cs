@@ -108,10 +108,29 @@ namespace WpfClientCalander
         private void btnChange_Click(object sender, RoutedEventArgs e)
         {
             Groups group = serviceClient.GetGroupByGroupName(GroupChange.Text);
-            group.GroupName = adminChange.Text;
-            if (serviceClient.UpdateGroup(group) != 1)
+            UsersList users = serviceClient.GetAllUsers();
+            Users admin = group.GroupAdmin;
+            //Users newAdmin=users.Find(u=>u.UserName.Equals(adminChange.Text));
+            foreach (Users user in users)
+            {
+                if (user.UserName == adminChange.Text)
+                {
+                    admin = user;
+                }
+            }
+            if (admin == null)
+            {
+                MessageBox.Show("User doesn't exist.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            admin.IsGroupAdmin = true;
+            serviceClient.UpdateUser(admin);
+            group.GroupAdmin = admin;
+            serviceClient.InsertUserToGroup(admin, group);
+            if (serviceClient.UpdateGroup(group) != 0)
             {
                 MessageBox.Show("Group admin changed successfully.", "SUCCESS", MessageBoxButton.OK);
+                groupsListView.ItemsSource = groupLst;
                 return;
             }
             MessageBox.Show("Group admin couldn't update.", "ERROR", MessageBoxButton.OK);

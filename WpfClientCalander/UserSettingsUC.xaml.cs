@@ -34,6 +34,8 @@ namespace WpfClientCalander
             this.user = user;
             this.DataContext = user;
             this.grid = grid;
+            cmbCity.ItemsSource = serviceClient.GetAllCities();
+            cmbCity.DisplayMemberPath = "CityName";
             ShowStatus();
         }
 
@@ -78,7 +80,7 @@ namespace WpfClientCalander
 
                 if (user != null && user.UserName != string.Empty)
                 {
-                    if (serviceClient.IsUsernameFree(user.UserName) && serviceClient.IsUserNameID(user))
+                    if (serviceClient.IsUsernameFree(user.UserName) || serviceClient.IsUserNameID(user))
                     {
                         // Call the service client to update the user
                         serviceClient.UpdateUser(user);
