@@ -34,8 +34,10 @@ namespace WpfClientCalander
             this.user = user;
             this.DataContext = user;
             this.grid = grid;
-            cmbCity.ItemsSource = serviceClient.GetAllCities();
+            CityList cities = serviceClient.GetAllCities();
             cmbCity.DisplayMemberPath = "CityName";
+            cmbCity.ItemsSource = cities;
+            cmbCity.SelectedValue = cities.Find(city => city.Id == user.CityName.Id);
             ShowStatus();
         }
 
@@ -70,6 +72,11 @@ namespace WpfClientCalander
             statusSP.Children.Add(txbManager);
             statusSP.Children.Add(txbGAdmin);
         }
+
+        private void Reload()
+        {
+            this.DataContext = user;
+        }
         
         private void UserName_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -84,6 +91,7 @@ namespace WpfClientCalander
                     {
                         // Call the service client to update the user
                         serviceClient.UpdateUser(user);
+                        Reload();
                     }
                     else
                     {
@@ -95,27 +103,50 @@ namespace WpfClientCalander
 
         private void Email_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (sender is TextBox textbox)
+            {
+                Users user = textbox.DataContext as Users;
+                if (user != null && user.Email != string.Empty)
+                {
+                    serviceClient.UpdateUser(user);
+                    Reload();
+                }
+            }
         }
 
         private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (sender is ComboBox cmb)
+            {
+                if (cmbCity.SelectedValue != null)
+                {
+                    user.CityName = cmbCity.SelectedValue as City;
+                    Reload();
+                }
+            }
         }
 
         private void PhoneNum_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-        }
-
-        private void Back()
-        {
-            grid.Children.Clear();
-            grid.Children.Add(new UserProfileUC(user, parent, ref grid));
+            if (sender is TextBox textbox)
+            {
+                Users user = textbox.DataContext as Users;
+                if (user != null && user.Phone != string.Empty)
+                {
+                    serviceClient.UpdateUser(user);
+                    Reload();
+                }
+            }
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Back();
         }
+        private void Back()
+        {
+            grid.Children.Clear();
+            grid.Children.Add(new UserProfileUC(user, parent, ref grid));
+        }
+       
     }
 }

@@ -45,36 +45,9 @@ namespace WpfClientCalander
                 }
             }
             adminsListView.ItemsSource = adminsLst;
-            //ShowGroups();
         }
 
-        //private void ShowGroups()
-        //{
-        //    Expander expander = new Expander();
-        //    StackPanel spGroupLst = new StackPanel();
-        //    expander.Width = 250;
-        //    expander.Header = "Groups:";
-        //    foreach (Groups group in groupLst)
-        //    {
-        //        GroupsList groups = serviceClient.GetGroupsByUser(group.GroupAdmin);
-        //        foreach (Groups adminGroup in groups)
-        //        {
-        //            TextBlock tblkUser = new TextBlock();
-        //            tblkUser.Text = (adminGroup.GroupAdmin.UserName).ToString();
-        //            tblkUser.FontSize = 15;
-        //            tblkUser.Foreground = new SolidColorBrush(Colors.Black);
-        //            spGroupLst.Children.Add(tblkUser);
-        //        }
-        //        expander.Content = spGroupLst;
-        //        DataTemplate dataTemplate = new DataTemplate();
-        //        FrameworkElementFactory factory = new FrameworkElementFactory(typeof(Expander));
-        //        factory.SetValue(Expander.HeaderProperty, expander.Header);
-        //        factory.SetValue(Expander.WidthProperty, expander.Width);
-        //        factory.SetValue(Expander.ContentProperty, spGroupLst);
-        //        dataTemplate.VisualTree = factory;
-        //        gridGroups.CellTemplate = dataTemplate;
-        //    }
-        //}
+        
         
     }
 }

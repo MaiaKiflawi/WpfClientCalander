@@ -24,9 +24,9 @@ namespace WpfClientCalander
                     return new ValidationResult(false, "Too long");
                 if (!username.Any(char.IsDigit)) // must contain at least one number
                     return new ValidationResult(false, "Must contain at least one number");
-                foreach (char c in username) //can only contain letters, numbers, peried and underscore
+                foreach (char c in username) //can only contain letters, numbers, period and underscore
                     if (!Char.IsLetterOrDigit(c) && c != '_' && c != '.')
-                        return new ValidationResult(false, "Can only contain letters, numbers, peried and underscore");
+                        return new ValidationResult(false, "Can only contain letters, numbers, period and underscore");
             }
             catch (Exception ex)
             {

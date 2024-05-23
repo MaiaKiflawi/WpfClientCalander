@@ -67,7 +67,7 @@
                 Background="#d4aea1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Click="UpdateInfo_Click">
+                Click="Settings_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Settings"
                                          Width="20"
