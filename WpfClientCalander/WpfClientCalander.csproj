@@ -82,7 +82,7 @@
     <Compile Include="ChooseGroupsUC.xaml.cs">
       <DependentUpon>ChooseGroupsUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ConverterForTbls.cs" />
+    <Compile Include="ConverterForGender.cs" />
     <Compile Include="CreateGroupUC.xaml.cs">
       <DependentUpon>CreateGroupUC.xaml</DependentUpon>
     </Compile>
@@ -123,6 +123,9 @@
       <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Validations.cs" />
+    <Compile Include="WelcomeWindow.xaml.cs">
+      <DependentUpon>WelcomeWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddEventsUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WelcomeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

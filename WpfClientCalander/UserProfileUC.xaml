@@ -24,12 +24,22 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" 
-                   Text="My Profile" 
-                   FontSize="35" 
-                   HorizontalAlignment="Center"
-                   Foreground="Maroon"
-                   FontWeight="Bold"/>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="My Profile" Margin="325 0 0 0"
+                       VerticalAlignment="Center"
+                       FontSize="35"
+                       Foreground="Maroon"
+                       FontWeight="Bold" />
+            <Button Background="#d4aea1"
+                    Margin="230 0 0 0"
+                    Foreground="#805d57"    
+                    Content="Log Out"
+                    FontSize="17"
+                    FontWeight="Bold"
+                    Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                    ToolTip="MaterialDesignFlatButton" x:Name="logOut" 
+                    Click="logOut_Click"/>
+        </StackPanel>
         <StackPanel Grid.Row="1"
                     Orientation="Horizontal"
                     HorizontalAlignment="Center">

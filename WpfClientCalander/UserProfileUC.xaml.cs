@@ -158,5 +158,12 @@ namespace WpfClientCalander
             grid.Children.Clear();
             grid.Children.Add(new UserSettingsUC(user, parent, ref grid));
         }
+
+        private void logOut_Click(object sender, RoutedEventArgs e)
+        {
+            WelcomeWindow welcomeWindow = new WelcomeWindow();
+            parent.Close();
+            welcomeWindow.ShowDialog();
+        }
     }
 }
