@@ -43,7 +43,9 @@
                                      FontSize="35" />
         </Button>
         <StackPanel Orientation="Vertical" Grid.Row="2">
-            <StackPanel Orientation="Horizontal" Margin="10">
+            <!---User Name-->
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
                 <TextBlock Text="User Name:"
                            Margin="0 0 10 0"
                            Foreground="#FF3C2921" FontSize="20" FontWeight="Bold"/>
@@ -61,6 +63,7 @@
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
+            <!---First Name-->
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="First Name:"
                            Margin="0 0 10 0"
@@ -72,6 +75,7 @@
                          FontSize="17"
                          Text="{Binding Path=FirstName}"/>
             </StackPanel>
+            <!---Last Name-->
             <StackPanel Orientation="Horizontal"
                         Margin="10">
                 <TextBlock Text="Last Name:"
@@ -84,6 +88,7 @@
                          Foreground="#805d57"
                          Text="{Binding Path=LastName}"/>
             </StackPanel>
+            <!---Email-->
             <StackPanel Orientation="Horizontal"
                         Margin="10">
                 <TextBlock Text="Email:"
@@ -105,6 +110,7 @@
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
+            <!---Birth Date-->
             <StackPanel Orientation="Horizontal" Margin="10" >
                 <TextBlock Text="Birth Date:"
                            Margin="0 0 10 0"
@@ -116,6 +122,7 @@
                            FontSize="17"
                            Text="{Binding Path=BDate}"/>
             </StackPanel>
+            <!---City-->
             <StackPanel Orientation="Horizontal"
                         Margin="10">
                 <TextBlock Text="City:"
@@ -133,6 +140,7 @@
                     </ComboBox.Resources>
                 </ComboBox>
             </StackPanel>
+            <!---Phone Number-->
             <StackPanel Orientation="Horizontal"
                         Margin="10">
                 <TextBlock Text="Phone Number:"
@@ -154,13 +162,14 @@
                     </TextBox.Text>
                 </TextBox>
             </StackPanel>
+            <!---Grnder-->
             <StackPanel Orientation="Horizontal" Margin="10">
                 <TextBlock Text="Gender:"
                            Margin="0 0 10 0"
                            Foreground="#FF3C2921"
                            FontSize="20"
                            FontWeight="Bold" />
-                <TextBlock Text="{Binding Path=Gender, Converter={StaticResource ConverterForTbls}}"
+                <TextBlock Text="{Binding Path=Gender, Converter={StaticResource ConverterForGender}}"
                            Foreground="#805d57" FontSize="17"/>
             </StackPanel>
             <StackPanel x:Name="statusSP" Margin="10"/>

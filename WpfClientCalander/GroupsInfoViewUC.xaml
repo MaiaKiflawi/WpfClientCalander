@@ -113,9 +113,16 @@
                                    Foreground="#FF3C2929"
                                    FontSize="15"/>
                         <ToggleButton x:Name="tgbJoinGroup" 
-                                      Style="{StaticResource MaterialDesignSwitchDarkToggleButton}"
-                                      ToolTip="MaterialDesignSwitchDarkToggleButton"
-                                      IsChecked="False"  Margin="8 0 0 0" Click="tgbJoinGroup_Click"/>
+                                      IsChecked="False"  Margin="8 0 0 0" Click="tgbJoinGroup_Click"
+                                      Style="{StaticResource MaterialDesignSwitchToggleButton}"
+                                      ToolTip="MaterialDesignSwitchToggleButton with Custom Track Background">
+                            <materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                                <SolidColorBrush Color="Green" />
+                            </materialDesign:ToggleButtonAssist.SwitchTrackOnBackground>
+                            <materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                                <SolidColorBrush Color="Red" />
+                            </materialDesign:ToggleButtonAssist.SwitchTrackOffBackground>
+                        </ToggleButton>
                     </StackPanel>
                 </Grid>
             </Grid>

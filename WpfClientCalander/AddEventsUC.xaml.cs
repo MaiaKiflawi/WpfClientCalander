@@ -98,14 +98,12 @@ namespace WpfClientCalander
 
         private void AddEventsUC_MouseLeave(object sender, MouseEventArgs e)
         {
-
             StackPanel st = sender as StackPanel;
             st.Children[1].Visibility = Visibility.Collapsed;
         }
 
         private void AddEventsUC_MouseEnter(object sender, MouseEventArgs e)
         {
-
             StackPanel st = sender as StackPanel;
             st.Children[1].Visibility = Visibility.Visible;
         }
@@ -155,6 +153,11 @@ namespace WpfClientCalander
             if (tbxEventName.Text == null || tbxEventName.Text == " " || tbxEventName.Text == "")
             {
                 MessageBox.Show("Event name can't be empty.\n Try again.", "ERROR", MessageBoxButton.OK);
+                return;
+            }
+            if (!serviceClient.IsEventNameFree(tbxEventName.Text))
+            {
+                MessageBox.Show("Event name taken.\n Try again.", "ERROR", MessageBoxButton.OK);
                 return;
             }
             myEvent.EventGroup = group;

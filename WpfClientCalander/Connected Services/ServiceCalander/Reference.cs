@@ -508,6 +508,12 @@ namespace WpfClientCalander.ServiceCalander {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetEventsByGroup", ReplyAction="http://tempuri.org/ICalanderService/GetEventsByGroupResponse")]
         System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.EventList> GetEventsByGroupAsync(WpfClientCalander.ServiceCalander.Groups group);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsEventNameFree", ReplyAction="http://tempuri.org/ICalanderService/IsEventNameFreeResponse")]
+        bool IsEventNameFree(string eventName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/IsEventNameFree", ReplyAction="http://tempuri.org/ICalanderService/IsEventNameFreeResponse")]
+        System.Threading.Tasks.Task<bool> IsEventNameFreeAsync(string eventName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalanderService/GetAllGroups", ReplyAction="http://tempuri.org/ICalanderService/GetAllGroupsResponse")]
         WpfClientCalander.ServiceCalander.GroupsList GetAllGroups();
         
@@ -748,6 +754,14 @@ namespace WpfClientCalander.ServiceCalander {
         
         public System.Threading.Tasks.Task<WpfClientCalander.ServiceCalander.EventList> GetEventsByGroupAsync(WpfClientCalander.ServiceCalander.Groups group) {
             return base.Channel.GetEventsByGroupAsync(group);
+        }
+        
+        public bool IsEventNameFree(string eventName) {
+            return base.Channel.IsEventNameFree(eventName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsEventNameFreeAsync(string eventName) {
+            return base.Channel.IsEventNameFreeAsync(eventName);
         }
         
         public WpfClientCalander.ServiceCalander.GroupsList GetAllGroups() {

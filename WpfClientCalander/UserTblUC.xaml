@@ -67,9 +67,11 @@
                                 <CheckBox x:Name="cbxManager"
                                           IsChecked="{Binding IsManager}"
                                           Tag="{Binding}"
-                                          Click="ManagerChanged" Background="Maroon"
+                                          Click="ManagerChanged"
+                                          Background="#bcaaa4"
                                           BorderBrush="Black"
-                                          Foreground="#FF614444" />
+                                          Foreground="Black"
+                                          Style="{x:Null}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -84,7 +86,8 @@
                                           Click="GroupAdminChanged"
                                           BorderBrush="Black"
                                           Foreground="Black"
-                                          Background="Maroon" />
+                                          Background="#bcaaa4"
+                                          Style="{x:Null}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

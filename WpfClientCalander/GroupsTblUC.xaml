@@ -146,7 +146,6 @@
                     </materialDesign:PackIcon>
                 </Button>
             </StackPanel>
-        </StackPanel>
-        
+        </StackPanel>        
     </Grid>
 </UserControl>

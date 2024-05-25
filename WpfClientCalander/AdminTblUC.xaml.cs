@@ -27,7 +27,6 @@ namespace WpfClientCalander
     public partial class AdminTblUC : UserControl
     {
         CalanderServiceClient serviceClient;
-        GroupsList groupLst;
         UsersList usersLst;
         List<MyAdmins> adminsLst;
         public AdminTblUC()
@@ -38,7 +37,8 @@ namespace WpfClientCalander
             adminsLst = new List<MyAdmins>();
             foreach (Users user in usersLst)
             {
-                if (user.IsGroupAdmin) {
+                if (user.IsGroupAdmin) 
+                {
                     MyAdmins my = new MyAdmins() { Admin = user };
                     my.Groups=serviceClient.GetAllGroups().FindAll(g=>g.GroupAdmin.Id==user.Id);
                     adminsLst.Add(my);
@@ -46,8 +46,5 @@ namespace WpfClientCalander
             }
             adminsListView.ItemsSource = adminsLst;
         }
-
-        
-        
     }
 }

@@ -73,6 +73,12 @@
   <wsdl:message name="ICalanderService_GetEventsByGroup_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEventsByGroupResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalanderService_IsEventNameFree_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEventNameFree" />
+  </wsdl:message>
+  <wsdl:message name="ICalanderService_IsEventNameFree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEventNameFreeResponse" />
+  </wsdl:message>
   <wsdl:message name="ICalanderService_GetAllGroups_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllGroups" />
   </wsdl:message>
@@ -243,6 +249,10 @@
     <wsdl:operation name="GetEventsByGroup">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByGroup" message="tns:ICalanderService_GetEventsByGroup_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/GetEventsByGroupResponse" message="tns:ICalanderService_GetEventsByGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsEventNameFree">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/IsEventNameFree" message="tns:ICalanderService_IsEventNameFree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICalanderService/IsEventNameFreeResponse" message="tns:ICalanderService_IsEventNameFree_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllGroups">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalanderService/GetAllGroups" message="tns:ICalanderService_GetAllGroups_InputMessage" />
@@ -423,6 +433,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEventsByGroup">
       <soap:operation soapAction="http://tempuri.org/ICalanderService/GetEventsByGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsEventNameFree">
+      <soap:operation soapAction="http://tempuri.org/ICalanderService/IsEventNameFree" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
