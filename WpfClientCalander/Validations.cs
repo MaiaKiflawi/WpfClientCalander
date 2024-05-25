@@ -48,7 +48,7 @@ namespace WpfClientCalander
                 if (name.Length > 15) // name too long
                     return new ValidationResult(false, "Too long");
                 foreach (char c in name)
-                    if (!Char.IsLetter(c) && c != ' ') //name only has letters ir spaces
+                    if (!Char.IsLetter(c) && c != ' ') //name only has letters or spaces
                         return new ValidationResult(false, "Only letters and spaces");
                 if (!Char.IsUpper(name[0])) //first letter not capital
                     return new ValidationResult(false, "Name must start with capital letter");
@@ -63,7 +63,6 @@ namespace WpfClientCalander
             }
             return ValidationResult.ValidResult;
         }
-
     }
 
     public class ValidationPassword : ValidationRule

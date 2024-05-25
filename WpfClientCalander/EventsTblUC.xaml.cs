@@ -51,14 +51,15 @@ namespace WpfClientCalander
             if (sender is TextBox textBox)
             {
                 // Retrieve the user object associated with the TextBox
-                Event events = textBox.DataContext as Event;
+                EventUsers events = textBox.DataContext as EventUsers;
+                Event myEvent = events.Event;
 
-                if (events != null && events.EventName != string.Empty)
+                if (myEvent != null && myEvent.EventName != string.Empty)
                 {
-                    if (serviceClient.IsEventNameFree(events.EventName))
+                    if (serviceClient.IsEventNameFree(myEvent.EventName))
                     {
                         // Call the service client to update the user
-                        serviceClient.UpdateEvent(events);
+                        serviceClient.UpdateEvent(myEvent);
                     }
                     else
                     {

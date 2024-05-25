@@ -23,13 +23,15 @@
                 <GridView>
                     <!--Event Name-->
                     <GridViewColumn Header="Event Name:"
-                                    Width="140">
+                                    Width="133">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBox x:Name="eventName"
-                                         TextChanged="eventName_TextChanged"
-                                         Text="{Binding Path=Event.EventName}">
-                                    
+                                         TextChanged="eventName_TextChanged">
+                                    <TextBox.Text>
+                                        <Binding Path="Event.EventName"
+                                                 UpdateSourceTrigger="PropertyChanged"></Binding>
+                                    </TextBox.Text>
                                 </TextBox>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
