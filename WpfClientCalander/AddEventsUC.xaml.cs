@@ -20,9 +20,10 @@ namespace WpfClientCalander
         private Users user;
         private CalanderServiceClient serviceClient;
         private Grid grid;
+        UserWindow parent;
         private Event myEvent;
 
-        public AddEventsUC(Groups group, Users user, ref Grid grid)
+        public AddEventsUC(Groups group, Users user, ref Grid grid, UserWindow parent)
         {
             InitializeComponent();
 
@@ -30,7 +31,7 @@ namespace WpfClientCalander
             ci.DateTimeFormat.ShortDatePattern = "dd/MM/yyyy";
             ci.DateTimeFormat.ShortTimePattern = "HH:mm";
             Thread.CurrentThread.CurrentCulture = ci;
-
+            this.parent = parent;
             this.group = group;
             this.DataContext = group;
             this.grid = grid;
@@ -125,7 +126,7 @@ namespace WpfClientCalander
         private void Back()
         {
             grid.Children.Clear();
-            grid.Children.Add(new GroupAdminUC(user, ref grid));
+            grid.Children.Add(new GroupAdminUC(user, ref grid, parent));
         }
         private void btnAddEvent_Click(object sender, RoutedEventArgs e)
         {

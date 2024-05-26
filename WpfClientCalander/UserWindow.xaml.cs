@@ -136,7 +136,7 @@ namespace WpfClientCalander
         {
             ClearGroupSelected();
             ucGrid.Children.Clear();
-            ucGrid.Children.Add(new GroupAdminUC(user, ref ucGrid));
+            ucGrid.Children.Add(new GroupAdminUC(user, ref ucGrid, this));
         }
 
         private void rdbManagerSettings_Click(object sender, RoutedEventArgs e)

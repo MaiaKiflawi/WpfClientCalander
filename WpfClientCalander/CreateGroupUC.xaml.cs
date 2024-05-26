@@ -19,14 +19,16 @@ namespace WpfClientCalander
         string filePath;
         CalanderServiceClient client;
         private Grid grid;
+        UserWindow parent;
         bool imgAdded;
         public List<string> ImageUris { get; set; } = new List<string>();
 
-        public CreateGroupUC(Users user, ref Grid grid)
+        public CreateGroupUC(Users user, ref Grid grid, UserWindow parent)
         {
             InitializeComponent();
             this.user = user;
             this.grid = grid;
+            this.parent = parent;
             btnOpenFile.Visibility = Visibility.Visible;
             btnChangeFile.Visibility = Visibility.Hidden;
             group = new Groups();
@@ -121,12 +123,13 @@ namespace WpfClientCalander
             Groups groupTemp = client.GetGroupByGroupName(tbxGroupName.Text);
             client.InsertUserToGroup(user, groupTemp);
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
+            parent.LoadMyGroups();
             Back();
         }
         private void Back()
         {
             grid.Children.Clear();
-            grid.Children.Add(new GroupAdminUC(user, ref grid));
+            grid.Children.Add(new GroupAdminUC(user, ref grid, parent));
         }
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
