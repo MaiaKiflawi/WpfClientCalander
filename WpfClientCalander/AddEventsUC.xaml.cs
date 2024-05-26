@@ -128,7 +128,6 @@ namespace WpfClientCalander
             }
         }
 
-
         private void SetSelectionDates()
         {
             CalendarDateRange cdr1 = new CalendarDateRange(DateTime.Today.AddYears(5), DateTime.Today.AddYears(1000));

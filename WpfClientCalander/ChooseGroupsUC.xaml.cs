@@ -44,10 +44,5 @@ namespace WpfClientCalander
             uc.ChangeColour();
         }
 
-        private void panel_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
-
     }
 }
