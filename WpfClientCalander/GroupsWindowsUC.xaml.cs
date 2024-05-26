@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 using Color = System.Windows.Media.Color;
 
@@ -45,7 +36,6 @@ namespace WpfClientCalander
             SetMonthYears();
             cmbMonth.SelectedIndex = DateTime.Today.Month - 1;
         }
-
         private void LoadDates(int month, int year) //load dates in grid
         {
             DateTime dt = new DateTime(year, month, 1);
@@ -72,12 +62,10 @@ namespace WpfClientCalander
                 dt = dt.AddDays(1);
             }
         }
-
         private void ViewEvent_Click(object sender, RoutedEventArgs e)
         {
             parent.LoadEvent((sender as Button).Tag as Event);
         }
-
         private void SetMonthYears() //create year and month comboboxitems
         {
             cmbMonth.ItemsSource = DateTimeFormatInfo.CurrentInfo.MonthNames;
@@ -86,10 +74,8 @@ namespace WpfClientCalander
             cmbYear.SelectedItem = DateTime.Today.Year;
             cmbMonth.SelectedItem = DateTime.Today.Month;
         }
-
         private void SetGridLines() //create timetable
         {
-            //calGrid.ShowGridLines = false;
             for (int i = 1; i <= 13; i++)
             {
                 for (int j = 1; j <= 7; j++)
@@ -141,7 +127,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void cmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cmbYear.SelectedIndex != -1 && cmbMonth.SelectedIndex != -1)

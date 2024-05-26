@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace WpfClientCalander
 {
@@ -40,7 +28,6 @@ namespace WpfClientCalander
             cmbCity.SelectedValue = cities.Find(city => city.Id == user.CityName.Id);
             ShowStatus();
         }
-
         private void ShowStatus()
         {
             TextBlock txbManager = new TextBlock();
@@ -72,12 +59,10 @@ namespace WpfClientCalander
             statusSP.Children.Add(txbManager);
             statusSP.Children.Add(txbGAdmin);
         }
-
         private void Reload()
         {
             this.DataContext = user;
         }
-        
         private void UserName_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
@@ -100,7 +85,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void Email_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textbox)
@@ -113,7 +97,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox cmb)
@@ -125,7 +108,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void PhoneNum_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textbox)
@@ -147,6 +129,5 @@ namespace WpfClientCalander
             grid.Children.Clear();
             grid.Children.Add(new UserProfileUC(user, parent, ref grid));
         }
-       
     }
 }

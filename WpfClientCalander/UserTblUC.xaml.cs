@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -52,7 +41,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void ManagerChanged(object sender, RoutedEventArgs e)
         {
 
@@ -73,7 +61,6 @@ namespace WpfClientCalander
             }
             usersListView.ItemsSource = userLst;
         }
-
         private void GroupAdminChanged(object sender, RoutedEventArgs e)
         {
             CheckBox cbGAdm = (sender as CheckBox);
@@ -90,7 +77,6 @@ namespace WpfClientCalander
             }
             usersListView.ItemsSource = userLst;
         }
-
         private void btnDel_Click(object sender, RoutedEventArgs e)
         {
             foreach(Users user in userLst)

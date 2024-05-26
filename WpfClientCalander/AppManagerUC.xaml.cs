@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -30,31 +18,26 @@ namespace WpfClientCalander
             tblAppManager.Text = $"App Manager - {user.UserName}, Page:";
             serviceClient = new CalanderServiceClient();
         }
-
         private void userTbls_Click(object sender, RoutedEventArgs e)
         {
             tblsGrid.Children.Clear();
             tblsGrid.Children.Add(new UserTblUC());
         }
-
         private void adminTbls_Click(object sender, RoutedEventArgs e)
         {
             tblsGrid.Children.Clear();
             tblsGrid.Children.Add(new AdminTblUC());
         }
-
         private void groupsTbls_Click(object sender, RoutedEventArgs e)
         {
             tblsGrid.Children.Clear();
             tblsGrid.Children.Add(new GroupsTblUC());
         }
-
         private void EventsTbls_Click(object sender, RoutedEventArgs e)
         {
             tblsGrid.Children.Clear();
             tblsGrid.Children.Add(new EventsTblUC());
         }
-
         private void UpdateCities_Click(object sender, RoutedEventArgs e)
         {
             serviceClient.UpdateCitiesFromExternalData();

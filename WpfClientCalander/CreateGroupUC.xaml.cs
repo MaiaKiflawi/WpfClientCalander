@@ -1,21 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 using Microsoft.Win32;
-using System.Text.RegularExpressions;
 
 namespace WpfClientCalander
 {
@@ -44,7 +34,6 @@ namespace WpfClientCalander
             imgAdded = false;
             client = new CalanderServiceClient();
         }
-
         private void btnOpenFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -55,16 +44,11 @@ namespace WpfClientCalander
                 try
                 {
                     filePath = openFileDialog.FileName;
-                    // Read the image file as a byte array
                     byte[] imageData = File.ReadAllBytes(filePath);
-
-                    // Create a BitmapImage and set its stream source
                     BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
                     bitmapImage.EndInit();
-
-                    // Set the Image control source to the created BitmapImage
                     imgDisplay.Source = bitmapImage;
 
                     btnOpenFile.Visibility = Visibility.Hidden;
@@ -77,7 +61,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void btnChangeFile_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -88,16 +71,11 @@ namespace WpfClientCalander
                 try
                 {
                     filePath = openFileDialog.FileName;
-                    // Read the image file as a byte array
                     byte[] imageData = File.ReadAllBytes(filePath);
-
-                    // Create a BitmapImage and set its stream source
                     BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
                     bitmapImage.EndInit();
-
-                    // Set the Image control source to the created BitmapImage
                     imgDisplay.Source = bitmapImage;
 
                     btnOpenFile.Visibility = Visibility.Hidden;
@@ -110,7 +88,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void btnCreateGroup_Click(object sender, RoutedEventArgs e)
         {
             if (Validation.GetHasError(tbxGroupName) == true)
@@ -146,13 +123,11 @@ namespace WpfClientCalander
             MessageBox.Show("Group created successfully!", "SUCCESS", MessageBoxButton.OK);
             Back();
         }
-
         private void Back()
         {
             grid.Children.Clear();
             grid.Children.Add(new GroupAdminUC(user, ref grid));
         }
-
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             Back();

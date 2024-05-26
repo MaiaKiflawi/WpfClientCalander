@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -34,7 +22,6 @@ namespace WpfClientCalander
             }
             groupsListView.ItemsSource = groupLst;
         }
-
         private void groupName_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (sender is TextBox textBox)
@@ -56,7 +43,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void btnDel_Click(object sender, RoutedEventArgs e) //delete group
         {
             foreach (Groups group in groupLst)
@@ -74,7 +60,6 @@ namespace WpfClientCalander
             MessageBox.Show("Group name doesn't exist.", "ERROR", MessageBoxButton.OK);
             return;
         }
-
         private void btnChange_Click(object sender, RoutedEventArgs e) //change group admin
         {
             Groups group = serviceClient.GetGroupByGroupName(GroupChange.Text);

@@ -1,21 +1,11 @@
 ﻿using MaterialDesignThemes.Wpf;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -52,7 +42,6 @@ namespace WpfClientCalander
             myEvent = new Event();
             EvenInfotGrid.DataContext = myEvent;
         }
-
         private void ShowEvents()
         {
             existingEvents.Children.Clear();
@@ -95,39 +84,32 @@ namespace WpfClientCalander
                 existingEvents.Children.Add(st);
             }
         }
-
         private void AddEventsUC_MouseLeave(object sender, MouseEventArgs e)
         {
             StackPanel st = sender as StackPanel;
             st.Children[1].Visibility = Visibility.Collapsed;
         }
-
         private void AddEventsUC_MouseEnter(object sender, MouseEventArgs e)
         {
             StackPanel st = sender as StackPanel;
             st.Children[1].Visibility = Visibility.Visible;
         }
-
         private void BtnDel_Click(object sender, RoutedEventArgs e, Event eventToDelete)
         {
             Button btn = sender as Button;
             if (btn != null)
             {
-                // Delete the event from the service
                 if (serviceClient.DeleteEvent(eventToDelete) != 1)
                 {
                     MessageBox.Show("Error deleting event from service.\n Try again.", "ERROR", MessageBoxButton.OK);
                     return;
                 }
-
-                // Find the parent StackPanel and remove it from the UI
                 StackPanel parentStackPanel = (StackPanel)btn.Parent;
                 existingEvents.Children.Remove(parentStackPanel);
                 MessageBox.Show("Event deleted successfully.", "SUCCESS", MessageBoxButton.OK);
                 return;
             }
         }
-
         private void SetSelectionDates()
         {
             CalendarDateRange cdr1 = new CalendarDateRange(DateTime.Today.AddYears(5), DateTime.Today.AddYears(1000));
@@ -140,13 +122,11 @@ namespace WpfClientCalander
             tpEnd.SelectedTime = DateTime.Now.AddMinutes(5);
             dtpStart.SelectedDate = DateTime.Today.AddDays(1);
         }
-
         private void Back()
         {
             grid.Children.Clear();
             grid.Children.Add(new GroupAdminUC(user, ref grid));
         }
-
         private void btnAddEvent_Click(object sender, RoutedEventArgs e)
         {
             if (tbxEventName.Text == null || tbxEventName.Text == " " || tbxEventName.Text == "")
@@ -162,10 +142,8 @@ namespace WpfClientCalander
             myEvent.EventGroup = group;
             myEvent.EventName = tbxEventName.Text;
             DateTime dtStart = DateTime.Parse(dtpStart.Text).AddMinutes(DateTime.Parse(tpStart.Text).Minute).AddHours(DateTime.Parse(tpStart.Text).Hour);
-            //myEvent.EventStart = DateTime.Parse(dtpStart.Text);
             myEvent.EventStart = dtStart;
             DateTime dtEnd = DateTime.Parse(dtpEnd.Text).AddMinutes(DateTime.Parse(tpEnd.Text).Minute).AddHours(DateTime.Parse(tpEnd.Text).Hour);
-            //myEvent.EventEnd = DateTime.Parse(dtpEnd.Text);
             myEvent.EventEnd = dtEnd;
             if (serviceClient.InsertEvent(myEvent) != 1)
             {
@@ -175,7 +153,6 @@ namespace WpfClientCalander
             MessageBox.Show("Event added successfully!", "SUCCESS", MessageBoxButton.OK);
             Back();
         }
-
         private void dtpStart_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             CalendarDateRange cdr = new CalendarDateRange(DateTime.Today.AddDays(-50), DateTime.Parse(dtpStart.Text).AddDays(-1));
@@ -191,13 +168,11 @@ namespace WpfClientCalander
             if (myEvent != null)
                 myEvent.EventEnd = DateTime.Parse(dtpEnd.Text + " "+tpEnd.Text);
         }
-
         private void tpStart_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
         {
             if(dtpStart.Text!=string.Empty && tpStart.Text!= string.Empty && myEvent != null)
                     myEvent.EventStart = DateTime.Parse(dtpStart.Text +" "+ tpStart.Text);
         }
-
         private void tpEnd_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
         {
             if (dtpEnd.Text != string.Empty && tpEnd.Text != string.Empty && myEvent != null)

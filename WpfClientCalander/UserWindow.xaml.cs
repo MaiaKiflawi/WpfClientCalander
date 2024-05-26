@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Markup;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -87,7 +75,6 @@ namespace WpfClientCalander
             foreach (StackPanel sp in GroupsView.Children)
                 (sp.Children[0] as RadioButton).IsChecked = false;
             (sender as RadioButton).IsChecked=true;
-            // StackPanel stackPanel = (StackPanel)sender;
             Groups group=(sender as RadioButton).Tag as Groups;
             GroupsWindowsUC uc = new GroupsWindowsUC(group,this);
             ucGrid.Children.Clear();

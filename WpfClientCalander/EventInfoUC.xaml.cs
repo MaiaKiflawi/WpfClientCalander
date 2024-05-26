@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using WpfClientCalander.ServiceCalander;
 
 namespace WpfClientCalander
@@ -38,7 +27,6 @@ namespace WpfClientCalander
             ShowEventsUsers();
             attendEvent.IsChecked = usersList.Find(u=>u.Id==user.Id)!=null;
         }
-
         private void ShowEventsUsers()
         {
             participantsSP.Children.Clear();
@@ -57,7 +45,6 @@ namespace WpfClientCalander
                 participantsSP.Children.Add(tblkUser);
             }
         }
-
         private void attendEvent_Click(object sender, RoutedEventArgs e)
         {
             if (attendEvent.IsChecked == true)
@@ -83,7 +70,6 @@ namespace WpfClientCalander
                 }
             }
         }
-
         private void backToCalendar_Click(object sender, RoutedEventArgs e)
         {
             parent.Group_Click(myEvent.EventGroup, !parent.isProfile);
