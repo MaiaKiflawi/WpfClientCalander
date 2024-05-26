@@ -937,12 +937,12 @@
             <Label x:Name="lbPasswordCheckError" FontSize="10" FontWeight="Bold" FontStyle="Italic" VerticalAlignment="Center"
                            Foreground="Red"/>
         </StackPanel>
-
-        <StackPanel Grid.Row="11" Orientation="Horizontal" HorizontalAlignment="Center" >
-            <Button x:Name="btnSignup" Content="SignUp" Click="btnSignup_Click"/>
-        </StackPanel>
-
-        <Button Grid.Row="12" x:Name="btnLoginPage" Content="Back to Log In >>>" Click="btnLoginPage_Click"
+        <Button Grid.Row="11"
+                HorizontalAlignment="Center"
+                x:Name="btnSignup"
+                Content="SignUp"
+                Click="btnSignup_Click" />
+        <Button Grid.Row="12" x:Name="btnLoginPage" Content="Log In page >>>" Click="btnLoginPage_Click"
                Style="{StaticResource MaterialDesignFlatButton}" ToolTip="MaterialDesignFlatButton"
                Foreground="AntiqueWhite" FontSize="10" VerticalAlignment="Top"/>
 
