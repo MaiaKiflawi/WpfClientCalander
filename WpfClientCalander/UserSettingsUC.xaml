@@ -120,7 +120,7 @@
                 <TextBlock x:Name="bDate"
                            Foreground="#805d57"
                            FontSize="17"
-                           Text="{Binding Path=BDate}"/>
+                           Text="{Binding Path=BDate,StringFormat=dd/MM/yyyy}"/>
             </StackPanel>
             <!---City-->
             <StackPanel Orientation="Horizontal"

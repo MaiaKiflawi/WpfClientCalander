@@ -1,6 +1,12 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 using WpfClientCalander.ServiceCalander;
+using System.Collections.Generic;
+using System.Linq;
+using System.Data.OleDb;
 
 namespace WpfClientCalander
 {
@@ -11,6 +17,7 @@ namespace WpfClientCalander
     {
         CalanderServiceClient serviceClient;
         GroupsList groupLst;
+        List<string> names; 
         public GroupsTblUC()
         {
             InitializeComponent();
@@ -20,6 +27,7 @@ namespace WpfClientCalander
             {
                 group.Users = serviceClient.GetUsersByGroup(group);
             }
+            names = groupLst.Select(g=>g.Id+"  "+g.GroupName).ToList();
             groupsListView.ItemsSource = groupLst;
         }
         private void groupName_TextChanged(object sender, TextChangedEventArgs e)
@@ -33,8 +41,31 @@ namespace WpfClientCalander
                 {
                     if (serviceClient.IsGroupNameFree(group.GroupName))
                     {
-                        // Call the service client to update the user
-                        serviceClient.UpdateGroup(group);
+                        if (serviceClient.UpdateGroup(group) == 1)// Call the service client to update the user
+                        {
+                            string oldName = names.Find(n => n.StartsWith(group.Id + "  "));
+                            oldName = oldName.Substring(oldName.IndexOf("  ") + 2);
+                            string encodedGroupName = oldName;
+                            string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
+                            uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
+                            uriStr = uriStr + @"\Images\imgGroups\";
+                            DirectoryInfo hdDirectoryInWhichToSearch = new DirectoryInfo(uriStr);
+                            FileInfo[] filesInDir = hdDirectoryInWhichToSearch.GetFiles(encodedGroupName + ".*");
+                            if (filesInDir.Length > 0)
+                            {
+                                foreach (FileInfo file in filesInDir)
+                                {
+                                    if (file.Exists)
+                                    {                                        
+                                        file.CopyTo(file.FullName.Replace(oldName, group.GroupName));
+                                        FileStream s = new FileStream(file.FullName, FileMode.Open, FileAccess.Read);
+                                        s.Close();
+                                        s.Dispose();
+                                        File.Delete(file.FullName);
+                                    }
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -53,6 +84,27 @@ namespace WpfClientCalander
                     groupLst = serviceClient.GetAllGroups();
                     gnameToDel.Text = "";
                     groupsListView.ItemsSource = groupLst;
+
+                    string encodedGroupName = group.GroupName;
+                    string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
+                    uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
+                    uriStr = uriStr + @"\Images\imgGroups\";
+                    DirectoryInfo hdDirectoryInWhichToSearch = new DirectoryInfo(uriStr);
+                    FileInfo[] filesInDir = hdDirectoryInWhichToSearch.GetFiles(encodedGroupName + ".*");
+                    if (filesInDir.Length > 0)
+                    {
+                        foreach (FileInfo file in filesInDir)
+                        {
+                            if (file.Exists)
+                            {
+                                FileStream s = new FileStream(file.FullName, FileMode.Open,FileAccess.Read);
+                                s.Close();
+                                s.Dispose();
+                                File.Delete(file.FullName);
+                            }
+                        }
+                    }
+
                     MessageBox.Show("Group deleted successfully.", "SUCCESS", MessageBoxButton.OK);
                     return;
                 }

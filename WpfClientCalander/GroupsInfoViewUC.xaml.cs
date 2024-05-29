@@ -26,6 +26,7 @@ namespace WpfClientCalander
             this.user = user;
             serviceClient = new CalanderServiceClient();
             string encodedGroupName = group.GroupName;
+            //העלאת התמונה של הקבוצה מהמערך של בייטים
             string uriStr = Environment.CurrentDirectory; //המיקום שבו רץ הפרויקט
             uriStr = uriStr.Substring(0, uriStr.IndexOf("\\bin"));
             uriStr = uriStr + @"\Images\imgGroups\";

@@ -42,14 +42,14 @@ namespace WpfClientCalander
             EventList monthEvents = new EventList();
             foreach (Event myEvent in groupEvents)
             {
-                if (myEvent.EventStart.Month.Equals(dt.Month))
+                if (myEvent.EventStart.Month.Equals(dt.Month) && myEvent.EventStart.Year.Equals(dt.Year))
                     monthEvents.Add(myEvent);
             }
             int last = DateTime.DaysInMonth(year, month) + (int)dt.DayOfWeek;
             for (int i = (int)dt.DayOfWeek; i < last; i++)
             {
                 dates[i].Text = dt.ToString("dd/MM/yyyy");
-                List<Event> today = monthEvents.FindAll(m => m.EventStart.Day >= dt.Day && m.EventEnd.Day <= dt.Day && m.EventStart.Year >= dt.Year && m.EventEnd.Year <= dt.Year);
+                List<Event> today = monthEvents.FindAll(m => m.EventStart.Day >= dt.Day && m.EventEnd.Day <= dt.Day);
                 foreach (Event myEvent in today)
                 {
                     Button button = new Button();

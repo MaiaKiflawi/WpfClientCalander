@@ -38,9 +38,9 @@
                        FontSize="35" />
             <Separator Height="30" />
             <TextBlock>
-                <Run Text="{Binding Path=EventEnd, StringFormat={}{0: dd/MM/yyyy HH:mm}}" />
+                <Run Text="{Binding Path=EventStart, StringFormat={}{0: dd/MM/yyyy HH:mm}}" />
                 <Run Text=" - " />
-                <Run Text="{Binding Path=EventStart, StringFormat={}{0: dd/MM/yyyy HH:mm}}" /></TextBlock>
+                <Run Text="{Binding Path=EventEnd, StringFormat={}{0: dd/MM/yyyy HH:mm}}" /></TextBlock>
             <Separator Height="30"/>
             <StackPanel x:Name="participantsSP" />
         </StackPanel>
