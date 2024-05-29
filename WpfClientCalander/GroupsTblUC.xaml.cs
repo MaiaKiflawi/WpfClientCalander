@@ -84,7 +84,14 @@ namespace WpfClientCalander
             if (serviceClient.UpdateGroup(group) != 0)
             {
                 MessageBox.Show("Group admin changed successfully.", "SUCCESS", MessageBoxButton.OK);
+                groupLst = serviceClient.GetAllGroups();
+                foreach (Groups g in groupLst)
+                {
+                    g.Users = serviceClient.GetUsersByGroup(g);
+                }
                 groupsListView.ItemsSource = groupLst;
+                adminChange.Text = "";
+                GroupChange.Text = "";
                 return;
             }
             MessageBox.Show("Group admin couldn't update.", "ERROR", MessageBoxButton.OK);
