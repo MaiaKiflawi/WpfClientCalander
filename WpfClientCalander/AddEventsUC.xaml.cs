@@ -177,7 +177,6 @@ namespace WpfClientCalander
         private void tpEnd_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
         {
             if (dtpEnd.Text != string.Empty && tpEnd.Text != string.Empty && myEvent != null)
-
                 myEvent.EventEnd = DateTime.Parse(dtpEnd.Text +" "+ tpEnd.Text);
         }
     }

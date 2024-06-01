@@ -52,6 +52,7 @@ namespace WpfClientCalander
                     //create temp copy of image
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                     bitmapImage.EndInit();
                     imgDisplay.Source = bitmapImage;
 
@@ -79,6 +80,7 @@ namespace WpfClientCalander
                     BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                     bitmapImage.EndInit();
                     imgDisplay.Source = bitmapImage;
 

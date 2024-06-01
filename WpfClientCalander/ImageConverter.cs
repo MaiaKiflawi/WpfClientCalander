@@ -23,6 +23,7 @@ namespace WpfClientCalander
             {
                 bitmapImage.BeginInit();
                 bitmapImage.UriSource = new Uri(filesInDir[0].FullName);
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
                 imageBrush.ImageSource = bitmapImage;
             }
@@ -30,6 +31,7 @@ namespace WpfClientCalander
             {
                 bitmapImage.BeginInit();
                 bitmapImage.UriSource = new Uri(@"pack://application:,,,/Images/projectLogo.jpg");
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
                 bitmapImage.EndInit();
                 imageBrush.ImageSource = bitmapImage;
             }
