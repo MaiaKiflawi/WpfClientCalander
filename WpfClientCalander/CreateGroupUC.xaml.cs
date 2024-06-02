@@ -48,7 +48,7 @@ namespace WpfClientCalander
                     filePath = openFileDialog.FileName;
                     //create byte array by disassembling info
                     byte[] imageData = File.ReadAllBytes(filePath); //יחידת גודל דיגיטלית
-                    BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
+                    BitmapImage bitmapImage = new BitmapImage();
                     //create temp copy of image
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
@@ -77,7 +77,7 @@ namespace WpfClientCalander
                 {
                     filePath = openFileDialog.FileName;
                     byte[] imageData = File.ReadAllBytes(filePath);
-                    BitmapImage bitmapImage = new System.Windows.Media.Imaging.BitmapImage();
+                    BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
                     bitmapImage.StreamSource = new MemoryStream(imageData);
                     bitmapImage.CacheOption = BitmapCacheOption.OnLoad;

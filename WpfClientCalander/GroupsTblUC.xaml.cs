@@ -173,8 +173,6 @@ namespace WpfClientCalander
             return;
         }
 
-
-
         private void btnChange_Click(object sender, RoutedEventArgs e) //change group admin
         {
             Groups group = serviceClient.GetGroupByGroupName(GroupChange.Text);

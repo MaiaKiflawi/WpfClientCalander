@@ -50,7 +50,7 @@ namespace WpfClientCalander
             for (int i = (int)dt.DayOfWeek; i < last; i++)
             {
                 dates[i].Text = dt.ToString("dd/MM/yyyy");
-                List<Event> today = monthEvents.FindAll(m => m.EventStart.Day >= dt.Day && m.EventEnd.Day <= dt.Day && m.EventStart.Year >= dt.Year && m.EventEnd.Year <= dt.Year);
+                List<Event> today = monthEvents.FindAll(m => m.EventStart.Day <= dt.Day && m.EventEnd.Day >= dt.Day && m.EventStart.Year >= dt.Year && m.EventEnd.Year <= dt.Year);
                 foreach (Event myEvent in today)
                 {
                     Button button = new Button();

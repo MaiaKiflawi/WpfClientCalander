@@ -76,14 +76,14 @@ namespace WpfClientCalander
                     return new ValidationResult(false, "Too long");
                 for (int i = 0; i < password.Length; i++)
                 {
-                    if (!Char.IsLetterOrDigit(password[i]) && symbols.IndexOf(password[i]) == -1) //doesnt contain necessities
+                    if (!Char.IsLetterOrDigit(password[i]) && symbols.IndexOf(password[i]) == -1) //doesn't contain necessities
                         return new ValidationResult(false, "Password must contain letters, digits and " + symbols);
                     if (char.IsUpper(password[i])) upper = true;
                     if (char.IsLower(password[i])) lower = true;
                     if (char.IsDigit(password[i])) digit = true;
                     if (symbols.IndexOf(password[i]) != -1) sym = true;
                 }
-                if (!(upper && lower && digit && sym)) //doesnt contain necessities
+                if (!(upper && lower && digit && sym)) //doesn't contain necessities
                     throw new Exception("Password must contain atleast one capital letter, one lower letter, a number and a symbol");
 
             }
