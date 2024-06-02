@@ -11,12 +11,14 @@ namespace WpfClientCalander
     {
         Users user;
         private CalanderServiceClient serviceClient;
-        public AppManagerUC(Users user)
+        UserWindow userWindow;
+        public AppManagerUC(Users user, UserWindow userWindow)
         {
             InitializeComponent();
             this.user = user;
             tblAppManager.Text = $"App Manager - {user.UserName}, Page:";
             serviceClient = new CalanderServiceClient();
+            this.userWindow = userWindow;
         }
         private void userTbls_Click(object sender, RoutedEventArgs e)
         {
@@ -31,7 +33,7 @@ namespace WpfClientCalander
         private void groupsTbls_Click(object sender, RoutedEventArgs e)
         {
             tblsGrid.Children.Clear();
-            tblsGrid.Children.Add(new GroupsTblUC());
+            tblsGrid.Children.Add(new GroupsTblUC(userWindow));
         }
         private void EventsTbls_Click(object sender, RoutedEventArgs e)
         {

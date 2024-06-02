@@ -143,7 +143,7 @@ namespace WpfClientCalander
         {
             ClearGroupSelected();
             ucGrid.Children.Clear();
-            ucGrid.Children.Add(new AppManagerUC(user));
+            ucGrid.Children.Add(new AppManagerUC(user, this));
         }
 
         private void rdbMyProfile_Click(object sender, RoutedEventArgs e)
