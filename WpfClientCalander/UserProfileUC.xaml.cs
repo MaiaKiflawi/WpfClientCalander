@@ -37,32 +37,42 @@ namespace WpfClientCalander
             cmbMonth.SelectedIndex = DateTime.Today.Month - 1;
             this.grid = grid;
         }
-        private void LoadDates(int month, int year) //load events
+        private void LoadDates(int month, int year) //load dates and events into grid
         {
-            DateTime dt = new DateTime(year, month, 1);
+            DateTime firstDayOfMonth = new DateTime(year, month, 1);
+            DateTime lastDayOfMonth = new DateTime(year, month, DateTime.DaysInMonth(year, month));
+
             EventList monthEvents = new EventList();
             foreach (Event myEvent in userEvents)
             {
-                if (myEvent.EventStart.Month.Equals(dt.Month))
+                // Check if the event spans into the current month
+                if (myEvent.EventEnd >= firstDayOfMonth && myEvent.EventStart <= lastDayOfMonth)
+                {
                     monthEvents.Add(myEvent);
+                }
             }
-            int last = DateTime.DaysInMonth(year, month) + (int)dt.DayOfWeek;
-            for (int i = (int)dt.DayOfWeek; i < last; i++)
+
+            int last = DateTime.DaysInMonth(year, month) + (int)firstDayOfMonth.DayOfWeek;
+            DateTime dt = firstDayOfMonth;
+            for (int i = (int)firstDayOfMonth.DayOfWeek; i < last; i++)
             {
                 dates[i].Text = dt.ToString("dd/MM/yyyy");
-                List<Event> today = monthEvents.FindAll(m => m.EventStart.Day <= dt.Day && m.EventEnd.Day >= dt.Day && m.EventStart.Year >= dt.Year && m.EventEnd.Year <= dt.Year);
+                List<Event> today = monthEvents.FindAll(m => m.EventStart.Date <= dt.Date && m.EventEnd.Date >= dt.Date);
                 foreach (Event myEvent in today)
                 {
-                    Button button = new Button();
-                    button.Content = myEvent.EventName;
-                    button.Tag = myEvent;
+                    Button button = new Button
+                    {
+                        Content = myEvent.EventName,
+                        Tag = myEvent,
+                        Style = (Style)FindResource("EventButton")
+                    };
                     button.Click += ViewEvent_Click;
-                    button.Style = (Style)FindResource("EventButton");
                     events[i].Children.Add(button);
                 }
                 dt = dt.AddDays(1);
             }
         }
+
         private void ViewEvent_Click(object sender, RoutedEventArgs e)
         {
             parent.LoadEvent((sender as Button).Tag as Event);
