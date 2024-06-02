@@ -280,7 +280,7 @@ namespace WpfClientCalander
             serviceClient.InsertUserToGroup(admin, group);
             if (serviceClient.UpdateGroup(group) != 0)
             {
-                MessageBox.Show("Group admin changed successfully.", "SUCCESS", MessageBoxButton.OK);
+                userWindow.LoadMyGroups();
                 groupLst = serviceClient.GetAllGroups();
                 foreach (Groups g in groupLst)
                 {
@@ -289,6 +289,7 @@ namespace WpfClientCalander
                 groupsListView.ItemsSource = groupLst;
                 adminChange.Text = "";
                 GroupChange.Text = "";
+                MessageBox.Show("Group admin changed successfully.", "SUCCESS", MessageBoxButton.OK);
                 return;
             }
             MessageBox.Show("Group admin couldn't update.", "ERROR", MessageBoxButton.OK);
