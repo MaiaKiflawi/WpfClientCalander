@@ -99,7 +99,7 @@ namespace WpfClientCalander
                             {
                                 FileStream s = new FileStream(file.FullName, FileMode.Open,FileAccess.Read);
                                 s.Close();
-                                s.Dispose();
+                                s.Dispose();    
                                 File.Delete(file.FullName);
                             }
                         }
