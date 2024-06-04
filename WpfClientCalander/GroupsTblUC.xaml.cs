@@ -140,7 +140,7 @@ namespace WpfClientCalander
                                 {
                                     try
                                     {
-                                        using (FileStream s = new FileStream(file.FullName, FileMode.Open, FileAccess.Read, FileShare.None))
+                                        using (FileStream s = new FileStream(file.FullName, FileMode.Open, FileAccess.Read, FileShare.None)) //class used to read and write files 
                                         {
                                             s.Close();
                                             s.Dispose();
